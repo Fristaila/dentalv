@@ -6873,18 +6873,6 @@ figure {
   background-repeat: no-repeat;
 }
 
-@media only screen and (min-width: 480px) {
-  .gallery-component .chief-img-cover {
-    min-height: 200px;
-  }
-}
-
-@media only screen and (min-width: 768px) {
-  .gallery-component .chief-img-cover {
-    min-height: 220px;
-  }
-}
-
 @media only screen and (min-width: 1025px) {
   .gallery-component .chief-img-cover {
     min-height: 310px;
@@ -7100,7 +7088,7 @@ figure {
 }
 
 .news-inner .image-full-width {
-  min-height: 190px;
+  min-height: 350px;
   margin-bottom: 25px;
   background-size: cover;
   background-position: center center;
