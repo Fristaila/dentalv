@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the page setting feature.
+ */
+
+include_once 'page_setting.features.inc';

@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the dentalv_i18n feature.
+ */
+
+include_once 'dentalv_i18n.features.inc';

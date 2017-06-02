@@ -1,0 +1,81 @@
+#edit-choosen-doctors input[type="radio"] {
+  display: none !important;
+}
+#edit-field-doctors input[type="radio"] {
+  display: none !important;
+}
+#comment .form-radio {
+display: none !important;
+}
+.form-required {
+  display: none;
+}
+.news-inner .content__img,
+.services-inner .content__img {
+  margin-bottom: 45px;
+}
+.news-inner strong,
+.services-inner strong {
+  margin-bottom: -15px;
+}
+.modal-comment .doctor-who-divider>p {
+  padding-bottom: 10px;
+}
+.modal-comment .doctor-who-divider {
+  padding-bottom: 0px;
+}
+.articles-slider .article__preview p,
+.view-content .tab-content .article .article__preview p{
+  margin-bottom: 0px;
+}
+.articles-slider .article__preview p:first-of-type,
+.articles-slider .article__preview p:last-of-type,
+.view-content .tab-content .article .article__preview p:first-of-type,
+.view-content .tab-content .article .article__preview p:last-of-type{
+  padding-top: 0px;
+}
+.form-item, .form-actions {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.ulogin-button-vkontakte{
+ background: url("../icons/socials/vk.svg") !important;
+}
+.ulogin-button-facebook{
+  background: url("../icons/socials/facebook.svg") !important;
+}
+.ulogin-button-twitter{
+  background: url("../icons/socials/twitter.svg") !important;
+}
+.ulogin-button-google{
+  background: url("../icons/socials/google-plus.svg") !important;
+}
+.node-type-doctors .main-layout-wrapper{
+  height: 100%;
+}
+.view-our-team .section-about {
+  padding-top: 0px;
+}
+
+.language-switcher-locale-url .en {
+  float: right;
+}
+.feedback-btn{
+  border: 2px solid #16d690 !important;
+  color: black !important;
+}
+@media (max-width: 768px) {
+  .article:before {
+    content: '';
+    position: absolute;
+    top: 0 !important;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: #16d690;
+  }
+}
+
+footer .block-logo .logo-text {
+  width: 50px;
+}

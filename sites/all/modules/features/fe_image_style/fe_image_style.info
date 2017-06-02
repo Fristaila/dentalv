@@ -1,0 +1,12 @@
+name = fe_image_style
+core = 7.x
+package = Features
+dependencies[] = image
+features[features_api][] = api:2
+features[image][] = about_clinic_img
+features[image][] = author_reviews
+features[image][] = cl_article_main
+features[image][] = doctors_small_img
+features[image][] = image_doctor_100x100
+features[image][] = image_news
+features[image][] = small_image_news

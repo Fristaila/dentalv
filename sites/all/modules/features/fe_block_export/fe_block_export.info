@@ -1,0 +1,13 @@
+name = fe_block
+core = 7.x
+package = Features
+dependencies[] = fe_block
+features[fe_block_boxes][] = block_contacts
+features[fe_block_boxes][] = not_found_404
+features[fe_block_boxes][] = standard_clinics
+features[fe_block_boxes][] = transport_list
+features[fe_block_settings][] = block-block_contacts
+features[fe_block_settings][] = block-not_found_404
+features[fe_block_settings][] = block-standard_clinics
+features[fe_block_settings][] = block-transport_list
+features[features_api][] = api:2

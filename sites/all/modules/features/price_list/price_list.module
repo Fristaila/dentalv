@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the price_list feature.
+ */
+
+include_once 'price_list.features.inc';

@@ -1,0 +1,748 @@
+<?php
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function dentalv_common_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'panels' && $plugin_type == 'layouts'){
+    return 'plugins/layouts';
+  }
+  if ($owner == 'ctools' && $plugin_type == 'content_types'){
+    return 'plugins/content_types';
+  }
+}
+
+
+
+/**
+ * Implements hook_theme().
+ */
+function dentalv_common_theme() {
+  $theme = array();
+  $base_path = drupal_get_path('module', 'dentalv_common') . '/templates';
+  $theme['add_reviews_form'] = array(
+    'variables' => array(
+      'var' => NULL,
+    ),
+    'template' => 'add-reviews-form',
+    'path' => $base_path
+  );
+  $theme['dentalv_common_header'] = array(
+    'variables' => array(
+      'main_menu' => NULL,
+      'logo' => NULL,
+      'site_name' => NULL,
+    ),
+    'template' => 'dentalv-common-header',
+    'path' => $base_path
+  );
+  $theme['google_map'] = array(
+    'variables' => array(
+      'place' => NULL,
+    ),
+    'template' => 'google-map',
+    'path' => $base_path
+  );
+  $theme['dentalv_common_footer'] = array(
+    'variables' => array(
+      'main_menu' => NULL,
+      'logo' => NULL,
+      'site_name' => NULL,
+    ),
+    'template' => 'dentalv-common-footer',
+    'path' => $base_path
+  );
+  $theme['webform_form_appointment'] = array(
+    'render element' => 'form',
+    'template' => 'webform-form-appointment',
+    'path' => $base_path
+  );
+  $theme['webform_form_reviews'] = array(
+    'render element' => 'form',
+    'template' => 'webform-form-reviews',
+    'path' => $base_path
+  );
+  $theme['webform_form_vacancies'] = array(
+    'render element' => 'form',
+    'template' => 'webform-form-vacancies',
+    'path' => $base_path
+  );
+  $theme['testimonial_node_form'] = array(
+    'template' => 'testimonial-node-form',
+    'render element' => 'form',
+    'path' => $base_path
+  );
+  $theme['feedback_form'] = array(
+    'variable' => array(
+      'form' => NULL,
+      'block_rend' => NULL,
+      'block_t' => NULL,
+    ),
+    'template' => 'feedback-form',
+    'path' => $base_path
+  );
+  $theme['custom_not_found'] = array(
+    'variable' => array(
+      'var' => NULL,
+    ),
+    'template' => 'not-found-404',
+    'path' => $base_path
+  );
+  $theme['video_block'] = array(
+    'variables' => array(
+      'video_id' => NULL,
+    ),
+    'template' => 'video-block',
+    'path' => $base_path
+  );
+  $theme['main_parallax'] = array(
+    'variable' => array(
+      'main_nemu' => NULL,
+      'site_name' => NULL,
+      'site_slogan' => NULL,
+      'site_phone' => NULL,
+    ),
+    'template' => 'main-parallax',
+    'path' => $base_path,
+  );
+  $theme['dentalv_select_as_links'] = array(
+    'function' => 'dentalv_theme_select_as_links',
+    'render element' => 'element',
+    'file' => 'dentalv_common.module',
+  );
+  return $theme;
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function dentalv_common_form_alter(&$form, &$form_state, $form_id) {
+  $options = '';
+  if (substr($form_id, 0, -3) == 'webform_client_form_'){
+    $wf_id = variable_get('wf_id');
+    if ($form_id == 'webform_client_form_'.$wf_id['id_webform_review']){
+      array_unshift($form['#theme'], 'webform_form_reviews');
+      $form['submitted']['post_date']['#access'] = FALSE;
+      if (!empty($form['#submission'])){
+      if ($form['#action'] == '/'.$GLOBALS['language']->language.'/node/'.$wf_id['id_webform_review'].'/submission/'.$form['#submission']->sid.'/edit'){
+        unset($form['#theme'][0]);
+        $form['submitted']['post_date']['#access'] = TRUE;
+        $form['#submit'][] = 'dentalv_review_update';
+      }}
+      $node = entity_load('node', array(), array('type' => 'doctors', 'language' => $GLOBALS['language']->language));
+      foreach ($node as $id => $value) {
+        $img = theme('image_style', array('path'       => $value->field_photo[LANGUAGE_NONE][0]['uri'],
+                                          'style_name' => 'doctors_small_img'
+        ));
+        $options{$id} = '<span class="who-photo">'. $img .'</span><span class="who-name">'. $value->title . '</span>';
+      }
+
+      $form['submitted']['doctors']['#options'] = $options;
+      $form['submitted']['doctors']['#attributes'] = array('required'=>"required");
+      $form['#attributes']['class'][5] = 'all-doctors-comment';
+      if (arg(0) == 'node' && is_numeric(arg(1))) {
+        $nid = arg(1);
+        $node = node_load($nid);
+        $type = $node->type;
+        if ($node->type == 'doctors') {
+          $form['#attributes']['class'][5] = 'current-doctor-comment';
+          $form['submitted']['doctors']['#default_value'] = $nid;
+          unset($form['submitted']['doctors']['#attributes']['required']);
+        }
+      }
+      if (!isset($GLOBALS['user']->name)) {
+        $form['actions']['submit']['#attributes'] = array('disabled' => "disabled");
+      }
+      $form['#submit'][] = 'set_thank_cookie_submit';
+    }
+  }
+
+  if (isset($form['#node']->title)) {
+    if ($form['#node']->title == 'Feedback' &&
+      $form['#node']->type == 'webform' && $form_id != 'webform_components_form' && substr($form_id, 0, -3) == 'webform_client_form'){
+      $form['actions']['submit']['#attributes']['class'][] = 'feedback-submit';
+      $form['#submit'][] = 'success_feedback_message';
+    }}
+
+  if (isset($form['#node']->title)) {
+    if ($form['#node']->title == 'Make an appointment' &&
+      $form['#node']->type == 'webform' && $form_id != 'webform_components_form' && substr($form_id, 0, -3) == 'webform_client_form'){
+      $d_nid = arg(4);
+      if (!empty($d_nid)) {
+        $d_nid = arg(4);
+      } else {
+        $d_nid = '';
+      }
+      $form['submitted']['selected_doctor']['#access'] = FALSE;
+      $node = entity_load('node', array(), array('type' => 'doctors', 'language' => $GLOBALS['language']->language));
+      foreach ($node as $id => $value) {
+        if (!empty($value->field_doctor[LANGUAGE_NONE][0]['value']) && $value->field_doctor[LANGUAGE_NONE][0]['value'] == TRUE) {
+          $img = theme('image_style', array(
+            'path'       => $value->field_photo[LANGUAGE_NONE][0]['uri'],
+            'style_name' => 'doctors_small_img'
+          ));
+          $options{$id} = '<span class="who-photo">' . $img . '</span><span class="who-name">' . $value->title . '</span>';
+        }
+      }
+      $form['choosen_doctors'] = array(
+        '#title'   => t('Choosen doctors'),
+        '#type'    => 'radios',
+        '#options' => $options,
+        '#default_value' => !empty($d_nid) ? $d_nid : '',
+      );
+      if (!empty($d_nid)) {
+        $form['choosen_doctors']['#access'] = FALSE;
+      }
+      array_unshift($form['#submit'], 'set_thank_cookie_submit');
+      array_unshift($form['#validate'], 'webform_make_an_appointment');
+      array_unshift($form['#theme'], 'webform_form_appointment');
+    }
+  }
+
+  if ($form_id == 'system_site_information_settings') {
+    $form['site_information']['site_address'] = array(
+      '#type'          => 'textfield',
+      '#title'         => 'Site address',
+      '#default_value' => variable_get('site_address', ''),
+      '#required'      => TRUE,
+    );
+  }
+  if (isset($form['#node']->title)) {
+    if ($form['#node']->title == 'response to vacancies' &&
+      $form['#node']->type == 'webform' && $form_id != 'webform_components_form' && substr($form_id, 0, -3) == 'webform_client_form'){
+      array_unshift($form['#theme'], 'webform_form_vacancies');
+      $form['#submit'][] = 'set_thank_cookie_submit';
+//      $argumen = arg();
+//      $vacancies = node_load($argumen['4']);
+//      $form['submitted']['vacancies']['#access'] = FALSE;
+//      $form['submitted']['vacancies']['#default_value'] = $vacancies->title;
+    }
+  }
+  if ($form['#id'] == 'views-exposed-form-news-block'){
+    $form['sort_by']['#theme'] = 'dentalv_select_as_links';
+    $form['sort_order']['#access'] = FALSE;
+    $form['sort_by']['#prefix'] = '<ul class="nav nav-tabs" role="tablist">';
+    $form['sort_by']['#suffix'] = '</ul>';
+    $form['sort_by']['#title_display'] = 'none';
+  }
+
+  if ($form_id == 'system_site_information_settings') {
+    $form['site_information']['site_phone'] = array(
+      '#type'          => 'textfield',
+      '#title'         => 'Site phone',
+      '#default_value' => variable_get('site_phone', ''),
+      '#required'      => TRUE,
+    );
+  }
+}
+
+function dentalv_review_update($form, &$form_state){
+  $sub = $form['#submission'];
+  if (!empty($form['#submission']->data[3][0])){
+    $review_time = strtotime($form['#submission']->data[3][0]);
+    $sub->submitted = $review_time;
+  }
+  webform_submission_update($form['#node'],$sub);
+}
+
+function review_form_submit($form, &$form_state){
+  global $user;
+
+  $r_url = '';
+
+  $node = $form_state['node'];
+  $node->title = $form_state['values']['title'];
+  $node->type = $form_state['values']['type'];
+  node_object_prepare($node);
+  $node->language = LANGUAGE_NONE;
+  $node->uid = $user->uid;
+  $node->status = 1;
+  $node->promote = 0;
+  $node->comment = 0;
+
+  $node->body = $form_state['values']['body'];
+  $node->field_doctors = $form_state['values']['field_doctors'];
+
+  node_save($node);
+
+  $url = explode('/',$_SERVER['REQUEST_URI']);
+
+  if ($url[1] == $GLOBALS['language_url']->language){unset($url[1]);};
+
+  $separate = '/';
+
+  foreach ($url as $id=>$value){
+    if (count($id) == $id-1){$separate = '';}
+    $r_url .= $url[$id].$separate;
+  }
+
+//  drupal_goto($_SERVER['REQUEST_URI']);
+  drupal_goto($r_url);
+}
+
+
+function dentalv_theme_select_as_links($vars) {
+  $element = $vars['element'];
+
+  $output = '';
+  $name = $element['#name'];
+
+  // Collect selected values so we can properly style the links later.
+  $selected_options = array();
+  if (isset($element['#value'])) {
+    $selected_options[] = $element['#value'];
+  }
+  else {
+    if (isset($element['#default_value'])) {
+      $selected_options[] = $element['#default_value'];
+    }
+  }
+
+  // Add to the selected options specified by Views whatever options are in the
+  // URL query string, but only for this filter.
+  $urllist = parse_url(request_uri());
+  if (isset($urllist['query'])) {
+    $query = array();
+    parse_str($urllist['query'], $query);
+    foreach ($query as $key => $value) {
+      if ($key != $name) {
+        continue;
+      }
+      if (is_array($value)) {
+        // This filter allows multiple selections, so put each one on the
+        // selected_options array.
+        foreach ($value as $option) {
+          $selected_options[] = $option;
+        }
+      }
+      else {
+        $selected_options[] = $value;
+      }
+    }
+  }
+
+  // Clean incoming values to prevent XSS attacks.
+  if (is_array($element['#value'])) {
+    foreach ($element['#value'] as $index => $item) {
+      unset($element['#value'][$index]);
+      $element['#value'][check_plain($index)] = check_plain($item);
+    }
+  }
+  elseif (is_string($element['#value'])) {
+    $element['#value'] = check_plain($element['#value']);
+  }
+
+  // Go through each filter option and build the appropriate link or plain text.
+  foreach ($element['#options'] as $option => $elem) {
+    if (!empty($element['#hidden_options'][$option])) {
+      continue;
+    }
+    // Check for Taxonomy-based filters.
+    if (is_object($elem)) {
+      $slice = array_slice($elem->option, 0, 1, TRUE);
+      list($option, $elem) = each($slice);
+    }
+
+    // Check for optgroups.  Put subelements in the $element_set array and add
+    // a group heading. Otherwise, just add the element to the set.
+    $element_set = array();
+    if (is_array($elem)) {
+      $element_set = $elem;
+    }
+    else {
+      $element_set[$option] = $elem;
+    }
+
+    $links = array();
+    $multiple = !empty($element['#multiple']);
+
+    // If we're in an exposed block, we'll get passed a path to use for the
+    // Views results page.
+    $path = '';
+    if (!empty($element['#bef_path'])) {
+      $path = $element['#bef_path'];
+    }
+
+    foreach ($element_set as $key => $value) {
+      $element_output = '';
+      // Custom ID for each link based on the <select>'s original ID.
+      $id = drupal_html_id($element['#id'] . '-' . $key);
+      $elem = array(
+        '#id' => $id,
+        '#markup' => '',
+        '#type' => 'bef-link',
+        '#name' => $id,
+      );
+
+      $link_options = array();
+      // Add "active" class to the currently active filter link.
+      if (in_array((string) $key, $selected_options)) {
+        $link_options['attributes'] = array('class' => array('active'));
+      }
+      $url = dentalv_bef_replace_query_string_arg($name, $key, $multiple, FALSE, $path);
+      $elem['#children'] = l($value, $url, $link_options);
+      $element_output = theme('form_element', array('element' => $elem));
+
+      $element_output = '<li role="presentation">'. $element_output .'</li>';
+
+      if (!empty($element['#settings']['combine_param']) && $element['#name'] == $element['#settings']['combine_param'] && !empty($element['#settings']['toggle_links'])) {
+        $sort_pair = explode(' ', $key);
+        if (count($sort_pair) == 2) {
+          // Highlight the link if it is the selected sort_by (can be either
+          // asc or desc, it doesn't matter).
+          if (strpos($selected_options[0], $sort_pair[0]) === 0) {
+            $element_output = str_replace('form-item', 'form-item selected', $element_output);
+          }
+        }
+      }
+      $output .= $element_output;
+
+    }
+  }
+
+  $properties = array(
+    '#description' => isset($element['#bef_description']) ? $element['#bef_description'] : '',
+    '#children' => $output,
+  );
+
+  $output = '<div class="bef-select-as-links">';
+  $output .= theme('form_element', array('element' => $properties));
+
+  // Add attribute that hides the select form element.
+  $vars['element']['#attributes']['style'] = 'display: none;';
+  $output .= theme('select', array('element' => $vars['element']));
+  if (!empty($element['#value'])) {
+    if (is_array($element['#value'])) {
+      foreach ($element['#value'] as $value) {
+        $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '[]" value="' . $value . '" />';
+      }
+    }
+    else {
+      $output .= '<input type="hidden" class="bef-new-value" name="' . $name . '" value="' . $element['#value'] . '" />';
+    }
+  }
+  $output .= '</div>';
+
+  return $output;
+}
+
+function dentalv_bef_replace_query_string_arg($key, $value, $multiple = FALSE, $remove = FALSE, $path = '') {
+  if (!$path) {
+    $path = implode('/', arg());
+  }
+
+  // Prevents us from having to check for each index from parse_url that we may
+  // use.
+  $urllist = array('path' => '', 'fragment' => '', 'query' => '');
+  $urllist = array_merge($urllist, parse_url(request_uri()));
+  $fragment = urldecode($urllist['fragment']);
+  $query = array();
+  parse_str($urllist['query'], $query);
+  if (isset($query[$key]) && is_array($query[$key])) {
+    // Multiple values allowed for this existing key.
+    if ($remove && ($key_remove = array_search($value, $query[$key])) !== FALSE) {
+      unset($query[$key][$key_remove]);
+    }
+    else {
+      $query[$key][] = $value;
+    }
+  }
+  else {
+    // Create a new key.
+    if ($multiple && !$remove) {
+      $query[$key] = array($value);
+    }
+    elseif (!$remove) {
+      $query[$key] = $value;
+    }
+  }
+  // Unset page arg so we don't land on an empty page off the end of the newly
+  // filtered listing.
+  unset($query['page']);
+  return url(ltrim($path, '/'), array(
+    'query' => $query,
+    'fragment' => $fragment,
+    'absolute' => TRUE,
+  ));
+}
+
+function set_thank_cookie_submit($form,&$form_state){
+  setrawcookie('thank_show', 'show', REQUEST_TIME + 31536000, '/');
+}
+
+function success_feedback_message(){
+  setrawcookie('success_feedback', 'true', REQUEST_TIME + 31536000, '/');
+}
+
+/**
+ * custom validate for form add node testimonial
+ * @param $form
+ * @param $form_state
+ */
+function review_form_validate($form, &$form_state){
+  if ($form_state['values']['field_doctors'][LANGUAGE_NONE][0]['target_id'] == null){
+    form_set_error('field_doctors', t('111'));
+  }
+  $form_state['values']['language'] = $GLOBALS['language']->language;
+  $form_state['values']['status'] = $form_state['node']->status;
+}
+
+/**
+ * custom validate for form make_an_appointment
+ * @param $form
+ * @param $form_state
+ */
+function webform_make_an_appointment($form, &$form_state){
+  $doc = node_load($form_state['values']['choosen_doctors']);
+  $form_state['values']['submitted']['selected_doctor'] = $doc->title;
+}
+
+/**
+ * Implements hook_init().
+ */
+function dentalv_common_init() {
+  drupal_add_js(drupal_get_path('module', 'dentalv_common') . '/js/script.js');
+  drupal_add_js(drupal_get_path('module', 'dentalv_common') . '/js/jquery.cookie.js');
+  drupal_add_css(drupal_get_path('module', 'dentalv_common') . '/css/views.css');
+}
+
+/**
+ * Implements hook_menu().
+ */
+function dentalv_common_menu() {
+  $items['common/ctools_js/add'] = array(
+    'page callback' => 'dentalv_common_node_add_modal_callback',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+  );
+  $items['common/ctools_js/webform/%node'] = array(
+    'page callback' => 'dentalv_common_webform_reception_modal_callback',
+    'page arguments' => array(1),
+    'access arguments' => array('access content'),
+  );
+  $items['first-popup/ctools_js/test'] = array(
+      'title' => 'My first popup',
+      'page arguments' => array(1),
+      'access callback' => TRUE,
+      'page callback' => 'my_popup_callback',
+      'type' => MENU_CALLBACK,
+  );
+  $items['admin/config/services/set-id-webform'] = array(
+    'title'            => t('Setting id webform'),
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('dentalv_common_webform_setting_form'),
+    'type'             => MENU_NORMAL_ITEM,
+    'access arguments' => array('administer site configuration'),
+  );
+  $items['admin/content/video-settings'] = array(
+    'title'            => t('Video setting'),
+    'page callback'    => 'drupal_get_form',
+    'page arguments'   => array('dentalv_settings_video_content_form'),
+    'type'             => MENU_NORMAL_ITEM,
+    'file' => 'video_content.inc',
+    'file path' => drupal_get_path('module', 'dentalv_common') . '/plugins/content_types',
+    'access arguments' => array('administer site configuration'),
+  );
+  $wf = variable_get('wf_id');
+  $weight = 50;
+  foreach ($wf as $id=>$value){
+    $items['admin/content/submissions-data/'.$value] = array(
+      'title'            => t(substr($id,3)),
+      'page callback'    => 'common_dentalv_webform_submissions_data',
+      'type'             => MENU_NORMAL_ITEM,
+      'access arguments' => array('administer site configuration'),
+      'weight' => $weight++,
+    );
+  }
+  return $items;
+}
+
+function common_dentalv_webform_submissions_data(){
+  $arg = arg();
+  $url = 'node/'.$arg[3].'/webform-results';
+  drupal_goto($url);
+}
+
+function my_popup_callback (){
+  setrawcookie('review_popup', 'show', REQUEST_TIME + 31536000, '/');
+  $redirect = $_SERVER['HTTP_REFERER'];
+  return drupal_goto($redirect);
+}
+
+/**
+ * dentalv common node add modal callback
+ */
+function dentalv_common_node_add_modal_callback($js = FALSE) {
+  global $user;
+
+  // If people aren't using javascript, then I just boot em. sorry. its 2011.
+  if (!$js) return "Javascript required";
+
+  // Include your ctools crap here
+  ctools_include('node.pages', 'node', '');
+  ctools_include('modal');
+  ctools_include('ajax');
+  // Create a blank node object here. You can also set values for your custom fields here as well.
+  $node = (object) array(
+    'uid' => $user->uid,
+    'name' => (isset($user->name) ? $user->name : ''),
+    'type' => 'testimonial',
+    'language' => LANGUAGE_NONE,
+  );
+  $form_state = array(
+    'title' => t('Add review'),
+    'ajax' => TRUE,
+  );
+  $form_state['build_info']['args'] = array($node);
+  // change this to your type node form
+  $output = ctools_modal_form_wrapper('testimonial_node_form', $form_state);
+  // This means the form has been exectued
+  if (!empty($form_state['executed'])) {
+    $output = array();
+    // Close the modal
+    $output[] = ctools_modal_command_dismiss();
+  }
+
+  print ajax_render($output);
+  exit;
+}
+
+function dentalv_common_webform_reception_modal_callback($js = NULL, $wid = NULL) {
+
+  $wid = arg(3);
+  $webFormNode = node_load($wid);
+  if (!$js) {
+    return drupal_get_form('webform_client_form_' . $wid, $webFormNode, FALSE);
+  }
+
+  ctools_include('ajax');
+  ctools_include('modal');
+  ctools_modal_add_js();
+
+  $title = $webFormNode->title;
+  $arg = arg();
+  if (isset($arg[4])) {
+  $vacancie = node_load($arg[4]);
+  $title .= ': ' .$vacancie->title;
+  }
+
+
+    $form_state = array(
+      'title' => $title,
+      'ajax' => TRUE,
+    );
+
+    $form_state['build_info']['args'] = array($webFormNode, FALSE);
+
+    $output = ctools_modal_form_wrapper('webform_client_form_' . $wid, $form_state);
+
+print ajax_render($output);
+drupal_exit();
+}
+
+function _dentalv_modal_style_include_modal() {
+
+  static $added = FALSE;
+  if ($added == FALSE) {
+    $added = TRUE;
+
+    ctools_include('modal');
+    ctools_include('ajax');
+    ctools_modal_add_js();
+
+    $modal_style = array(
+      'example-contact-style' => array(
+        'modalSize' => array(
+          'type' => 'fixed',
+          'width' => '100%',
+          'height' => 'auto',
+        ),
+        'modalOptions' => array(
+          'opacity' => (float) 0.3,
+          'background-color' => '#000000',
+          'z-index' => '1000',
+        ),
+        'closeText' => '',
+        'loadingText' => '',
+        'animation' => 'fadeUp',
+        'modalTheme' => 'dentavl_popup_template',
+        'animationSpeed' => 'fast',
+
+      ),
+    );
+    drupal_add_js($modal_style, 'setting');
+    ctools_add_js('ctools_modal_style', 'dentalv_common');
+    ctools_add_css('ctools_modal_style', 'dentalv_common');
+  }
+}
+
+/**
+ * Implements hook_form().
+ */
+function dentalv_common_webform_setting_form($form, &$form_state) {
+  $form = array();
+  $data = variable_get('wf_id');
+  $data_block = variable_get('block_id');
+  $form['id_webform_contacts'] = array(
+    '#title' => t('id webform contacts'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id webform for contacts page'),
+    '#default_value' => empty($data['id_contacts']) ? '' : $data['id_contacts'],
+  );
+  $form['id_appointment'] = array(
+    '#title' => t('id to make an appointment form'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id for doctors page'),
+    '#default_value' => empty($data['id_appointment']) ? '' : $data['id_appointment'],
+  );
+  $form['id_vacancies'] = array(
+    '#title' => t('id webform vacancies form'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id vacancies form for page about clinic'),
+    '#default_value' => empty($data['id_vacancies']) ? '' : $data['id_vacancies'],
+  );
+  $form['id_webform_review'] = array(
+    '#title' => t('id webform reviews'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id reviews form for page about clinic'),
+    '#default_value' => empty($data['id_webform_review']) ? '' : $data['id_webform_review'],
+  );
+  $form['id_block_contact'] = array(
+    '#title' => t('id block contacts'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id block contacts'),
+    '#default_value' => empty($data_block['id_block_contact']) ? '' : $data_block['id_block_contact'],
+  );
+  $form['id_block_transport'] = array(
+    '#title' => t('id block transport'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id block transport'),
+    '#default_value' => empty($data_block['id_block_transport']) ? '' : $data_block['id_block_transport'],
+  );
+  $form['id_block_mirrolab'] = array(
+    '#title' => t('id block mirrolab'),
+    '#type' => 'textfield',
+    '#description' => t('Enter id block mirrolab'),
+    '#default_value' => empty($data_block['id_block_mirrolab']) ? '' : $data_block['id_block_mirrolab'],
+  );
+  $form['submit'] = array(
+    '#value' => t('submit'),
+    '#type' => 'submit',
+  );
+  return $form;
+}
+
+function dentalv_common_webform_setting_form_submit($form, &$form_state) {
+  $data = array();
+  $data['id_contacts'] = $form_state['values']['id_webform_contacts'];
+  $data['id_appointment'] = $form_state['values']['id_appointment'];
+  $data['id_vacancies'] = $form_state['values']['id_vacancies'];
+  $data['id_webform_review'] = $form_state['values']['id_webform_review'];
+
+  $data_block = array();
+  $data_block['id_block_contact'] = $form_state['values']['id_block_contact'];
+  $data_block['id_block_transport'] = $form_state['values']['id_block_transport'];
+  $data_block['id_block_mirrolab'] = $form_state['values']['id_block_mirrolab'];
+  variable_set('wf_id',$data);
+  variable_set('block_id',$data_block);
+}
