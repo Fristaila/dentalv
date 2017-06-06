@@ -51,6 +51,16 @@ $form['actions']['submit']['#attributes']['name'][] = t('send');
             <p><?php print $form['choosen_doctors']['#title']; ?></p>
           </div>
           <div class="doctor-who-list">
+            <?php
+            $costom_sort_order =  nodequeue_load_nodes(1);
+            $doctors = $form['choosen_doctors'];
+            foreach($doctors as $key => $value) {
+              if(array_key_exists($key, $costom_sort_order)) {
+                $i = array_search($key, array_keys($costom_sort_order));
+                $form['choosen_doctors'][$key]['#weight'] = $i;
+              }
+            }
+            ?>
           <?php print drupal_render($form['choosen_doctors']);?>
           </div>
           <div class="form-btn-wrap">

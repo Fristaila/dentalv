@@ -83,6 +83,16 @@ if (isset($GLOBALS['user']->name)){
               <p><?php print $form['submitted']['doctors']['#title'];?></p>
             </div>
             <div class="doctor-who-list">
+              <?php
+              $costom_sort_order =  nodequeue_load_nodes(1);
+              $doctors = $form['submitted']['doctors'];
+              foreach($doctors as $key => $value) {
+                if(array_key_exists($key, $costom_sort_order)) {
+                  $i = array_search($key, array_keys($costom_sort_order));
+                  $form['submitted']['doctors'][$key]['#weight'] = $i;
+                }
+              }
+              ?>
               <?php print drupal_render($form['submitted']['doctors']); ?>
             </div>
           </div>
