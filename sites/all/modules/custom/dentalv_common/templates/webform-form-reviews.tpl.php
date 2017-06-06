@@ -84,7 +84,7 @@ if (isset($GLOBALS['user']->name)){
             </div>
             <div class="doctor-who-list">
               <?php
-              $costom_sort_order =  nodequeue_load_nodes(1);
+              $costom_sort_order =  nodequeue_load_nodes(1, $backward = FALSE, $from = 0, $count = 100, $published_only = TRUE);
               $doctors = $form['submitted']['doctors'];
               foreach($doctors as $key => $value) {
                 if(array_key_exists($key, $costom_sort_order)) {
