@@ -1,0 +1,98 @@
+.doctor-who-list{
+    padding-bottom: 30px;
+    li{
+        list-style-type: none;
+        padding-bottom: 30px;
+        &:last-child{
+            padding-bottom: 0;
+        }
+        cursor: pointer;
+        &.active{
+            .who-photo{
+                border: 3px solid $green;
+            }
+            .who-name{
+                color: rgba(black, 1);
+            }
+        }
+    }
+    font-size: 0;
+    .who-photo{
+        width: 69px;
+        height: 69px;
+        overflow: hidden;
+        border-radius: 50%;
+        display: inline-block;
+        margin-right: -69px;
+        position: relative;
+        img{
+            width: 100%;
+        }
+        border: 3px solid #ffffff;
+        transition: all .01s ease;
+        &:before{
+            content: '';
+            position: absolute;
+
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            border: 5px solid #ffffff;
+            border-radius: 50%;
+        }
+    }
+    .who-name{
+        font-size: 18px;
+        width: 100%;
+        padding-left: 82px;
+        max-width: 266px;
+        color: rgba(black, .5);
+        transition: $transition_options;
+        @include MQ(EXM){
+            font-size: 16px;
+        }
+    }
+
+    .who-photo, .who-name{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+}
+.doctor-who-divider{
+    background: $colorTextGray;
+    color: #ffffff;
+    font-family: $bold-font;
+    padding: {
+        top: 10px;
+        bottom: 10px;
+    }
+    margin-bottom: 25px;
+    @include minusMargins($containerOuterSpace_mobile);
+    &.success{
+        background: $green;
+    }
+    p{
+        text-align: center;
+    }
+}
+
+
+    @include MQ(EXM){
+        .doctor-who-divider{
+            @include minusMargins(65px);
+        }
+        .doctor-who-list{
+            font-size: 0;
+            li{
+                width: 50%;
+                display: inline-block;
+                vertical-align: middle;
+                &:nth-last-child(-2n+2){
+                    padding-bottom: 0;
+                }
+            }
+        }
+
+    }

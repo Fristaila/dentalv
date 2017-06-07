@@ -1,0 +1,73 @@
+.slick-next, .slick-prev
+  position: absolute
+  top: 50%
+  margin:
+    top: -37px
+  background: transparent
+  border: 0
+  outline: 0
+  padding: 0
+  z-index: 12
+  font:
+    size: 0
+  &:before
+    display: block
+    +icomoon
+    font:
+      size: 3.4rem
+    color: #ffffff
+
+//.slick-next
+  right: $containerOuterSpace_mobile
+  +MQ(EXM)
+    right: $containerOuterSpace
+  &:before
+    content: $icon-ar-right
+
+//.slick-prev
+  left: $containerOuterSpace_mobile
+  +MQ(EXM)
+    left: $containerOuterSpace
+  &:before
+    content: $icon-ar-left
+
+.container
+  .slick-dots
+    font:
+      size: 0
+    position: absolute
+    bottom: 58px
+    left: 0
+    right: 0
+    z-index: 10
+    text-align: center
+    li
+      display: inline-block
+      vertical-align: middle
+      margin:
+        left: 0
+        right: 0
+      padding:
+        left: 10px
+        right: 10px
+      &.slick-active
+        button
+          .ink-line
+            width: 100%
+    button
+      height: 5px
+      background: #ffffff
+      position: relative
+      width: 40px
+      padding: 0
+      font:
+        size: 0
+      border: 0
+      outline: 0
+      .ink-line
+        width: 0
+        position: absolute
+        left: 0
+        top: 0
+        bottom: 0
+        background: #000000

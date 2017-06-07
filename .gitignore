@@ -45,3 +45,8 @@ Thumbs.db
 /.idea/*
 /sites/default/settings.php
 /tmp/*
+.vscode
+sites/all/themes/dentalv/front-end/stylesheets/*
+sites/all/themes/dentalv/front-end/node_modules/*
+changes.html
+sites/all/translations/*

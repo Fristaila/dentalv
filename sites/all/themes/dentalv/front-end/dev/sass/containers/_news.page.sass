@@ -1,0 +1,65 @@
+.news
+	padding-top: 40px
+	.container
+		max-width: 620px
+	.h3
+		text-align: center
+	.nav-tabs
+		padding: 35px 0 30px
+		margin: 0 -20px
+		li
+			padding: 0 20px
+			a
+				padding: 0
+				color: rgba(0,0,0,.5)
+				font-family: $bold-font
+				font-size: 1.6rem
+				line-height: 1.2
+				border-bottom: 3px solid transparent
+				transition: all .3s ease
+				&:hover
+					border-bottom: 3px solid rgba(0,0,0,.2)
+			&.active
+				a
+					color: rgba(0,0,0,1)
+					border-bottom: 3px solid $green
+	.tab-content
+		ul
+			li
+				&:not(:last-child)
+					margin-bottom: 35px
+	.article
+		&__group
+			padding: 10px 0 0
+		&__views
+			float: left
+			padding: 10px 0 10px 10px
+	.paging
+		padding: 45px 0 30px
+
++MQ(M)
+	.news
+		padding-top: 50px
+		.nav-tabs
+			padding: 40px 0
+		.tab-content
+			ul
+				li
+					&:not(:last-child)
+						margin-bottom: 70px
+		.article
+			padding-top: 0
+			&:before
+				top: 0
+			&__preview
+				padding-bottom: 50px
+			&__group
+				top: auto
+				bottom: 0
+			&__date
+				background: #f5f5f5
+				padding-left: 10px
+			&__views
+				display: block
+		.paging
+			padding: 90px 0

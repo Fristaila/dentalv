@@ -1,0 +1,74 @@
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4,
+h5, .h5,
+h6, .h6
+	line-height: 1
+	margin-top: 0
+	text-transform: none
+	letter-spacing: 0
+	color: #000000
+	font:
+		weight: 400
+		family: $bold-font
+
+h1,.h1,
+h3,.h3
+	font-family: $bold-font
+	font:
+		size: 3rem
+
+h4,.h4
+	font:
+		size: 2.8rem
+
+h5,.h5
+	font:
+		size: 2.4rem
+
+span
+	line-height: 1.2
+p
+	font:
+		size: 1.8rem
+	line-height: 1.4
+	color: inherit
+	&:not(:last-child)
+		margin-bottom: 20px
+	&:only-of-type
+		margin-bottom: 0
+	a
+		color: inherit
+a
+	color: #000
+	&:focus
+		outline: 0
+	&:hover,
+	&:focus
+		color: #000
+		text-decoration: none
+hr.line
+	background: rgba(#4A4A4A, .3)
+	margin: 0
+	padding: 0
+	height: 2px
+	border:
+		left: 15px solid #4A4A4A
+		right: 15px solid #4A4A4A
+figure
+	margin: 0
+
+
+li
+	list-style-type: none
++MQ(M)
+	h1,.h1
+		font:
+			size: 4.8rem
+	h3,.h3
+		font:
+			size: 7.2rem
+	h5,.h5
+		font:
+			size: 1.8rem

@@ -1,0 +1,202 @@
+//$S: 320px
+//$SM: 640px
+//$M: 768px
+//$L: 1025px
+// $EXL: 1200px;
+// $EXXL: 1345px;
+
+// media queries by mobile first way!
+@mixin MQ($canvas)
+  @if $canvas == S
+    @media only screen and (min-width: $S)
+      @content
+  @else if $canvas == SM
+    @media only screen and (min-width: $SM)
+      @content
+  @else if $canvas == M
+    @media only screen and (min-width: $M)
+      @content
+  @else if $canvas == EXM
+    @media only screen and (min-width: $EXM)
+      @content
+  @else if $canvas == L
+    @media only screen and (min-width: $L)
+      @content
+  @else if $canvas == EXL
+    @media only screen and (min-width: $EXL)
+      @content
+  @else if $canvas == EXXL
+    @media only screen and (min-width: $EXXL)
+      @content
+  @else if $canvas == XXL
+    @media only screen and (min-width: $XXL)
+      @content
+      
+
+=center($xy:xy)
+  @if $xy == xy
+    left: 50%
+    top: 50%
+    bottom: auto
+    right: auto
+    transform: translateX(-50%) translateY(-50%)
+  @else if $xy == x
+    left: 50%
+    right: auto
+    transform: translateX(-50%)
+  @else if $xy == y
+    top: 50%
+    bottom: auto
+    transform: translateY(-50%)
+
+=font-smoothing
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
+
+@mixin pseudo($display: block, $pos: absolute, $content: '')
+  content: $content
+  display: $display
+  position: $pos
+$breakpoints: ("phone": 400px, "phone-wide": 480px, "phablet": 560px, "tablet-small": 640px, "tablet": 768px, "tablet-wide": 1024px, "desktop": 1248px, "desktop-wide": 1440px)
+@mixin mq($width, $type: min)
+  @if map_has_key($breakpoints, $width)
+    $width: map_get($breakpoints, $width)
+    @if $type == max
+      $width: $width - 1px
+    @media only screen and (#{$type}-width: $width)
+      @content
+
+@mixin input-placeholder
+  &.placeholder
+    @content
+  &:-moz-placeholder
+    @content
+  &::-moz-placeholder
+    @content
+  &:-ms-input-placeholder
+    @content
+  &::-webkit-input-placeholder
+    @content
+
+@mixin font-source-sans($size: false, $colour: false, $weight: false,  $lh: false)
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif
+  @if $size
+    font-size: $size
+  @if $colour
+    color: $colour
+  @if $weight
+    font-weight: $weight
+  @if $lh
+    line-height: $lh
+
+$z-indexes: ("outdated-browser", "modal", "site-header", "page-wrapper", "site-footer")
+@function z($name)
+  @if index($z-indexes, $name)
+    @return (length($z-indexes) - index($z-indexes, $name)) + 1
+  @else
+    @warn 'There is no item "#{$name}" in this list; choose one of: #{$z-indexes}'
+    @return null
+//.site-header
+//  z-index: z('site-header')
+
+
+@mixin truncate($truncation-boundary)
+  max-width: $truncation-boundary
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false)
+  @include pseudo($pos: $position)
+  width: 0
+  height: 0
+  @if $round
+    border-radius: 3px
+  @if $direction == down
+    border-left: $size solid transparent
+    border-right: $size solid transparent
+    border-top: $size solid $color
+    margin-top: 0 - round( $size / 2.5 )
+  @else if $direction == up
+    border-left: $size solid transparent
+    border-right: $size solid transparent
+    border-bottom: $size solid $color
+    margin-bottom: 0 - round( $size / 2.5 )
+  @else if $direction == right
+    border-top: $size solid transparent
+    border-bottom: $size solid transparent
+    border-left: $size solid $color
+    margin-right: -$size
+  @else if $direction == left
+    border-top: $size solid transparent
+    border-bottom: $size solid transparent
+    border-right: $size solid $color
+    margin-left: -$size
+
+
+@mixin minusMargins($margins)
+  margin-left: -$margins;
+  margin-right: -$margins;
+
+@mixin clearfix()
+  &:after, &:before
+    content: ''
+    display: table
+    clear: both
+  
+@mixin close()
+	.close 
+		position: absolute
+		right: 5px
+		top: 5px
+		width: 33px
+		height: 33px
+		opacity: 1
+		cursor: pointer
+	.close:hover 
+		opacity: 0.7
+	.close:before, .close:after 
+		position: absolute
+		left: 15px
+		content: ' '
+		height: 29px
+		width: 3px
+		background-color: $green
+	.close:before 
+		transform: rotate(45deg)
+	.close:after 
+		transform: rotate(-45deg)
+  
+@mixin rightHover()
+  &:after
+    background: rgba(22,214,144, .3);
+  &:hover
+    &:after
+      background: $green
+
+
+@mixin scrollOut()
+  @media (max-width: 1024px)
+    &::-webkit-scrollbar
+      display: none
+@mixin scrollOut1()
+    &::-webkit-scrollbar
+      display: none
+@mixin scrollYes()
+    &::-webkit-scrollbar
+      display: block
+      
+ 
+@mixin afterLine()
+  position: relative
+  overflow: hidden
+  &:after
+      content: ""
+      display: inline-block
+      height: 0.5em
+      vertical-align: bottom
+      width: 100%
+      margin-right: -100%
+      margin-left: 10px
+      border-top: 1px solid $green
+

@@ -1,0 +1,21 @@
+{
+  "name": "furia",
+  "description": "",
+  "main": "gulpfile.js",
+  "version": "0.0.0",
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery-ui": "^1.12.1",
+    "slick-carousel": "https://github.com/kenwheeler/slick.git#^1.6.0",
+    "pretty-embed": "https://github.com/mike-zarandona/PrettyEmbed.js.git#^1.2.1",
+    "fitvids": "https://github.com/davatron5000/FitVids.js.git#^1.2.0"
+  }
+}

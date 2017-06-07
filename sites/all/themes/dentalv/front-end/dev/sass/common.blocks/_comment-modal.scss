@@ -1,0 +1,92 @@
+.modal-comment{
+    .social-entry-propose{
+        font-size: 18px;
+        padding-bottom: 18px;
+        font-family: $bold_font;
+    }
+    .social{
+        padding-bottom: 33px;
+        li{
+            padding: {
+                left: 12px;
+                right: 12px
+
+            }
+            a{
+                height: 49px;
+                width: 49px;
+            }
+    
+        }
+        margin: 0 -12px;
+    }
+   
+    .social-entry-propose-wrap.auth-true{
+        display: none;
+    }
+    .social-entry-propose-wrap.auth-false{
+        display: block;
+    }
+    
+    .auth-true{
+        display: block;
+    }
+    .auth-false{
+        display: none;
+    }
+    .avatar-from-social{
+        width: 66px;
+        height: 66px;
+        margin-bottom: 25px;
+        img{
+            width: 100%;
+            height: auto;
+        }
+    }
+    .avatar-name-social{
+        padding-bottom: 30px;
+    }
+    @include MQ(EXM){
+        .avatar-name-social{
+            font-size: 0;
+        }
+        .social-entry-propose, .social, .avatar-from-social-wrap, .form-group-special{
+            display: inline-block;
+            vertical-align: middle;
+            padding-bottom: 0;
+        }
+        .avatar-from-social{
+            margin-bottom: 0;
+            display: inline-block;
+        }
+        .form-inner{
+            .form-group-special{
+                label{
+                    display: none;
+                }
+            }
+        }
+        .social-entry-propose, .avatar-from-social-wrap{
+            font-size: 16px;
+            width: 30%;
+            text-align: right;
+            padding-right: 25px;
+        }
+        .social, .form-group-special{
+            width: 70%;
+            font-size: 18px;
+            .form-controls{
+                width: 100%;
+                input{
+                    border-color: transparent;
+                    &:focus, &:hover{
+                        border-color: transparent;
+                    }
+                }
+            }
+        }
+        .social-entry-propose-wrap{
+            padding-bottom: 33px;
+        }
+    }
+}

@@ -1,0 +1,132 @@
+.fade
+  opacity: 0
+  -webkit-transition: opacity 0.15s linear
+  -o-transition: opacity 0.15s linear
+  transition: opacity 0.15s linear
+  &.in
+    opacity: 1
+
+.modal-open
+  overflow: hidden
+  .modal
+    overflow-x: hidden
+    overflow-y: auto
+
+.modal-backdrop
+  position: fixed
+  top: 0
+  right: 0
+  left: 0
+  bottom: 0
+  z-index: 1000
+  background-color: #ffffff
+  +MQ(EXM)
+    background-color: #000000
+  &.fade
+    opacity: 0
+    filter: alpha(opacity=0)
+  &.in
+    opacity: 0.3
+    filter: alpha(opacity=3)
+    +MQ(EXM)
+      opacity: 0.85
+      filter: alpha(opacity=85)
+.hide
+  display: none !important
+
+.show
+  display: block !important
+
+.invisible
+  visibility: hidden
+
+.hidden
+  display: none !important
+  visibility: hidden !important
+
+.affix
+  position: fixed
+
+.modal
+  display: none
+  overflow: hidden
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1040
+  -webkit-overflow-scrolling: touch
+  outline: 0
+  background: rgba(#000, 0)
+  padding: 0 10px
+  +close
+  &.fade
+    .modal-dialog
+      opacity: 0
+      transition: transform 0.3s ease-out
+  &.in
+    .modal-dialog
+      opacity: 1
+  &.small
+    .modal-dialog
+      max-width: 620px
+  &.large
+    .modal-dialog
+      max-width: 984px
+  .modal-dialog
+    position: relative
+    margin: 40px auto 40px
+    width: auto
+    background: transparent
+    padding: 0
+    z-index: 1001
+    margin-bottom: 0
+    .modal-content
+      padding: 45px 35px
+      position: relative
+      background: #fff
+      background-clip: padding-box
+      outline: 0
+      border-radius: 0
+      box-shadow: 0 6px 57px 4px rgba(0, 0, 0, 0.19)
+      // @media (max-width: 767px)
+      //   padding:
+      //     left: 15px
+      //     right: 15px
+      .modal-header
+        display: block
+        text-align: center
+        .modal-title
+          color: #000
+          font-size: 24px
+          font-weight: 400
+          line-height: 1.2
+          margin: 0 0 25px
+          padding: 0 10px 0 0
+          // @media #{$small-only}
+          //   font-size: 18px
+
+.modal-scrollbar-measure
+  position: absolute
+  top: -9999px
+  width: 50px
+  height: 50px
+  overflow: scroll
+
+.collapsing
+  position: relative
+  height: 0
+  overflow: hidden
+  transition-timing-function: ease
+  transition-duration: .35s
+  transition-property: height, visibility
+
+.collapse
+  display: none
+
+.collapse.in
+  display: block
+
+
+

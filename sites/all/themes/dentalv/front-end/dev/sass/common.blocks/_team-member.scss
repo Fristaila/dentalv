@@ -1,0 +1,121 @@
+.team-list-item {
+    .first-name, .last-name{
+        display: inline;
+    }
+    padding: {
+        right: $containerOuterSpace_mobile;
+        left: $containerOuterSpace_mobile;
+        bottom: 50px;
+    }
+    font-size: 0;
+    &:last-child {
+        padding: {
+            bottom: 0;
+        }
+    }
+  
+    .ava-wrap,
+    .member-name {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .ava-wrap {
+        width: 73px;
+        height: 73px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-right: -73px;
+        img {
+            width: 100%;
+            
+        }
+        margin-bottom: 15px;
+        a{
+            display: block;
+        }
+    }
+    .member-name {
+        width: 100%;
+        font-size: 18px;
+        font-family: $bold-font;
+        font-weight: 700;
+        padding-left: 88px;
+    }
+    .member-info {
+        font-size: 18px;
+        display: block;
+        line-height: 1.333;
+    }
+    .link{
+        display: inline;
+    }
+}
+
+.team-list-item {
+    @include MQ(SM) {
+        width: 50%;
+        display: inline-block;
+        vertical-align: top;
+        &:nth-last-child(-2n+2) {
+            padding-bottom: 0;
+        }
+        padding-bottom: 55px;
+        &:last-child {
+            padding-bottom: 0;
+        }
+        font-size: 0;
+    }
+    @include MQ(EXL) {
+        padding: {
+            left: $containerOuterSpace;
+            right: $containerOuterSpace;
+        }
+    }
+    @include MQ(L) {
+        position: relative;
+        padding-bottom: 62px;
+        .member-info {
+            padding-left: 92px;
+            display: inline-block;
+            font-size: 16px;
+            line-height: 1.375;
+        }
+        .ava-wrap,
+        .member-name {
+            vertical-align: top;
+        }
+        .ava-wrap{
+            position: absolute;
+            width: 91px;
+            height: 91px;
+            padding: {
+                bottom: 0;
+            }
+            a{
+                transition: $transition_options;
+                &:hover{
+                    opacity: .85;
+                }
+            }
+        }
+        .member-name {
+            br {
+                display: none;
+            }
+            padding: {
+                bottom: 9px;
+            }
+        }
+        .member-name, .member-info{
+            padding: {
+                left: 110px;
+            }
+        }
+        .member-info{
+            padding: {
+                right: 20px;
+            }
+        }
+
+    }
+}

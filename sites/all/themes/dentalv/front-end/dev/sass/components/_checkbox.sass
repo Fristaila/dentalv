@@ -1,0 +1,68 @@
+.field-checkbox
+  padding: 0 0 0 18px
+  margin-bottom: 6px
+  position: relative
+  .mark
+    border: 1px solid black
+    display: inline-block
+    height: 15px
+    width: 15px
+    margin-right: 8px
+    &:before
+      background-color: black
+      content: ""
+      height: 9px
+      width: 9px
+      position: absolute
+      margin-top: 2px
+      margin-left: 2px
+      opacity: 0
+  input[type="checkbox"]
+    visibility: hidden
+    width: 0 !important
+    position: absolute
+    left: 0
+    top: 0
+    height: 0 !important
+    opacity: 0
+    &:checked
+      + label
+        &:hover
+          color: #7f7f7f
+        &:before
+          opacity: 1
+      + .mark
+        &:before
+          opacity: 0.5
+    + label
+      display: inline-block
+      position: relative
+      margin: 0 0
+      cursor: pointer
+      line-height: 1.2
+      font-size: 15px
+      font-weight: 400
+      color: #000
+      font:
+        weight: normal
+      &:hover
+        color: #7f7f7f
+      &:after
+        content: ""
+        display: block
+        position: absolute
+        left: -18px
+        width: 12px
+        height: 12px
+        top: 3px
+        border: 1px solid rgba(#000,0.5)
+      &:before
+        content: ""
+        display: block
+        position: absolute
+        width: 8px
+        height: 8px
+        left: -16px
+        top: 5px
+        opacity: 0
+        background: rgba(#000,0.5)

@@ -1,0 +1,131 @@
+.section-doctor
+  .article-doctor
+    padding-bottom: 40px
+  .header-doctor
+    +close
+    .close
+      top: 38px
+      right: 20px
+      z-index: 1
+    position: relative
+    padding:
+      left: $containerOuterSpace_mobile
+      right: $containerOuterSpace_mobile
+      top: 37px;
+    margin:
+      bottom: 24px;
+    min-height: 420px
+    background:
+      size: cover
+      position: 70%
+      // image: url(../../build/images/about/doctors/doctor-0.jpg)
+    &:after
+      content: ''
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
+      background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%)
+    .j-btn
+      z-index: 1
+      width: 244px
+    .heading
+      font-size: 24px
+      line-height: 1.2
+      width: 70%
+      padding-bottom: 26px
+    .link-list
+      .link_bordered_green
+        color: #000000
+        font-size: 18px
+        display: inline
+      .link-list-item
+        z-index: 1
+        position: relative
+        display: inline-block;
+        &_button
+          width: 100%
+          position: absolute
+          bottom: 30px
+          left: 0
+          text-align: center
+  .doctor-boigraphy
+    padding:
+      left: $containerOuterSpace_mobile
+      right: $containerOuterSpace_mobile
+   
+
+.section-doctor
+  +MQ(M)
+    
+    .header-doctor
+      min-height: 500px
+      .close 
+        width: 47px
+        height: 47px
+        
+      .close:before, .close:after
+        height: 57px
+        width: 1px
+        left: 20px
+      .heading
+        font-size: 48px   
+      .link-list
+        .link-list-item
+          font-size: 18px
+          &_button
+            position: static
+            width: auto
+            font-size: 16px
+          &:nth-child(1)
+            padding-right: 25px
+          .link_bordered_green
+            // &:after
+            //   background: rgba(22,214,144, .3);
+            // &:hover
+            //   &:after
+            //     background: $green
+            +rightHover()
+    .doctor-boigraphy
+      width: 90%
++MQ(L)
+  .wrapper
+    &.special
+      background:
+        size: cover
+        position: center 70px
+        // image: url(../../build/images/about/doctors/doctor-0.jpg)
+        attachment: fixed
+  .section-doctor
+    .header-doctor
+      min-height: 0
+      padding-top: 85px
+      padding:
+        left: 110px
+      .close
+        position: fixed
+        right: 45px
+        top: 160px
+        
+      &:after
+        content: none
+    .doctor-boigraphy
+      width: 50%
+      padding:
+        left: 110px
+    .article-doctor
+      padding:
+        bottom: 85px
++MQ(EXXL)
+  .section-doctor
+    // .header-doctor
+    //   padding:
+    //     left: 110px
+    //   .heading
+    //     width: 55%
+    // .doctor-boigraphy
+    //   width: 50%
+    //   padding:
+    //     left: 110px
+

@@ -1,0 +1,204 @@
+.thank-visiting 
+	position: absolute
+	display: block
+	margin-bottom: 15px
+	font-size: 14px
+	left: 50%
+	transform: translate(-50%,0)
+	text-align: center;
+footer:not(.article-footer)
+	height: 275px
+	padding: 40px 0 10px
+	.container
+		max-width: 1245px
+	.block-logo
+		text-align: center
+		.logo-group
+			display: none
+			max-width: 180px
+			width: 100%
+			position: relative
+			z-index: 10
+			font-size: 0.001px
+
+			.logo-img
+				width: 45px
+				display: inline-block
+				vertical-align: middle
+				margin-right: -45px
+				img
+					width: 100%
+			.logo-text
+				width: 100%
+				display: inline-block
+				vertical-align: middle
+				padding-top: 10px
+				padding-left: 45px
+				text-align: left
+				font-family: $bold-font
+				font-size: 1.8rem
+				color: #000
+				
+
+		.j-btn
+			margin: 0 0 25px
+	.block-nav
+		ul
+			margin-bottom: 20px
+			li
+				display: none
+				text-align: center
+				&.contact-link
+					display: block
+					.link
+						color: #000
+						font-family: $bold-font
+	.block-contacts
+		display: none
+	.block-copy
+		text-align: center
+		.social
+			display: inline-block
+			margin-bottom: 20px
+		.copyright
+			text-align: center
+			font-size: 1.4rem
+			color: rgba(0,0,0,.5)
+			a
+				display: block
+				margin-top: 5px
+			[class^='icon-']
+				font-size: 1.2rem
+
+				
+
++MQ(M)
+	footer:not(.article-footer)
+		height: 185px
+		.block-logo
+			text-align: left
+			display: inline-block
+			vertical-align: middle
+			.logo-group
+				display: inline-block
+				vertical-align: middle
+			.j-btn
+				margin: 0 20px
+		.block-nav
+			display: inline-block
+			vertical-align: middle
+			margin: 0
+			ul
+				margin: 0
+		.block-copy
+			display: inline-block
+			vertical-align: middle
+			.social
+				margin: 0 20px
+			.copyright
+				position: absolute
+				left: 40px
+				bottom: -76px
+				text-align: left
+
+
+
+@media (min-width: 900px)
+	footer:not(.article-footer)
+		height: 135px
+		.block-copy
+			.social
+				display: inline-block
+				vertical-align: middle
+			.copyright
+				position: static
+				display: inline-block
+				vertical-align: middle
+
+@media (min-width: 1046px)
+	footer:not(.article-footer)
+		height: 295px
+		&:after
+			margin-top: -15px;		
+		.footer_row
+			margin: 0 -20px
+			font-size: 0.001px
+			> div
+				display: inline-block
+				vertical-align: top
+				padding: 0 20px
+			> div:not(:first-child)
+				padding-top: 27px
+			.block-logo
+				.logo-group
+					display: block
+					margin-bottom: 25px
+				.j-btn
+					margin: 22px 0 0
+			.block-nav
+				ul
+					padding-right: 10px
+					li
+						display: block
+						text-align: left
+						margin-bottom: 13px
+						.link
+							color: #000
+							font-size: 1.6rem
+							font-family: $primary-font
+			.block-contacts
+				padding-top: 20px
+				display: inline-block
+				font-size: 0.001px
+				max-width: 430px
+				width: 100%
+				li
+					max-width: 225px
+					width: 100%
+					display: inline-block
+					vertical-align: top
+					padding: 0 15px
+					font-family: $bold-font
+					font-size: 1.8rem
+					margin-bottom: 30px
+					&:nth-child(2n+1)
+						max-width: 205px
+					ul
+						padding-top: 10px
+						li
+							display: block
+							padding: 0
+							font-family: $primary-font
+							color: rgba(0,0,0,.7)
+							font-size: 1.6rem
+							line-height: 1.4
+							margin-bottom: 0
+			.block-copy
+				text-align: left
+				.social
+					display: inline-block
+					margin: 0 0 60px
+					> li
+						a
+							span
+								font-size: 3.3rem
+				.copyright
+					display: block
+					text-align: left
+					font-size: 1.4rem
+					color: #000
+
+@media (min-width: 1210px)
+	footer:not(.article-footer)	
+		.footer_row
+			margin: 0 -41px
+			> div
+				padding: 0 41px
+			.block-contacts
+				max-width: 510px
+				li
+					max-width: 265px
+					padding: 0 35px
+					&:nth-child(2n+1)
+						max-width: 245px
+						

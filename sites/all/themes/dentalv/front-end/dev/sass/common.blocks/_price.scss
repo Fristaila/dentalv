@@ -1,0 +1,157 @@
+.section-price {
+    min-height: 100vh;
+    .article-price {
+        padding-bottom: 30px;
+    }
+    padding-top: 37px;
+    @include MQ(M) {
+        padding-top: 56px;
+    }
+    h1 {
+        padding-bottom: 30px;
+        text-align: center;
+        @include MQ(EXXL) {
+            font-size: 72px;
+            padding-bottom: 25px;
+        }
+    }
+    .container {
+        width: 1060px;
+        max-width: 100%;
+        padding: {
+            left: $containerOuterSpace_mobile;
+            right: $containerOuterSpace_mobile;
+        }
+        @include MQ(SM) {
+            padding: {
+                left: $containerOuterSpace;
+                right: $containerOuterSpace;
+            }
+        }
+    }
+    .subheading {
+        font-size: 18px;
+        font-family: $primary-font;
+        text-align: center;
+        padding-bottom: 30px;
+    }
+    .form-group_search {
+        position: relative;
+        .icon-search {
+            font-size: 32px;
+            color: $green;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            margin-top: -16px;
+        }
+        .form-controls input {
+            &:focus {
+                border-color: #000000;
+            }
+            padding-right: 62px;
+        }
+    }
+    .form-search {
+        padding-bottom: 40px;
+    }
+    .service-list {
+        .item-inner {
+            padding: {
+                left: $containerOuterSpace_mobile;
+                right: $containerOuterSpace_mobile;
+            }
+        }
+        .service-item {
+            padding: {
+                bottom: 20px;
+                top: 25px;
+            }
+            &:nth-child(2n) {
+                background-color: #ebebeb;
+            }
+            mark {
+                background-color: #fff568;
+                padding: {
+                    top: 5px;
+                }
+            }
+        }
+        .item-name,
+        .item-price {
+            width: 100%;
+            font-family: $bold-font;
+            display: block;
+        }
+        .item-name {
+            font-size: 18px;
+            padding-bottom: 5px;
+        }
+        .item-price {
+            font-size: 24px;
+            color: $green;
+        }
+    }
+}
+
+.section-price {
+    @include MQ(M) {
+        .form-search {
+            width: 376px;
+            margin: 0 auto;
+        }
+    }
+    @include MQ(EXM) {
+        min-height: 100vh; 
+        .service-list {
+            .service-item{
+                &:nth-child(2n){
+                    background: #ffffff;
+                }
+                // transition: $transition_options;
+                &:hover{
+                    background: #000000;
+                    cursor: pointer;
+                    .item-name, .item-price{
+                        color: #ffffff;
+                    }
+                }
+            }
+            .item-inner {
+                font-size: 0;
+                max-width: 800px;
+                margin: 0 auto;
+            }
+            .item-name {
+                position: relative;
+                width: 80%;
+                overflow: hidden;
+                &:after {
+                    content: "";
+                    display: inline-block;
+                    height: 0.5em;
+                    vertical-align: bottom;
+                    width: 100%;
+                    margin-right: -100%;
+                    margin-left: 10px;
+                    border-top: 1px solid $green;
+                }
+            }
+            .item-name,
+            .item-price {
+                display: inline-block;
+                vertical-align: bottom;
+            }
+            .item-price {
+                width: 20%;
+                padding-left: 10px;
+                color: #000000;
+                font-size: 18px;
+                padding-bottom: 5px;
+            }
+        }
+
+    }
+    @include MQ(L) {
+    }
+}

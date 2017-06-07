@@ -1,0 +1,80 @@
+.collapse.in {
+  display: block;
+}
+
+.collapse {
+  display: none;
+}
+
+.panel-group {
+  &.green {
+    .panel-default {
+      border-bottom: 1px solid #2c992a;
+      &:last-child {
+        border-bottom: none;
+      }
+      .panel-heading {
+        .panel-title {
+          > a {
+            padding: 16px 40px 16px 18px;
+
+            text-transform: uppercase;
+
+            color: #fff;
+            &:after {
+              font-size: 20px;
+
+              position: absolute;
+              right: 18px;
+
+              display: block;
+
+              content: '\e145';
+
+              @include icomoon;
+              @include center(y);
+            }
+            &:not(.collapsed) {
+              &:after {
+                content: '\e15b';
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .panel-default {
+    .panel-heading {
+      .panel-title {
+        > a {
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 1.2;
+
+          position: relative;
+
+          display: inline-block;
+
+          width: 100%;
+          padding: 12px 40px 12px 18px;
+
+          transition: all .3s ease 0s;
+          text-decoration: none;
+
+          color: #504f4f;
+          &:not(.collapsed) {
+            &:after {
+              content: '\f106';
+            }
+          }
+        }
+      }
+    }
+    .panel-collapse {
+      .panel-body {
+        padding: 0 18px;
+      }
+    }
+  }
+}

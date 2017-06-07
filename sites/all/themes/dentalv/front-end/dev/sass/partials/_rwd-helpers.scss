@@ -1,0 +1,16 @@
+@include MQ(L){
+	.hide-for-large{display:none!important}
+}
+@include MQ(EXM){
+	.hide-from-medium{display:none!important}
+}
+
+@include MQ(M){
+	.hide-from-768{display:none!important}
+}
+
+
+@media (max-width: 768px){
+  .hide-for-small{display: none !important}
+}
+
