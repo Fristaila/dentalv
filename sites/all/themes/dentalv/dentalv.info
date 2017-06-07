@@ -27,17 +27,17 @@ base theme = zurb_foundation
 ; CSS3 media queries: http://www.w3.org/TR/css3-mediaqueries/
 
 ; For CSS users, load the STARTER.css file:
-stylesheets[all][] = css/STARTER.css
+;stylesheets[all][] = css/STARTER.css
 
 ; Block loading of foundation.min.css from the base theme. This file should either
 ; not exist or be blank in your subtheme. See https://drupal.org/node/263967
-stylesheets[all][] = css/normalize.css
-stylesheets[all][] = css/foundation.min.css
+;stylesheets[all][] = css/normalize.css
+;stylesheets[all][] = css/foundation.min.css
 
-stylesheets[all][] = css/custom.css
+;stylesheets[all][] = css/custom.css
 ;stylesheets[all][] = css/bundle.css
-stylesheets[all][] = css/dentalv_2.css
-stylesheets[all][] = css/style.css
+;stylesheets[all][] = css/dentalv_2.css
+;stylesheets[all][] = css/style.css
 
 
 
