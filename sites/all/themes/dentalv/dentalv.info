@@ -39,6 +39,8 @@ base theme = zurb_foundation
 ;stylesheets[all][] = css/dentalv_2.css
 ;stylesheets[all][] = css/style.css
 
+stylesheets[all][] = front-end/stylesheets/bundle.css
+stylesheets[all][] = front-end/stylesheets/bundle-iryna.css
 
 
 ; Foundation JavaScript.
