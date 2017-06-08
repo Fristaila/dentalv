@@ -50,7 +50,6 @@ $wf_id = variable_get('wf_id');
       print $edited_logo; ?>
       <div class="logo-text"><?php print $site_name; ?></div>
     </a>
-    <a href="/ru" class="active"><img class="logo" typeof="foaf:Image" src="http://dentalv.loc/sites/default/files/v-logo.png" alt="Клиника Войнаровских" title="Клиника Войнаровских" /></a>
     <nav class="header-menu">
       <?php if ($main_menu): ?>
         <?php print render($main_menu); ?>
