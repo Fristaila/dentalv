@@ -48,5 +48,7 @@ Thumbs.db
 .vscode
 sites/all/themes/dentalv/front-end/stylesheets/*
 sites/all/themes/dentalv/front-end/node_modules/*
+.yarn-integrity
+sites/all/themes/dentalv/front-end/gulpfile.js
 changes.html
 sites/all/translations/*
