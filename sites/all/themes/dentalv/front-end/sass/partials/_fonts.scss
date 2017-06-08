@@ -1,23 +1,23 @@
 @font-face {
   font-family: 'Museo Sans';
-  src: url('../fonts/museo/MuseoSansCyrl-300.eot');
-  src: local('../fonts/museo/Museo Sans Cyrl 300'), local('MuseoSansCyrl-300'),
-  url('../fonts/museo/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/museo/MuseoSansCyrl-300.woff2') format('woff2'),
-  url('../fonts/museo/MuseoSansCyrl-300.woff') format('woff'),
-  url('../fonts/museo/MuseoSansCyrl-300.ttf') format('truetype');
+  src: url('/sites/all/themes/dentalv/fonts/museo/MuseoSansCyrl-300.eot');
+  src: local('/sites/all/themes/dentalv/fonts/museo/Museo Sans Cyrl 300'), local('MuseoSansCyrl-300'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoSansCyrl-300.eot?#iefix') format('embedded-opentype'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoSansCyrl-300.woff2') format('woff2'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoSansCyrl-300.woff') format('woff'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoSansCyrl-300.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Museo Cyrl';
-  src: url('../fonts/museo/MuseoCyrillic-700.eot');
-  src: local('../fonts/museo/Museo Cyrillic 700'), local('MuseoCyrillic-700'),
-  url('../fonts/museo/MuseoCyrillic-700.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/museo/MuseoCyrillic-700.woff2') format('woff2'),
-  url('../fonts/museo/MuseoCyrillic-700.woff') format('woff'),
-  url('../fonts/museo/MuseoCyrillic-700.ttf') format('truetype');
+  src: url('/sites/all/themes/dentalv/fonts/museo/MuseoCyrillic-700.eot');
+  src: local('/sites/all/themes/dentalv/fonts/museo/Museo Cyrillic 700'), local('MuseoCyrillic-700'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoCyrillic-700.eot?#iefix') format('embedded-opentype'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoCyrillic-700.woff2') format('woff2'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoCyrillic-700.woff') format('woff'),
+  url('/sites/all/themes/dentalv/fonts/museo/MuseoCyrillic-700.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }

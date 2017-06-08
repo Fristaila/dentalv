@@ -24,8 +24,8 @@ var gulp = require('gulp'),
 
 var prName = pkg.name,
   WATCHING_CSS = [
-    'dev/sass/**/*',
-    'dev/sass/*'],
+    'sass/**/*',
+    'sass/*'],
   OUTPUT_CSS = 'stylesheets/';
 
 var WATCHING_JS = ['dev/javascript/*', 'dev/javascript/**/*'];
@@ -42,29 +42,29 @@ var sassOptions = {
     browsers: ['last 2 versions', '> 5%', 'Firefox ESR']
   };
 
-gulp.task('copy_fonts', function () {
-	return gulp
-		.src(['dev/fonts/*', 'dev/fonts/*/*', 'dev/fonts/*/*/*'])
-		.pipe(gulp.dest('build/fonts/'))
-});
-
-gulp.task('copy_icons', function () {
-	return gulp
-		.src(['dev/icons/*', 'dev/icons/*/*', 'dev/icons/*/*/*'])
-		.pipe(gulp.dest('build/icons/'))
-});
-
-gulp.task('copy_fav', function () {
-	return gulp
-		.src(['dev/icons/favicon/*'])
-		.pipe(gulp.dest('build/html/'))
-});
-
-gulp.task('copy_images', function () {
-	return gulp
-		.src(['dev/images/*', 'dev/images/*/*', 'dev/images/*/*/*'])
-		.pipe(gulp.dest('build/images/'))
-});
+// gulp.task('copy_fonts', function () {
+// 	return gulp
+// 		.src(['dev/fonts/*', 'dev/fonts/*/*', 'dev/fonts/*/*/*'])
+// 		.pipe(gulp.dest('build/fonts/'))
+// });
+//
+// gulp.task('copy_icons', function () {
+// 	return gulp
+// 		.src(['dev/icons/*', 'dev/icons/*/*', 'dev/icons/*/*/*'])
+// 		.pipe(gulp.dest('build/icons/'))
+// });
+//
+// gulp.task('copy_fav', function () {
+// 	return gulp
+// 		.src(['dev/icons/favicon/*'])
+// 		.pipe(gulp.dest('build/html/'))
+// });
+//
+// gulp.task('copy_images', function () {
+// 	return gulp
+// 		.src(['dev/images/*', 'dev/images/*/*', 'dev/images/*/*/*'])
+// 		.pipe(gulp.dest('build/images/'))
+// });
 
 gulp.task('copy', ['copy_fonts', 'copy_icons', 'copy_images', 'copy_fav']);
 
@@ -76,7 +76,7 @@ gulp.task('html_build', function() {
 
 gulp.task('sass', function () {
   return gulp
-    .src('dev/sass/constructor.*')
+    .src('sass/constructor.*')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
