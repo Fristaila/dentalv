@@ -12,48 +12,23 @@
 	z-index: 12
 	&.header_inner
 		.menu-logo
-			position: absolute
-			top: 0
-			right: 20px
-			bottom: 0
-			max-width: 145px
-			width: 100%
-			background: transparent
-			text-align: left
-			z-index: 11
-			+vertical
-			> img
-				display: none
-				width: 100%
-				height: 100%
-				position: absolute
-				top: 0
-				left: 0
-				transition: all .3s ease
-		.block-logo
+			display: inline-block
+		.logo
+			display: inline-block
+			vertical-align: middle
+			margin-right: -35px
+			width: 35px
+		.logo-text
 			max-width: 150px
 			width: 100%
 			display: inline-block
-			position: relative
-			z-index: 11
-			font-size: 0.001px
-			.logo-img
-				width: 35px
-				display: inline-block
-				vertical-align: middle
-				margin-right: -35px
-				img
-					width: 100%
-			.logo-text
-				width: 100%
-				display: inline-block
-				vertical-align: middle
-				padding-top: 10px
-				padding-left: 35px
-				text-align: left
-				font-family: $bold-font
-				font-size: 1.5rem
-				color: #000
+			vertical-align: middle
+			padding-top: 10px
+			padding-left: 35px
+			text-align: left
+			font-family: $bold-font
+			font-size: 1.5rem
+			color: #000
 		.phone
 			display: none
 
@@ -84,9 +59,11 @@ body
 				transition: background .3s ease
 				.phone_icon
 					display: none
-			.menu-logo
+			.logo
 				display: none
-			.header-menu.menu
+			.logo-text
+				display: none
+			.header-menu
 				display: block
 				margin-bottom: 30px
 			.link
@@ -172,12 +149,12 @@ body
 			font-size: 2rem
 			color: $green
 			margin-left: 30px
-	.header-menu.menu
+	.header-menu
 		display: none
 		li
 			display: block
 			padding: 7px 0
-			.leaf
+			.link
 				display: inline-block
 				font-family: $bold-font
 				font-size: 3rem
@@ -215,7 +192,7 @@ body
 @media (max-height: 320px)
 	body.opened-menu
 		.header
-			.main-nav
+			.menu
 				margin-bottom: 15px
 				li
 					.link
@@ -227,7 +204,7 @@ body
 @media (max-height: 480px)
 	body.opened-menu
 		.header
-			.main-nav
+			.menu
 				margin-bottom: 15px
 				li
 					.link
@@ -267,7 +244,10 @@ body
 	.header
 		.burger
 			display: none
-		.main-nav
+		.header-menu
+			display: inline-block
+			vertical-align: middle
+		.menu
 			display: inline-block
 			margin: 0 -10px
 			li
@@ -311,7 +291,7 @@ body
 				height: auto
 				padding: 60px 20px 0
 				text-align: right
-			.main-nav
+			.menu
 				height: 30px
 				vertical-align: top
 				+vertical
@@ -339,12 +319,13 @@ body
 				&:hover
 					> img
 						display: block
-					.block-logo
+					.logo
 						display: none
-			.block-logo
+					.logo-text
+						display: none
 				.logo-text
 					color: #fff
-			.main-nav
+			.menu
 				vertical-align: middle
 				li
 					.link
@@ -376,7 +357,7 @@ body
 @media (max-width: 860px)
 	.header
 		&.header_main
-			.main-nav
+			.menu
 				&__btn
 					margin-left: 30px
 					margin-right: 0
@@ -385,7 +366,7 @@ body
 
 +MQ(L)
 	.header
-		.main-nav
+		.menu
 			margin: 0 -20px
 			li
 				padding: 0 15px
@@ -397,7 +378,7 @@ body
 				padding-right: 104px
 			.menu-logo
 				max-width: 220px
-			.main-nav
+			.menu
 				&__btn
 					vertical-align: middle
 					margin-right: 0
@@ -411,7 +392,7 @@ body
 	.header
 		&.header_inner
 			.main-menu
-				.main-nav
+				.menu
 					&__btn
 						display: inline-block
 
