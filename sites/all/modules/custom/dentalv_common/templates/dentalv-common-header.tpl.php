@@ -44,10 +44,13 @@ $wf_id = variable_get('wf_id');
   <div class="main-menu">
     <a href="tel:+38 048 725-33-55" class="phone_icon"><span class="icon-phone"></span></a>
     <a href="<?php print url('<front>'); ?>" id="logo" class="menu-logo">
-      <?php print $logo; ?>
+      <?php
+      $pos = strpos($logo, '>') + 1;
+      $edited_logo = substr($logo, $pos, -4);
+      print $edited_logo; ?>
       <div class="logo-text"><?php print $site_name; ?></div>
     </a>
-
+    <a href="/ru" class="active"><img class="logo" typeof="foaf:Image" src="http://dentalv.loc/sites/default/files/v-logo.png" alt="Клиника Войнаровских" title="Клиника Войнаровских" /></a>
     <nav class="header-menu">
       <?php if ($main_menu): ?>
         <?php print render($main_menu); ?>
