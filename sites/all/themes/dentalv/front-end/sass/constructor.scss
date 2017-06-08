@@ -32,12 +32,12 @@
 //@import 'common.blocks/articles';
 //@import 'common.blocks/reviews';
 //
-@import 'containers/header';
+// @import 'containers/header';
 //@import 'containers/footer';
 //@import 'containers/home';
 //@import 'containers/main.page';
 @import 'containers/about.page';
-//@import 'containers/doctor.page';
+@import 'containers/doctor.page';
 //@import 'containers/services.page';
 //@import 'containers/services.inner';
 //@import 'containers/reviews.page';
@@ -54,8 +54,8 @@
 @import 'common.blocks/doctor-who-list';
 //@import 'common.blocks/comment-modal';
 //@import 'common.blocks/thanx-modal';
-//@import 'common.blocks/contacts.page';
-//@import 'common.blocks/price';
+@import 'common.blocks/contacts.page';
+@import 'common.blocks/price';
 //@import 'common.blocks/news-inner.page';
 //@import 'common.blocks/gallery';
 

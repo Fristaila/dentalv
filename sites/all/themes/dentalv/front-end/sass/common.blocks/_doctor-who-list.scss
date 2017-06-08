@@ -1,7 +1,15 @@
 .doctor-who-list{
     padding-bottom: 30px;
-    li{
-        list-style-type: none;
+    > .form-item{
+        width: 100%;
+    }
+    .form-radios{
+        font-size: 0;
+    }
+    .form-type-radio{
+        .form-radio{
+            display: none;
+        }
         padding-bottom: 30px;
         &:last-child{
             padding-bottom: 0;
@@ -27,6 +35,7 @@
         position: relative;
         img{
             width: 100%;
+            height: auto;
         }
         border: 3px solid #ffffff;
         transition: all .01s ease;
@@ -85,7 +94,7 @@
         }
         .doctor-who-list{
             font-size: 0;
-            li{
+            .form-type-radio{
                 width: 50%;
                 display: inline-block;
                 vertical-align: middle;

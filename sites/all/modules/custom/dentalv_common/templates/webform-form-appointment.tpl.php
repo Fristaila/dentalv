@@ -34,18 +34,18 @@ $form['actions']['submit']['#attributes']['name'][] = t('send');
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Make an appointment'); ?></h3>
           <div class="input-goup">
-            <div class="form-group">
-              <label for="name" class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['what_is_your_name']); ?></div>
-            </div>
-            <div class="form-group">
+          
+              <label for="edit-submitted-what-is-your-name" class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
+              <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
+          
+           
               <label for="phone" class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['phone']); ?></div>
-            </div>
-            <div class="form-group">
+              <?php print drupal_render($form['submitted']['phone']); ?>
+          
+           
               <label for="email" class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['email']); ?></div>
-            </div>
+              <?php print drupal_render($form['submitted']['email']); ?>
+         
           </div>
           <div class="doctor-who-divider">
             <p><?php print $form['choosen_doctors']['#title']; ?></p>
