@@ -24,8 +24,8 @@ var gulp = require('gulp'),
 
 var prName = pkg.name,
   WATCHING_CSS = [
-    'dev/sass/**/*',
-    'dev/sass/*'],
+    'sass/**/*',
+    'sass/*'],
   OUTPUT_CSS = './stylesheets/';
 
 var WATCHING_JS = ['dev/javascript/*', 'dev/javascript/**/*'];
