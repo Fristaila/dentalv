@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * Add few classes to  language switcher block.
+ */
+
+function z_custom_language_switch_links_alter(array &$links, $type, $path) {
+  $languages = language_list('enabled');
+
+  foreach ($languages[1] as $language) {
+    $links[$language->language]['attributes']['class'][] = 'link';
+    $links[$language->language]['attributes']['class'][] = 'link_white';
+  }
+}
