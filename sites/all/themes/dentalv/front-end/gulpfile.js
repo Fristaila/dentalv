@@ -26,7 +26,7 @@ var prName = pkg.name,
   WATCHING_CSS = [
     'dev/sass/**/*',
     'dev/sass/*'],
-  OUTPUT_CSS = 'stylesheets/';
+  OUTPUT_CSS = './stylesheets/';
 
 var WATCHING_JS = ['dev/javascript/*', 'dev/javascript/**/*'];
 
@@ -76,11 +76,11 @@ gulp.task('html_build', function() {
 
 gulp.task('sass', function () {
   return gulp
-    .src('dev/sass/constructor.*')
+    .src('./sass/constructor.*')
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(rename('bundle.css'))
+    .pipe(rename('bundle-v.css'))
 		.pipe(sourcemaps.write())
     .pipe(gulp.dest(OUTPUT_CSS))
     .resume();
@@ -99,7 +99,7 @@ gulp.task('css_concat', function () {
     .resume();
 });
 
-gulp.task('watch', function () {
+gulp.task('watch', ['sass'], function () {
   gulp.watch(WATCHING_CSS, ['sass'])
     .on('change', function (event) {
       console.log('Style file ' + event.path + ' was ' + event.type + ', running tasks...');
@@ -130,4 +130,4 @@ gulp.task('scripts', function() {
 
 gulp.task('default', ['develop']);
 
-gulp.task('develop', ['sass', 'css_concat', 'watch']);
+gulp.task('develop', ['sass', 'css_concat', 'watch' ]);
