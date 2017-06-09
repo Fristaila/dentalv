@@ -30,11 +30,7 @@ const $html =  $('html');
 //cache header
 const $header = $body.find(".header_inner");
 
-//cache doctors
-const $doctorAbout = $body.find(".section-doctor");
-const $mobileBgHolder = $doctorAbout.find(".header-doctor");
-const $desctopBgHolder = $body.find(".wrapper.special");
-const $currentBgImage = $mobileBgHolder.css("background-image");
+
 
 //cache videos
 const $videoAboutWrap = $body.find(".video-about");
@@ -108,10 +104,29 @@ const App = (() => {
 		require("./about-slider.module");
 
 
+  };
+
+
+	const switchToMobile = () => {
+		console.log('switched to mobile');
+	};
+
+	const switchToDesktop = () => {
+		console.log('switched to desktop');
+
+	};
+	const setDefaultListeners = () => {
+		$window.on('load', function () {
+//cache doctors
+const $doctorAbout = $('body').find(".section-doctor");
+const $mobileBgHolder = $doctorAbout.find(".header-doctor");
+const $desctopBgHolder = $('body').find(".wrapper.special");
+const $currentBgImage = $mobileBgHolder.css("background-image");
+console.log($doctorAbout);
 		//full bg stuff
 		if($doctorAbout.length > 0){
-			const $mobileBgHolder = $doctorAbout.find(".header-doctor");
-			const $desktopBgHolder = $body.find(".wrapper.special");
+			const $mobileBgHolder = $('.section-doctor').find(".header-doctor");
+			const $desktopBgHolder = $('body').find(".wrapper.special");
 			const $currentBgImage = $mobileBgHolder.css("background-image");
 
 
@@ -132,19 +147,8 @@ const App = (() => {
 
 		}
 
-  };
 
 
-	const switchToMobile = () => {
-		console.log('switched to mobile');
-	};
-
-	const switchToDesktop = () => {
-		console.log('switched to desktop');
-
-	};
-	const setDefaultListeners = () => {
-		$window.on('load', function () {
 		})
 	};
 
