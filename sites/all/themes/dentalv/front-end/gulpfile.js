@@ -15,22 +15,20 @@ var gulp = require('gulp'),
   babel = require('gulp-babel'),
   rigger = require('gulp-rigger'),
   browserify = require('browserify'),
-
-//const browserify = require('browserify');
- buffer = require('vinyl-buffer'),
- path = require('path'),
- source = require('vinyl-source-stream'),
- babelify = require('babelify');
+	buffer = require('vinyl-buffer'),
+	path = require('path'),
+	source = require('vinyl-source-stream'),
+	babelify = require('babelify');
 
 var prName = pkg.name,
   WATCHING_CSS = [
     'sass/**/*',
     'sass/*'],
-  OUTPUT_CSS = 'stylesheets/';
+  OUTPUT_CSS = '../css/';
 
-var WATCHING_JS = ['dev/javascript/*', 'dev/javascript/**/*'];
+var WATCHING_JS = ['javascript/*', 'javascript/**/*'];
 
-var WATCHING_HTML = ['dev/*.html', 'dev/template/*', 'dev/template/**/*'];
+// var WATCHING_HTML = ['dev/*.html', 'dev/template/*', 'dev/template/**/*'];
 
 var COMPONENTS_CSS_LIST = [];
 
@@ -66,13 +64,13 @@ var sassOptions = {
 // 		.pipe(gulp.dest('build/images/'))
 // });
 
-gulp.task('copy', ['copy_fonts', 'copy_icons', 'copy_images', 'copy_fav']);
+// gulp.task('copy', ['copy_fonts', 'copy_icons', 'copy_images', 'copy_fav']);
 
-gulp.task('html_build', function() {
-	gulp.src('dev/*.html')
-		.pipe(rigger())
-		.pipe(gulp.dest('build/html/'))
-});
+// gulp.task('html_build', function() {
+// 	gulp.src('dev/*.html')
+// 		.pipe(rigger())
+// 		.pipe(gulp.dest('build/html/'))
+// });
 
 gulp.task('sass', function () {
   return gulp
@@ -110,12 +108,12 @@ gulp.task('watch', ['sass'], function () {
 //			console.log('Html file ' + event.path + ' was ' + event.type + ', running tasks...');
 //		});
 //
-//  gulp.watch(WATCHING_JS, ['scripts']);
+  gulp.watch(WATCHING_JS, ['scripts']);
 });
 
 gulp.task('scripts', function() {
     // Single entry point to browserify 
-   return browserify(["./dev/javascript/entry.js"])
+   return browserify(["javascript/entry.js"])
         .transform(babelify.configure())
         .bundle()
         // .pipe(source('bundle-brow.js'))
@@ -124,10 +122,10 @@ gulp.task('scripts', function() {
         // .pipe(uglify())
         .pipe(rename("dental.min.js"))
         // .pipe(gulp.dest("./themes/" + prName + "/js/dist/"));
-        .pipe(gulp.dest("./build/javascript/"));
+        .pipe(gulp.dest("../js/"));
         // .pipe(fs.createWriteStream("./themes/" + prName + "/js/dist/output.js"));
 });
 
 gulp.task('default', ['develop']);
 
-gulp.task('develop', ['sass', 'css_concat', 'watch' ]);
+gulp.task('develop', ['scripts', 'sass', 'css_concat', 'watch' ]);

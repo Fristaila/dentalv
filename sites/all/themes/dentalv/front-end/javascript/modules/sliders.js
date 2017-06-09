@@ -2,15 +2,6 @@ import $ from 'jquery';
 
 import "../bower_components/slick-carousel/slick/slick";
 
-
-
-
-
-
-
-
-
-
 export function mainSlider() {
 	$('.about-slider').slick({
 
