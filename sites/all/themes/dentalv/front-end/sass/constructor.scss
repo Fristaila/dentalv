@@ -30,12 +30,11 @@
 @import 'common.blocks/team-member';
 @import 'common.blocks/vacancy-item';
 //@import 'common.blocks/articles';
-//@import 'common.blocks/reviews';
-//
+@import 'common.blocks/reviews';
+
 @import 'containers/header';
 @import 'containers/footer';
-//@import 'containers/home';
-//@import 'containers/main.page';
+@import 'containers/main.page';
 @import 'containers/about.page';
 //@import 'containers/doctor.page';
 //@import 'containers/services.page';
@@ -45,12 +44,12 @@
 //@import 'containers/error.page';
 //
 @import 'containers/main';
-//
-//@import 'js_components/slick';
-//@import 'js_components/ytplayer';
+
+@import 'js_components/slick';
+@import 'js_components/ytplayer';
 //@import 'js_components/tabs';
-//@import 'js_components/player';
-//
+@import 'js_components/player';
+
 @import 'common.blocks/doctor-who-list';
 //@import 'common.blocks/comment-modal';
 //@import 'common.blocks/thanx-modal';
