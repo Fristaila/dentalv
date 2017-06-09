@@ -111,9 +111,8 @@ const App = (() => {
 		//full bg stuff
 		if($doctorAbout.length > 0){
 			const $mobileBgHolder = $doctorAbout.find(".header-doctor");
-			const $desktopBgHolder = $body.find(".wrapper.special");
+			const $desctopBgHolder = $body.find(".wrapper.special");
 			const $currentBgImage = $mobileBgHolder.css("background-image");
-
 
 			let width = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
@@ -123,17 +122,15 @@ const App = (() => {
 
 			function swopBgHolders() {
 					let bg = $currentBgImage;
-					$desktopBgHolder.css({
+					$desctopBgHolder.css({
 							"background-image": bg
 					});
 					$mobileBgHolder.css("background-image", "none");
 			}
 
-
 		}
 
   };
-
 
 	const switchToMobile = () => {
 		console.log('switched to mobile');
@@ -143,10 +140,7 @@ const App = (() => {
 		console.log('switched to desktop');
 
 	};
-	const setDefaultListeners = () => {
-		$window.on('load', function () {
-		})
-	};
+
 
 	//
 	// const handleResize = () => {

@@ -7,7 +7,10 @@ $data_block = variable_get('block_id');
       <div class="block-logo">
         <a href="/" class="logo-group">
           <div class="logo-img">
-            <?php print $logo; ?>
+						<?php
+						$pos = strpos($logo, '>') + 1;
+						$edited_logo = substr($logo, $pos, -4);
+						print $edited_logo; ?>
           </div>
           <div class="logo-text">
             <span><?php print $site_name; ?></span>
@@ -51,9 +54,8 @@ $data_block = variable_get('block_id');
 
     </div>
   </div>
-
+	<div class="thank-visiting">
+      <?php print t('Thank you for visiting our website'); ?>
+	</div>
 </footer>
-<div class="thank-visiting">
-  <?php print t('Thank you for visiting our website'); ?>
-</div>
 
