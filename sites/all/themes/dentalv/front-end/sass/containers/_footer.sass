@@ -70,6 +70,10 @@ footer:not(.article-footer)
 		left: 50%
 		transform: translate(-50%,0)
 		text-align: center
+	.link
+		&_bordered
+			&_white
+				+link-underline(#fff, rgba(22, 214, 144, 1),  rgba(22, 214, 144, .3), $green)
 
 +MQ(M)
 	footer:not(.article-footer)

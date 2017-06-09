@@ -40,15 +40,14 @@
 @import 'containers/doctor.page';
 //@import 'containers/services.page';
 @import 'containers/services.inner';
-//@import 'containers/reviews.page';
+@import 'containers/reviews.page';
 @import 'containers/news.page';
-//@import 'containers/error.page';
-//
+@import 'containers/error.page';
 @import 'containers/main';
 
 @import 'js_components/slick';
 @import 'js_components/ytplayer';
-//@import 'js_components/tabs';
+@import 'js_components/tabs';
 @import 'js_components/player';
 
 @import 'common.blocks/doctor-who-list';
