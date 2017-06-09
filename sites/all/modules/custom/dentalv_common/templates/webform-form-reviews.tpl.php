@@ -58,9 +58,10 @@ if (isset($GLOBALS['user']->name)){
               </div>
             </div>
             <div class="form-group form-group-special">
-              <div class="author__info">
-                <span class="name"><?php print $u_name; ?></span>
-              </div>
+                <label for="name" class="controls-label">Как вас зовут</label>
+                <div class="form-controls">
+                  <input value="<?php print $u_name; ?>" id="name" type="text">
+                </div>
             </div>
           </div>
 
@@ -68,10 +69,10 @@ if (isset($GLOBALS['user']->name)){
             <!--form-group with class success or error give us needed border effect -->
             <!--if authorization complite change next block class from auth-false to auth-true-->
 
-            <div class="form-group">
+       
               <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['reviews']['#title']; ?></label>
-              <div  class="form-controls"><?php print drupal_render($form['submitted']['reviews']); ?></div>
-            </div>
+              <?php print drupal_render($form['submitted']['reviews']); ?>
+      
           </div>
 
           <!--add success class to the next doctor-who-divider after inputs

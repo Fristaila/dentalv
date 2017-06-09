@@ -15,9 +15,10 @@
 <?php foreach ($rows as $id => $row): ?>
 <li>
   <div class="article">
-    <a href="/build/html/news-inner.html" class="article__img">
-      <?php print drupal_render($view->result{$id}->field_field_photo[0]['rendered']); ?>
-    </a>
+<?php
+$img_formated = drupal_render($view->result{$id}->field_field_photo[0]['rendered']);
+$rest = '<a class="article__img"' . substr($img_formated, 2);
+print $rest; ?>
     <div class="article__group clearfix">
       <div class="article__date">
         <span class="text"><?php print format_date($view->result{$id}->_field_data['nid']['entity']->created,'custom','j F, Y',null,$GLOBALS['language_url']->language); ?></span>
@@ -30,7 +31,7 @@
     <div class="article__preview">
       <?php print l($view->result{$id}->node_title ,$view->result{$id}->_field_data['nid']['entity_type'].'/'.
         $view->result{$id}->nid, array('attributes' => array('class' => array('h5 link link_bordered_green')))); ?>
-      <p><?php print $view->result{$id}->field_field_body_parag[0]['rendered']['#markup']; ?></p>
+      <?php print $view->result{$id}->field_field_body_parag[0]['rendered']['#markup']; ?>
     </div>
   </div>
 </li>

@@ -35,15 +35,15 @@ $form['actions']['submit']['#attributes']['name'][] = t('send');
           <h3><?php print t('Make an appointment'); ?></h3>
           <div class="input-goup">
           
-              <label for="edit-submitted-what-is-your-name" class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
+              <label class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
               <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
           
            
-              <label for="phone" class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
+              <label class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
               <?php print drupal_render($form['submitted']['phone']); ?>
           
            
-              <label for="email" class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
+              <label class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
               <?php print drupal_render($form['submitted']['email']); ?>
          
           </div>
