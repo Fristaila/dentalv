@@ -81,11 +81,6 @@
           &:nth-child(1)
             padding-right: 25px
           .link_bordered_green
-            // &:after
-            //   background: rgba(22,214,144, .3);
-            // &:hover
-            //   &:after
-            //     background: $green
             +rightHover()
     .doctor-boigraphy
       width: 90%
@@ -95,8 +90,9 @@
       background:
         size: cover
         position: center 70px
-        // image: url(../../build/images/about/doctors/doctor-0.jpg)
         attachment: fixed
+      height: 100vh
+      overflow-y: auto
   .section-doctor
     .header-doctor
       min-height: 0
@@ -117,15 +113,4 @@
     .article-doctor
       padding:
         bottom: 85px
-+MQ(EXXL)
-  .section-doctor
-    // .header-doctor
-    //   padding:
-    //     left: 110px
-    //   .heading
-    //     width: 55%
-    // .doctor-boigraphy
-    //   width: 50%
-    //   padding:
-    //     left: 110px
 
