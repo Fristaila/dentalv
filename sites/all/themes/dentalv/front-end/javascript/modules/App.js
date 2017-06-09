@@ -111,7 +111,7 @@ const App = (() => {
 		//full bg stuff
 		if($doctorAbout.length > 0){
 			const $mobileBgHolder = $doctorAbout.find(".header-doctor");
-			const $desctopBgHolder = $body.find(".wrapper.special");
+			const $desktopBgHolder = $body.find(".wrapper.special");
 			const $currentBgImage = $mobileBgHolder.css("background-image");
 
 
@@ -123,7 +123,7 @@ const App = (() => {
 
 			function swopBgHolders() {
 					let bg = $currentBgImage;
-					$desctopBgHolder.css({
+					$desktopBgHolder.css({
 							"background-image": bg
 					});
 					$mobileBgHolder.css("background-image", "none");
