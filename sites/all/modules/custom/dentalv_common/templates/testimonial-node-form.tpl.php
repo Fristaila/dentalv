@@ -85,10 +85,10 @@ if (isset($GLOBALS['user']->name)){
             <!--form-group with class success or error give us needed border effect -->
             <!--if authorization complite change next block class from auth-false to auth-true-->
 
-            <div class="form-group">
+     
               <label for="candidateBrief" class="controls-label special">Отзыв</label>
               <div  class="form-controls"><?php print drupal_render($form['body']); ?></div>
-            </div>
+    
           </div>
 
           <!--add success class to the next doctor-who-divider after inputs

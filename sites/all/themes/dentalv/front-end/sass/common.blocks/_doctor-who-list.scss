@@ -7,6 +7,9 @@
         font-size: 0;
     }
     .form-type-radio{
+        label{
+            margin: 0;
+        }
         .form-radio{
             display: none;
         }
@@ -99,7 +102,7 @@
                 display: inline-block;
                 vertical-align: middle;
                 &:nth-last-child(-2n+2){
-                    padding-bottom: 0;
+                    padding-bottom: 30px;
                 }
             }
         }
