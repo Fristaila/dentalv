@@ -40,9 +40,6 @@ base theme = zurb_foundation
 ;stylesheets[all][] = css/style.css
 
 stylesheets[all][] = front-end/stylesheets/bundle.css
-stylesheets[all][] = front-end/stylesheets/bundle-iryna.css
-stylesheets[all][] = front-end/stylesheets/bundle-v.css
-
 
 ; Foundation JavaScript.
 
