@@ -16,8 +16,8 @@
 @import 'js_components/modal';
 @import 'components/btn';
 @import 'components/form';
-//@import 'components/breadcrumbs';
-//@import 'components/paging';
+@import 'components/breadcrumbs';
+@import 'components/paging';
 @import 'components/socials';
 @import 'components/team-banner';
 @import 'components/coub-i';
@@ -35,12 +35,13 @@
 @import 'containers/header';
 @import 'containers/footer';
 @import 'containers/main.page';
+
 @import 'containers/about.page';
-//@import 'containers/doctor.page';
+@import 'containers/doctor.page';
 //@import 'containers/services.page';
-//@import 'containers/services.inner';
+@import 'containers/services.inner';
 //@import 'containers/reviews.page';
-//@import 'containers/news.page';
+@import 'containers/news.page';
 //@import 'containers/error.page';
 //
 @import 'containers/main';
@@ -53,9 +54,9 @@
 @import 'common.blocks/doctor-who-list';
 //@import 'common.blocks/comment-modal';
 //@import 'common.blocks/thanx-modal';
-//@import 'common.blocks/contacts.page';
-//@import 'common.blocks/price';
-//@import 'common.blocks/news-inner.page';
+@import 'common.blocks/contacts.page';
+@import 'common.blocks/price';
+@import 'common.blocks/news-inner.page';
 //@import 'common.blocks/gallery';
 
 

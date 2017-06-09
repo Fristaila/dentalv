@@ -842,7 +842,7 @@ function zurb_foundation_pager($variables) {
     );
 
     if (theme_get_setting('zurb_foundation_pager_center')) {
-      $pager_links['#prefix'] = '<div class="pagination-centered">';
+      $pager_links['#prefix'] = '<div class="pagination-centered paging">';
       $pager_links['#suffix'] = '</div>';
     }
 

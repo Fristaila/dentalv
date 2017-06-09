@@ -68,7 +68,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
           <div class="form-btn-wrap">
             <!--disabled until fields are success then add class success to btn and remove disabled -->
 <!--            <button value="here you will see vacancy name after modal openning" disabled="disabled" class="form-btn" type="submit" name="send">Отправить</button>-->
-            <?php print drupal_render($form['actions']['submit']);?>
+            <?php print drupal_render($form['actions']['submit', 'disabled']);?>
           </div>
         </div>
       </form>

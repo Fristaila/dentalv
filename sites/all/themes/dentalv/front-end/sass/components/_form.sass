@@ -29,7 +29,9 @@
       +MQ(EXXL)
         margin-top: 170px;
 
-
+.webform-component-textarea
+  .grippie
+    display: none
 .form-inner, .form-search
     position: relative
     .close
@@ -45,7 +47,7 @@
         text-align: center
     .current-vacancy
       color: #000000
-    .form-controls
+    .form-item
       position: relative
     label
       color: #000
@@ -59,7 +61,7 @@
         text-decoration: underline
         &:hover
           text-decoration: none
-    .form-group
+    .form-item
       
     input[type="text"],
     input[type="tel"],
@@ -101,8 +103,9 @@
       resize: none
       padding: 10px 15px
       height: 160px
-    .form-group
+    .form-item
       padding-bottom: 30px
+      margin: 0
       &:last-child
         padding-bottom: 0
       .help-blocks
@@ -146,6 +149,7 @@
       +minusMargins($containerOuterSpace_mobile)
     .input-goup
       padding-bottom: 40px
+      font-size: 0
 
 .form-inner-custom
     position: relative
@@ -162,7 +166,7 @@
         text-align: center
     .current-vacancy
       color: #000000
-    .form-controls
+    .form-item
       position: relative
     label
       color: #000
@@ -176,7 +180,7 @@
         text-decoration: underline
         &:hover
           text-decoration: none
-    .form-group
+    .form-item
       
     input[type="text"],
     input[type="tel"],
@@ -218,7 +222,7 @@
       resize: none
       padding: 10px 15px
       height: 240px
-    .form-group
+    .form-item
       padding-bottom: 30px
       &:last-child
         padding-bottom: 0
@@ -284,7 +288,7 @@
     .form-btn
       border-radius: 0  0 10px 10px
       transition: $transition_options
-    .form-group
+    .form-item
       input[type="text"],
       input[type="tel"],
       input[type="email"],
@@ -298,22 +302,22 @@
       &.error
         .help-blocks
           text-align: right
-      .controls-label, .form-controls
-        display: inline-block
-        vertical-align: middle
-      .controls-label
-        font-size: 16px
-        width: 30%
-        text-align: right
-        padding-right: 25px
-        &.special
-          vertical-align: top
-          padding-top: 20px
-      .form-controls
-        width: 70%
-        font-size: 18px
     .form-btn-wrap
       +minusMargins(65px)
+    .controls-label, .form-item
+      display: inline-block
+    .controls-label
+      vertical-align: middle
+      font-size: 16px
+      width: 30%
+      text-align: right
+      padding-right: 25px
+      &.special
+        vertical-align: top
+        padding-top: 20px
+    .form-item
+      width: 70%
+      font-size: 18px
     
 
 

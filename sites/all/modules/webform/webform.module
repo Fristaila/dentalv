@@ -2689,7 +2689,8 @@ function webform_client_form($form, &$form_state, $node, $submission = FALSE, $r
         '#value' => $submit_button_text,
         '#weight' => 10,
         '#attributes' => array(
-          'class' => array('webform-submit', 'button-primary'),
+          'class' => array('webform-submit', 'button-primary', 'form-btn'),
+          'disabled' => 'disabled'
         ),
         '#pre_render' => $buttons_pre_render,
       );

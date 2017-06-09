@@ -2,12 +2,5 @@
 	from{top:-300px;opacity:0}
 	to{top:0;opacity:1}
 }
-
-
-.animate-top{
-	animation:animatetop 0.2s
-}
-
 .animate-opacity{animation:opac 0.5s}
-@keyframes opac{from{opacity:0} to{opacity:1}}	
-	
+@keyframes opac{from{opacity:0} to{opacity:1}}
