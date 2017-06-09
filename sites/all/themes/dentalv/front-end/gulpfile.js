@@ -80,7 +80,7 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass(sassOptions).on('error', sass.logError))
     .pipe(autoprefixer(autoprefixerOptions))
-    .pipe(rename('bundle-v.css'))
+    .pipe(rename('bundle.css'))
 		.pipe(sourcemaps.write())
     .pipe(gulp.dest(OUTPUT_CSS))
     .resume();

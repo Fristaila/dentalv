@@ -1,13 +1,5 @@
-.thank-visiting 
-	position: absolute
-	display: block
-	margin-bottom: 15px
-	font-size: 14px
-	left: 50%
-	transform: translate(-50%,0)
-	text-align: center;
 footer:not(.article-footer)
-	height: 275px
+	height: 285px
 	padding: 40px 0 10px
 	.container
 		max-width: 1245px
@@ -38,8 +30,6 @@ footer:not(.article-footer)
 				font-family: $bold-font
 				font-size: 1.8rem
 				color: #000
-				
-
 		.j-btn
 			margin: 0 0 25px
 	.block-nav
@@ -53,7 +43,7 @@ footer:not(.article-footer)
 					.link
 						color: #000
 						font-family: $bold-font
-	.block-contacts
+	.p-null
 		display: none
 	.block-copy
 		text-align: center
@@ -69,8 +59,17 @@ footer:not(.article-footer)
 				margin-top: 5px
 			[class^='icon-']
 				font-size: 1.2rem
-
-				
+	.contextual-links-region
+		position: static !important
+	.thank-visiting
+		position: absolute
+		display: block
+		padding-top: 15px
+		margin-bottom: 15px
+		font-size: 14px
+		left: 50%
+		transform: translate(-50%,0)
+		text-align: center
 
 +MQ(M)
 	footer:not(.article-footer)
@@ -100,12 +99,13 @@ footer:not(.article-footer)
 				left: 40px
 				bottom: -76px
 				text-align: left
-
+		.contextual-links-region
+			position: relative
 
 
 @media (min-width: 900px)
 	footer:not(.article-footer)
-		height: 135px
+		height: 145px
 		.block-copy
 			.social
 				display: inline-block
@@ -115,11 +115,11 @@ footer:not(.article-footer)
 				display: inline-block
 				vertical-align: middle
 
-@media (min-width: 1046px)
++MQ(L)
 	footer:not(.article-footer)
-		height: 295px
+		height: 345px
 		&:after
-			margin-top: -15px;		
+			margin-top: -15px
 		.footer_row
 			margin: 0 -20px
 			font-size: 0.001px
@@ -146,12 +146,14 @@ footer:not(.article-footer)
 							color: #000
 							font-size: 1.6rem
 							font-family: $primary-font
-			.block-contacts
-				padding-top: 20px
+			.p-null
+				padding: 0
 				display: inline-block
-				font-size: 0.001px
-				max-width: 430px
-				width: 100%
+				.block-contacts
+					display: inline-block
+					max-width: 430px
+					width: 100%
+					font-size: 0.001px
 				li
 					max-width: 225px
 					width: 100%
@@ -187,6 +189,8 @@ footer:not(.article-footer)
 					text-align: left
 					font-size: 1.4rem
 					color: #000
+		.thank-visiting
+			padding-top: 0
 
 @media (min-width: 1210px)
 	footer:not(.article-footer)	
@@ -194,8 +198,9 @@ footer:not(.article-footer)
 			margin: 0 -41px
 			> div
 				padding: 0 41px
-			.block-contacts
-				max-width: 510px
+			.p-null
+				.block-contacts
+					max-width: 510px
 				li
 					max-width: 265px
 					padding: 0 35px

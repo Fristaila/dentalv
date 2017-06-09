@@ -12,14 +12,24 @@
 	z-index: 12
 	&.header_inner
 		.menu-logo
+			position: absolute
 			display: inline-block
+			vertical-align: middle
+			top: 0
+			right: 20px
+			bottom: 0
+			background: transparent
+			z-index: 11
+			+vertical
+		.logo-bg
+			display: none
 		.logo
 			display: inline-block
 			vertical-align: middle
 			margin-right: -35px
 			width: 35px
 		.logo-text
-			max-width: 150px
+			max-width: 145px
 			width: 100%
 			display: inline-block
 			vertical-align: middle
@@ -30,6 +40,8 @@
 			font-size: 1.5rem
 			color: #000
 		.phone
+			display: none
+		.j-btn_filled-white
 			display: none
 
 body
@@ -166,8 +178,6 @@ body
 			+center(y)
 			font-size: 2rem
 			color: #000
-	.j-btn
-		display: none
 	.social
 		display: none
 		padding-top: 20px
@@ -222,7 +232,8 @@ body
 	.header
 		&.header_inner
 			.menu-logo
-				+center(x)
+				position: absolute
+				+center(xy)
 			.lang
 				display: inline-block
 				position: absolute
@@ -311,18 +322,17 @@ body
 				.phone_icon
 					display: none
 			.menu-logo
+				top: 0
 				left: 0
 				transform: none
 				display: inline-block
 				max-width: 180px
+				width: 100%
+				height: 100%
 				background: #000
-				&:hover
-					> img
-						display: block
-					.logo
-						display: none
-					.logo-text
-						display: none
+				+vertical
+				.logo-bg
+					display: none
 				.logo-text
 					color: #fff
 			.menu
@@ -378,6 +388,13 @@ body
 				padding-right: 104px
 			.menu-logo
 				max-width: 220px
+				&:hover
+					.logo-bg
+						display: block
+					.logo
+						display: none
+					.logo-text
+						display: none
 			.menu
 				&__btn
 					vertical-align: middle
@@ -395,9 +412,6 @@ body
 				.menu
 					&__btn
 						display: inline-block
-
-
-
 
 .header
 	@media (max-width: 500px)
