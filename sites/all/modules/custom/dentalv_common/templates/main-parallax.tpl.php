@@ -3,7 +3,8 @@
 $wf_id = variable_get('wf_id');
 ?>
 
-<section id="scrollParallax" class="first-screen animate-opacity">
+<section id="scrollParallax" class="first-screen">
+  <div class="paralaxPreloader"></div>
   <div class="header header_main">
     <div class="burger show-for-small">
       <a href="#" class="burger__trigger">

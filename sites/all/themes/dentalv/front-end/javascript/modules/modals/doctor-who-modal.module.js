@@ -8,7 +8,7 @@ $(() => {
         const $body           = $('body');
         const $modal          = $body.find('#doctorWhoAppiontment');
         const $buttonOpen     = $body.find('.doctorWhoBtn');
-        const $buttoWhoDoctor = $modal.find('.doctor-who-item');
+        const $buttoWhoDoctor = $modal.find('.form-type-radio');
 
         // bind event
          $buttonOpen.on('click', function (e) {

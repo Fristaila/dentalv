@@ -6,7 +6,6 @@ window.$      = $;
 
 import { initDotSlider } from './sliders';
 import { initMap } from './map';
-import { burgerClick } from './clicks';
 
 // require('headroom.js/dist/headroom');
 // require('headroom.js/dist/jQuery.headroom');
@@ -16,7 +15,6 @@ require('bootstrap/js/tab');
 const $window = $(window);
 
 // cache videos
-
 import 'gsap';
 import '../utils/anim';
 
@@ -28,9 +26,6 @@ const App = (() => {
 		initDotSlider('.articles-slider', '.article', 3);
 		initDotSlider('.reviews-slider', '.review', 2);
 
-		// Clicks
-		burgerClick();
-
 		if ($('#map').length) {
 			initMap('#map');
 		}
@@ -38,6 +33,7 @@ const App = (() => {
 		setDefaultListeners();
 
 		// require modules
+		require('./clicks');
 		require('./modals/current-doctor-modal.module');
 		require('./modals/vacancy-response-modal.module');
 		require('./modals/doctor-who-modal.module');
@@ -73,6 +69,10 @@ const App = (() => {
 		// console.log('switched to desktop');
 	};
 
+	function fadeOutParalaxPreloader() {
+			$('.paralaxPreloader').fadeOut('fast');
+	}
+
 														
 	function hadleSingleDoctor() {
 		// swop doctor bg stuff
@@ -90,7 +90,7 @@ const App = (() => {
 			// check if we are on doctor page and do work
 
 			// fade out preloader — white screen
-			$('.doctorPreloader').fadeOut();
+			$('.doctorPreloader').fadeOut('fast');
 			// if width bigger then 1025 put image on wrapper
 			if (width >= 1025) {
 				swopBgHolders();
@@ -111,6 +111,7 @@ const App = (() => {
 
 	const setDefaultListeners = () => {
 		$window.on('load', hadleSingleDoctor);
+		$window.on('load', fadeOutParalaxPreloader);
 	};
 
 	return {

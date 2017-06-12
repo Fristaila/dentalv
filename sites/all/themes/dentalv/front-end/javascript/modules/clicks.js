@@ -1,12 +1,18 @@
 import $ from 'jquery';
 
-const $body = $('body');
-const $burgerTrigger = $body.find('.burger__trigger');
+$(() => {
+	const openMenuModule = (() => {
+		// cache the DOM
+		const $body          = $('body');
+		const $burgerTrigger = $body.find('.burger__trigger');
 
-export function burgerClick() {
-	$burgerTrigger.on('click', function(e) {
-		e.preventDefault();
-		$body.toggleClass('opened-menu');
-	});
-}
+		// bind events
+		$burgerTrigger.on('click', handler);
 
+		// define handler
+		function handler(e) {
+			e.preventDefault();
+			$body.toggleClass('opened-menu');
+		}
+	})();
+});
