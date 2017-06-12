@@ -1,4 +1,18 @@
 .section-doctor
+  .doctorPreloader
+    position: fixed
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    height: 100%
+    width: 100%
+    // url('/sites/all/themes/dentalv/icons/ajax-loader.gif')
+    z-index: 11
+    background:
+      color: #ffffff
+      position: center
+      repeat: no-repeat
   .article-doctor
     padding-bottom: 40px
   .header-doctor
@@ -15,10 +29,10 @@
     margin:
       bottom: 24px;
     min-height: 420px
+    transition: all .3s linear
     background:
       size: cover
       position: 70%
-      // image: url(../../build/images/about/doctors/doctor-0.jpg)
     &:after
       content: ''
       height: 100%
@@ -55,16 +69,18 @@
       left: $containerOuterSpace_mobile
       right: $containerOuterSpace_mobile
    
+.wrapper
+  +MQ(M)
+    &.special
+      padding-top: 70px;
 
 .section-doctor
   +MQ(M)
-    
     .header-doctor
       min-height: 500px
       .close 
         width: 47px
         height: 47px
-        
       .close:before, .close:after
         height: 57px
         width: 1px
@@ -103,7 +119,6 @@
         position: fixed
         right: 45px
         top: 160px
-        
       &:after
         content: none
     .doctor-boigraphy
@@ -113,4 +128,3 @@
     .article-doctor
       padding:
         bottom: 85px
-

@@ -1,75 +1,68 @@
-import jQuery from "jquery";
-
+import jQuery from 'jquery';
 
 jQuery(() => {
   const w3SliderModule = (() => {
-    "use strict";
+    /**
+     * accept DOM element — paren of the slides and make slider
+     * @param {string} slider 
+     */
+    function Slider(slider) {
+      this.slides     = slider.find('.slidesImages');
+      this.dots       = slider.find('.thumsDots');
+      this.slideIndex = 1;
 
-  function Slider(slider){
+      const self = this;
 
-    this.slides = slider.find('.slidesImages');
-    this.dots = slider.find('.thumsDots');
+      this.showDivs = function (n) {
+        if (n > self.slides.length) { self.slideIndex = 1; }
+        if (n < 1) { self.slideIndex = self.slides.length; }
 
+        self.slides.each(function () {
+          jQuery(this).css({ 'display':'none' });
+        });
 
-    this.slideIndex = 1;
+        self.dots.each(function () {
+          jQuery(this).removeClass('active');
+        });
 
-    const self = this;
+        self.slides.eq(self.slideIndex - 1).fadeIn(200);
+        self.dots.eq(self.slideIndex - 1).addClass('active');
+      };
 
-    this.showDivs = function(n) {
+      this.plusDivs = function (n) {
+        self.showDivs(self.slideIndex += n);
+      };
 
-      if (n > self.slides.length) { self.slideIndex = 1 }
-        if (n < 1) { self.slideIndex = self.slides.length }
-          
-          self.slides.each(function(){
-            jQuery(this).css({'display':'none'});
-          });
-
-          self.dots.each(function(){
-            jQuery(this).removeClass("active");
-          });
-
-          self.slides.eq(self.slideIndex - 1).fadeIn(200);
-          self.dots.eq(self.slideIndex - 1).addClass("active");
-          
-        }
-
-
-
-
-    this.plusDivs = function(n) {
-      self.showDivs(self.slideIndex += n);
+      this.currentDiv = function (n) {
+        self.showDivs(self.slideIndex = n);
+      };
     }
 
-    this.currentDiv = function(n) {
-      self.showDivs(self.slideIndex = n);
-    }
+    // init stuff goes here
+    // cache the DOM and make new slider
+    const jQtabCover = jQuery('.tabCover');
+    const jQslider   = jQuery('.gallery-modal');
+    const slider     = new Slider(jQslider);
 
-  }
-  const jQtabCover = jQuery('.tabCover');
-  
-  const jQslider = jQuery('.gallery-modal');
-  const slider = new Slider(jQslider);
-  jQslider.find('.icon-arrow-left').on('click', function(){
-    slider.plusDivs(-1);
-  });
-  jQslider.find('.icon-arrow-right').on('click', function(){
-    slider.plusDivs(1);
-  });
-  jQslider.find('.thumsDots').on('click', function(){
-    const current = parseFloat(jQuery(this).attr('data-currentDiv'));
-    slider.currentDiv(current);
-  });
+    // bind events
+    jQslider.find('.icon-arrow-left').on('click', function () {
+      slider.plusDivs(-1);
+    });
 
-  jQtabCover.on('click', function(){
-    const current = parseFloat(jQuery(this).attr('data-gallery'));
-    slider.currentDiv(current);
-  });
+    jQslider.find('.icon-arrow-right').on('click', function () {
+      slider.plusDivs(1);
+    });
+    
+    jQslider.find('.thumsDots').on('click', function () {
+      const current = parseFloat(jQuery(this).attr('data-currentDiv'));
 
+      slider.currentDiv(current);
+    });
 
+    jQtabCover.on('click', function () {
+      const current = parseFloat(jQuery(this).attr('data-gallery'));
 
-
-
-
-
-  })()
-})
+      slider.currentDiv(current);
+    });
+  })();
+});

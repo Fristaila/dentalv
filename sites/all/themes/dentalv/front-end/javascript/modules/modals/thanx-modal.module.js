@@ -1,22 +1,11 @@
-
-import $ from "jquery";
+import $ from 'jquery';
 require('bootstrap/js/modal');
 
-$(()=>{
-    const cerrentDoctorModule = (()=>{
-        "use strict";   
+$(() => {
+    const cerrentDoctorModule = (() => {
+        // cache the DOM
+        const $body = $('body');
 
-        /**
-         * cache the DOM
-         */ 
-        const $body = $("body");
-        
-        const $thanxModal = $body.find("#thanxModal");
-
-
-
-
-    })()
-
-
+        $body.find('#thanxModal');
+    })();
 });
