@@ -25,21 +25,19 @@ array_unshift($form['actions']['submit']['#attributes']['class'], 'form-btn');
             <div class="form-group" style="display: none" >
               <?php print drupal_render($form['submitted']['vacancies']); ?>
             </div>
-            <div class="form-group">
+            
               <label for="name" class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['what_is_your_name']); ?></div>
+              <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
               <span class="help-blocks">Описание ошибки</span>
-            </div>
-            <div class="form-group">
+            
               <label for="phone" class="controls-label"><?php print $form['submitted']['phone']['#title']; ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['phone']); ?></div>
+              <?php print drupal_render($form['submitted']['phone']); ?>
               <span class="help-blocks">Описание ошибки</span>
-            </div>
-            <div class="form-group">
+            
               <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['short_about_you_area']['#title']; ?></label>
-              <div  class="form-controls"><?php print drupal_render($form['submitted']['short_about_you_area']); ?></div>
+              <?php print drupal_render($form['submitted']['short_about_you_area']); ?>
               <span class="help-blocks">Описание ошибки</span>
-            </div>
+            
           </div>
           <div class="form-btn-wrap">
            <?php print drupal_render($form['actions']['submit']);?>
