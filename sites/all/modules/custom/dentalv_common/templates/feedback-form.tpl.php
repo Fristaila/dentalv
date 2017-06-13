@@ -45,23 +45,23 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Feedback') ?></h3>
           <div class="input-goup">
-            <!--form-group with class success or error give us needed border effect -->
-            <div class="form-group">
+            <!--input-covering with class success or error give us needed border effect -->
+            <div class="input-covering">
               <label for="name" class="controls-label"><?php print $form['submitted']['name_feedback']['#title']; ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['name_feedback']); ?></div>
+              <?php print drupal_render($form['submitted']['name_feedback']); ?>
               <span class="help-blocks">Описание ошибки</span>
             </div>
-            <div class="form-group">
+            <div class="input-covering">
               <label for="phone" class="controls-label"><?php print $form['submitted']['phone_or_email_feedback']['#title']; ?></label>
-              <div class="form-controls"><?php print drupal_render($form['submitted']['phone_or_email_feedback']);?></div>
+              <?php print drupal_render($form['submitted']['phone_or_email_feedback']);?>
               <span class="help-blocks">Описание ошибки</span>
             </div>
-            <div class="form-group">
+            <div class="input-covering">
               <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['message_feedback']['#title']; ?></label>
-              <div  class="form-controls">
+             
 <!--                <textarea id="candidateBrief" type="text"></textarea>-->
               <?php print drupal_render($form['submitted']['message_feedback']);?>
-              </div>
+             
               <span class="help-blocks">Описание ошибки</span>
             </div>
           </div>
