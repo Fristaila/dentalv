@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 if (arg(0) == 'node' && is_numeric(arg(1))) {
   $nid = arg(1);
   $node = node_load($nid);
@@ -28,26 +28,30 @@ $form['actions']['submit']['#attributes']['name'][] = t('send');
 
 <div class="modal fade custom-modal" id="doctorWhoAppiontment" tabindex="-1" role="dialog" aria-labelledby="doctorWhoAppiontment" style="z-index: 1001">
   <div class="modal-dialog" role="document">
+  <!--hello-->
     <div class="modal-content">
       <form action="">
         <div class="form-inner">
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Make an appointment'); ?></h3>
           <div class="input-goup">
-          
+            <div class="input-covering">
               <label class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
               <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
-          
-           
-              <label class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
-              <?php print drupal_render($form['submitted']['phone']); ?>
-          
-           
-              <label class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
-              <?php print drupal_render($form['submitted']['email']); ?>
-         
+              <span class="help-blocks">Описание ошибки</span>
+            </div>
+              <div class="input-covering">
+                <label class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
+                <?php print drupal_render($form['submitted']['phone']); ?>
+                <span class="help-blocks">Описание ошибки</span>
+              </div>
+              <div class="input-covering">              
+                <label class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
+                <?php print drupal_render($form['submitted']['email']); ?>
+                <span class="help-blocks">Описание ошибки</span>
+              </div>
           </div>
-          <div class="doctor-who-divider">
+          <div class=" test-class doctor-who-divider">
             <p><?php print $form['choosen_doctors']['#title']; ?></p>
           </div>
           <div class="doctor-who-list">
