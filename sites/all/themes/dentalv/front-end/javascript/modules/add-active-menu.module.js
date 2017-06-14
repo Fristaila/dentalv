@@ -6,7 +6,7 @@ $(() => {
     const $mainMenu = $('.header-menu');
     const $menuItem = $mainMenu.find('a');
 
-    $menuItem.each(() => {
+    $menuItem.each(function () {
       // get url and check consisting hre in an it
       const location            = window.location.href;
       const locationConsistHref = location.indexOf(this.href);
