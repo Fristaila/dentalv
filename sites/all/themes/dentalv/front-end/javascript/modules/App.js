@@ -51,6 +51,7 @@ const App = (() => {
 		require('./scroll-magic.module');
 		require('./about-slider.module');
 		require('./add-active-menu.module');
+		require('./quasi-validation.module');
 
 		if (videoTriggerAimWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
