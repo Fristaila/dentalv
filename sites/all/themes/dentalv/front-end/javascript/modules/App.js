@@ -50,6 +50,7 @@ const App = (() => {
 		require('./video-main.module');
 		require('./scroll-magic.module');
 		require('./about-slider.module');
+		require('./add-active-menu.module');
 
 		if (videoTriggerAimWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {

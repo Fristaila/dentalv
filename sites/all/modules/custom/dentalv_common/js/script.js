@@ -5,16 +5,6 @@
         $(document).ready(function () {
           // webform-cur
 
-          $('.header-menu .menu a').each(function () {             // получаем все нужные нам ссылки
-            var location = window.location.href; // получаем адрес страницы
-            var link = this.href;
-            var res = location.indexOf(this.href);
-
-            if(res > -1) {               // при совпадении адреса ссылки и адреса окна
-              $(this).addClass('active');  //добавляем класс
-            }
-          });
-
           $('.feedback-submit').click(function(){
             if ($('input[name="submitted[name_feedback]"]').val().length != 0 &&
               $('input[name="submitted[phone_or_email_feedback]"]').val().length != 0
