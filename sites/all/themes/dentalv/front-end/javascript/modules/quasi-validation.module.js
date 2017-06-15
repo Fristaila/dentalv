@@ -20,23 +20,30 @@ $(() => {
   const textareas  = document.getElementsByTagName('textarea');
   const inputs = document.getElementsByTagName('input');
   const url = window.location.href;
-  const consist = url.indexOf('ru'); 
+  const consist = url.indexOf('ru');
+  const forms = document.getElementsByTagName('form');
+
+  for (const form of forms) {
+    form.addEventListener('submit', function () {
+      $(this).find('input').val('');
+    }, false);
+  }
 
   const ruMsg = {
-    numberMsg: 'Только цифры и знак «+» разрешены.',
-    emptyMsg : 'Не может быть пустым.',
-    emailMsg : 'Придерживайтесь фомата email.',
-    shortMsg : 'Не меньше',
-    shortHelper: 'символов.'  
+    numberMsg  : 'Только цифры и знак «+» разрешены.',
+    emptyMsg   : 'Не может быть пустым.',
+    emailMsg   : 'Придерживайтесь фомата email.',
+    shortMsg   : 'Не меньше',
+    shortHelper: 'символов.'
     
   };
 
   const enMsg = {
-    numberMsg: 'Only numbers and + sign are alowed.',
-    emptyMsg : 'Please fill out this field.',
-    emailMsg : 'Please, keep e-mail format.',
-    shortMsg : 'Should be at least',
-    shortHelper: 'characters.'  
+    numberMsg  : 'Only numbers and + sign are alowed.',
+    emptyMsg   : 'Please fill out this field.',
+    emailMsg   : 'Please, keep e-mail format.',
+    shortMsg   : 'Should be at least',
+    shortHelper: 'characters.'
   };
 
   const errorMsg = consist > -1 ? ruMsg : enMsg;
@@ -52,6 +59,7 @@ $(() => {
       setAttr(field, 'name', 'phone', 'pattern', '^[0-9, +]*$');      
     }
   }
+
 
   // bind events
   // bind to the ares
@@ -69,7 +77,6 @@ $(() => {
     }
   }
 
-
   function validate() {
       const self = this;
       const parent = this.parentElement;
@@ -77,8 +84,18 @@ $(() => {
       const grandGrandParent = grandParent.parentElement;
       const children = grandParent.children;
       const grandChildren = grandGrandParent.children;
+      const $form = $(self).parents('form');
 
-      console.log(self.validity);
+      if (self.validity.valid) {
+        $form.addClass('valid');
+        $form.removeClass('not');
+        $form.find('button, .doctor-who-divider').addClass('success');
+      } else {
+        $form.addClass('not');
+        $form.removeClass('valid');
+        $form.find('button, .doctor-who-divider').removeClass('success');        
+      }
+      console.log(self.validity.valid);
       if (self.validity.tooShort) {
         const minlenth = self.attributes.getNamedItem('minlength').value;
 
