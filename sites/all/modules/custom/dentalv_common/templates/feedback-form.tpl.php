@@ -49,12 +49,12 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
             <div class="input-covering">
               <label for="name" class="controls-label"><?php print $form['submitted']['name_feedback']['#title']; ?></label>
               <?php print drupal_render($form['submitted']['name_feedback']); ?>
-              <span class="help-blocks">Описание ошибки</span>
+              <span class="help-blocks"></span>
             </div>
             <div class="input-covering">
               <label for="phone" class="controls-label"><?php print $form['submitted']['phone_or_email_feedback']['#title']; ?></label>
               <?php print drupal_render($form['submitted']['phone_or_email_feedback']);?>
-              <span class="help-blocks">Описание ошибки</span>
+              <span class="help-blocks"></span>
             </div>
             <div class="input-covering">
               <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['message_feedback']['#title']; ?></label>
@@ -62,7 +62,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
 <!--                <textarea id="candidateBrief" type="text"></textarea>-->
               <?php print drupal_render($form['submitted']['message_feedback']);?>
              
-              <span class="help-blocks">Описание ошибки</span>
+              <span class="help-blocks"></span>
             </div>
           </div>
           <div class="form-btn-wrap">

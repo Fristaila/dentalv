@@ -28,17 +28,17 @@ array_unshift($form['actions']['submit']['#attributes']['class'], 'form-btn');
               <div class="input-covering">
                 <label for="name" class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
                 <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
-                <span class="help-blocks">Описание ошибки</span>              
+                <span class="help-blocks"></span>              
               </div>
               <div class="input-covering">
                 <label for="phone" class="controls-label"><?php print $form['submitted']['phone']['#title']; ?></label>
                 <?php print drupal_render($form['submitted']['phone']); ?>
-                <span class="help-blocks">Описание ошибки</span>
+                <span class="help-blocks"></span>
               </div>
               <div class="input-covering">
                 <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['short_about_you_area']['#title']; ?></label>
                 <?php print drupal_render($form['submitted']['short_about_you_area']); ?>
-                <span class="help-blocks">Описание ошибки</span>
+                <span class="help-blocks"></span>
               </div>
           </div>
           <div class="form-btn-wrap">

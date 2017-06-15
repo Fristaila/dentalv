@@ -106,11 +106,8 @@
       border: $border_options
       transition: $transition_options
       border-radius: 0
-      &:focus
-        border: $border_options_focus
       &::placeholder
         color: #87888a
-      //&:focus
         border: #000
         text-transform: none
         &::placeholder
@@ -147,7 +144,6 @@
         outline: none
       &.success
         background: $green
-        
     .form-btn-wrap
       +minusMargins($containerOuterSpace_mobile)
     .input-goup
@@ -183,6 +179,32 @@
         text-decoration: underline
         &:hover
           text-decoration: none
+    .input-covering
+      padding-bottom: 30px
+      .help-blocks
+        text-align: left
+        font-size: 12px
+        display: block
+        margin-top: 6px
+        color: #567B9E
+      &:last-child
+        padding-bottom: 0
+      &_cu-error
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        textarea
+          border: 2px solid #ff0b05
+      &_cu-success
+        input[type="text"],
+        input[type="tel"],
+        input[type="email"],
+        input[type="password"],
+        input[type="search"],
+        textarea
+          border: $border_options_focus          
     .form-item
       
     input[type="text"],
@@ -201,11 +223,8 @@
       border: $border_options
       transition: $transition_options
       border-radius: 0
-      &:focus
-        border: $border_options_focus
       &::placeholder
         color: #87888a
-      //&:focus
         border: #000
         text-transform: none
         &::placeholder
@@ -227,7 +246,8 @@
       height: 240px
     .form-item
       padding-bottom: 30px
-      &:last-child
+      margin: 0
+      &:last-child, &:last-of-type
         padding-bottom: 0
     .form-btn
       font:
@@ -278,8 +298,6 @@
       input[type="search"],
       textarea
         transition: $transition_options
-        &:hover
-          border: $border_options_focus
       font-size: 0
     .form-btn-wrap
       +minusMargins(65px)

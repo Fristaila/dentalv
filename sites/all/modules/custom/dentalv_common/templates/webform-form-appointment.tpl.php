@@ -38,17 +38,17 @@ $form['actions']['submit']['#attributes']['name'][] = t('send');
             <div class="input-covering">
               <label class="controls-label"><?php print $form['submitted']['what_is_your_name']['#title']; ?></label>
               <?php print drupal_render($form['submitted']['what_is_your_name']); ?>
-              <span class="help-blocks">Описание ошибки</span>
+              <span class="help-blocks"></span>
             </div>
               <div class="input-covering">
                 <label class="controls-label"><?php print $form['submitted']['phone']['#title'] ?></label>
                 <?php print drupal_render($form['submitted']['phone']); ?>
-                <span class="help-blocks">Описание ошибки</span>
+                <span class="help-blocks"></span>
               </div>
               <div class="input-covering">              
                 <label class="controls-label"><?php print $form['submitted']['email']['#title'] ?></label>
                 <?php print drupal_render($form['submitted']['email']); ?>
-                <span class="help-blocks">Описание ошибки</span>
+                <span class="help-blocks"></span>
               </div>
           </div>
           <div class=" test-class doctor-who-divider">

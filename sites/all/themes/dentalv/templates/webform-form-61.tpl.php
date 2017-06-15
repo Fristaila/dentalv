@@ -31,18 +31,20 @@ if (isset($form['preview_message'])) {
   print drupal_render($form['preview_message']);
   print '</div>';
 }
-
 // Print out the main part of the form.
 // Feel free to break this up and move the pieces within the array.
 ?>
-<div class="first">
+<div class="input-covering">
  <?php print drupal_render($form['submitted']['name_feedback']); ?>
+ <span class="help-blocks"></span>
 </div>
-<div class="secound">
+<div class="input-covering">
   <?php print drupal_render($form['submitted']['phone_or_email_feedback']); ?>
+  <span class="help-blocks"></span>
 </div>
-<div class="third">
+<div class="input-covering">
  <?php print drupal_render($form['submitted']['message_feedback']); ?>
+ <span class="help-blocks"></span>
 </div>
 <div class="form-btn-wrap">
   <?php print drupal_render($form['actions']['submit']); ?>
