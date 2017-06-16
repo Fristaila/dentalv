@@ -23,7 +23,9 @@ $(() => {
   const consist = url.indexOf('ru');
   const forms = document.getElementsByTagName('form');
 
+
   for (const form of forms) {
+    form.find('button').attr('disabled', 'disabled');
     form.addEventListener('submit', function () {
       $(this).find('input').val('');
     }, false);
@@ -76,6 +78,32 @@ $(() => {
       toWhom.setAttribute(newAttr, newAttrVal);
     }
   }
+  let flag = false;
+
+  function checkAll(form) {
+    const checklist = form.find('input, textarea');
+
+    console.log(flag, 'start');
+    console.log(checklist);
+    for (let i = 0; i < checklist.length; i++) {
+      console.log('check', checklist[i].checkValidity());
+      if (!checklist[i].checkValidity()) {
+        flag = false;
+        console.log(flag, 'break');    
+        break;
+      } else {
+        flag = true;
+        console.log(flag, 'true');   
+        form.find('button, .doctor-who-divider').addClass('success'); 
+        form.find('button').removeAttr('disabled');
+      }
+    }
+    console.log(flag, 'finish');
+    if (!flag) {
+      form.find('button, .doctor-who-divider').removeClass('success'); 
+      form.find('button').attr('disabled', 'disabled');
+    }
+  }
 
   function validate() {
       const self = this;
@@ -86,14 +114,17 @@ $(() => {
       const grandChildren = grandGrandParent.children;
       const $form = $(self).parents('form');
 
+
+      checkAll($form);
+
       if (self.validity.valid) {
         $form.addClass('valid');
         $form.removeClass('not');
-        $form.find('button, .doctor-who-divider').addClass('success');
+        // $form.find('button, .doctor-who-divider').addClass('success');
       } else {
         $form.addClass('not');
         $form.removeClass('valid');
-        $form.find('button, .doctor-who-divider').removeClass('success');        
+        // $form.find('button, .doctor-who-divider').removeClass('success');        
       }
       console.log(self.validity.valid);
       if (self.validity.tooShort) {
