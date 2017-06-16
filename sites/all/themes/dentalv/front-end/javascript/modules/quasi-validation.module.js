@@ -23,9 +23,11 @@ $(() => {
   const consist = url.indexOf('ru');
   const forms = document.getElementsByTagName('form');
 
+  const $formCallection = $('form');
+
+  $formCallection.find('button').attr('disabled', 'disabled');
 
   for (const form of forms) {
-    form.find('button').attr('disabled', 'disabled');
     form.addEventListener('submit', function () {
       $(this).find('input').val('');
     }, false);
@@ -106,13 +108,13 @@ $(() => {
   }
 
   function validate() {
-      const self = this;
-      const parent = this.parentElement;
-      const grandParent = parent.parentElement;
+      const self             = this;
+      const parent           = this.parentElement;
+      const grandParent      = parent.parentElement;
       const grandGrandParent = grandParent.parentElement;
-      const children = grandParent.children;
-      const grandChildren = grandGrandParent.children;
-      const $form = $(self).parents('form');
+      const children         = grandParent.children;
+      const grandChildren    = grandGrandParent.children;
+      const $form            = $(self).parents('form');
 
 
       checkAll($form);
