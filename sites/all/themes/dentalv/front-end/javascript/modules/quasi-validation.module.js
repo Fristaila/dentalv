@@ -90,7 +90,7 @@ $(() => {
 
   function afterSubmit() {
     $(this).find('input').val('');
-    thanxService();
+    // thanxService();
   }
 
   function setAttr(toWhom, attr, partAttrVal, newAttr, newAttrVal) {
