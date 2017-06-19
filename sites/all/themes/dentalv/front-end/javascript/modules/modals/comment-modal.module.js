@@ -3,7 +3,7 @@ import $ from "jquery";
 require('bootstrap/js/modal');
 
 $(() => {
-    const cerrentDoctorModule = (() => {
+    const commentModule = (() => {
         // cache the DOM
         const $body             = $('body');
         const $comment          = $body.find('#comment');
@@ -33,5 +33,10 @@ $(() => {
              $self.find('input').attr('checked', 'checked');
              $self.parents('form').find(':submit').val($currentDoctor.text());
          });
+
+         return {
+            handler
+         };
     })();
+    module.exports = commentModule.handler;
 });
