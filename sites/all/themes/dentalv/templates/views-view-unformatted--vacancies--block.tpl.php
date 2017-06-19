@@ -15,7 +15,7 @@ $wf_id = variable_get('wf_id');
   <div class="container">
     <div class="heading-help">
       <div class="heading-wrap">
-        <h3><?php print t($view->display['default']->display_options['title']); ?></h3>
+        <h3><?php print t($view->display['block']->display_options['title']); ?></h3>
       </div>
     </div>
 

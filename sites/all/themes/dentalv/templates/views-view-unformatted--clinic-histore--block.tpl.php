@@ -42,7 +42,7 @@
     <div class="container special">
       <div class="heading-help special">
         <div class="heading-wrap">
-          <h3><?php print t('Clinic history'); ?></h3>
+          <h3><?php print t($view->display['block']->display_options['title']); ?></h3>
         </div>
       </div>
     </div>

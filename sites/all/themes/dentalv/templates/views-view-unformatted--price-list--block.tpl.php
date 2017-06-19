@@ -12,7 +12,7 @@
   <div class="section-price">
 
     <div class="container">
-      <h1><?php print t('Our price'); ?></h1>
+      <h1><?php print t($view->display['block']->display_options['title']); ?></h1>
       <h2 class="subheading"><?php print t('We provide you with an incomplete list of prices for our services');?></h2>
     </div>
 

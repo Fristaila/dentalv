@@ -9,7 +9,7 @@
 ?>
 <section class="clinic-reviews">
   <div class="container">
-    <a href="/reviews" class="h3 link link_bordered_green"><?php print t('Reviews') ?></a>
+    <a href="/reviews" class="h3 link link_bordered_green"><?php print t($view->display['block_1']->display_options['title']) ?></a>
     <div class="reviews-slider">
 <?php foreach ($rows as $id => $row): ?>
   <?php $human = user_load($view->result{$id}->users_webform_submissions_uid);

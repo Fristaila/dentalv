@@ -33,7 +33,7 @@ $padd = '';
 <div class="<?php print $classes; ?>">
   <section class="news">
     <div class="container">
-      <h1 class="h3"><?php print t('Information'); ?></h1>
+      <h1 class="h3"><?php print t($view->display['block']->display_options['title']); ?></h1>
   <?php print render($title_prefix); ?>
   <?php if ($title): ?>
     <?php print $title; ?>

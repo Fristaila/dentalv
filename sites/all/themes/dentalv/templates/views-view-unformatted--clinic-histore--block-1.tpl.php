@@ -23,9 +23,9 @@ $dent_class = array(
 ?>
 
 <section class="short-about" id="pinContainer">
-  <h3 class="h3 hide-for-large hide-from-768"><?php print t('Short about us');?></h3>
+  <h3 class="h3 hide-for-large hide-from-768"><?php print t($view->display['block_1']->display_options['title']);?></h3>
   <div class="about-slider" id="slideContainer">
-    <h3 class="h3 hide-for-small"><?php print t('Short about us');?></h3>
+    <h3 class="h3 hide-for-small"><?php print t($view->display['block_1']->display_options['title']);?></h3>
 <?php foreach ($rows as $id => $row): ?>
 
   <div class="triple-block">

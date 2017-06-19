@@ -12,7 +12,7 @@
   <div class="container">
     <div class="heading-help">
       <div class="heading-wrap">
-        <h3><?php print t($view->human_name);  ?></h3>
+        <h3><?php print t($view->display['block']->display_options['title']);  ?></h3>
       </div>
     </div>
     <ul class="team-list">

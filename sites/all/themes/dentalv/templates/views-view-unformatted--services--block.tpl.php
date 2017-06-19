@@ -12,7 +12,7 @@ $ct = count($rows);
 
 
 <div class="main-services">
-  <h1 class="h3"><?php print t('Services'); ?></h1>
+  <h1 class="h3"><?php print t($view->display['block']->display_options['title']); ?></h1>
 <?php foreach ($rows as $id => $row): ?>
   <?php switch($count): ?>
 <?php case 0: ?>

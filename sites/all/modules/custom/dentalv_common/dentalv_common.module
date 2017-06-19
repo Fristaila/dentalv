@@ -123,10 +123,12 @@ function dentalv_common_form_alter(&$form, &$form_state, $form_id) {
     if ($form_id == 'webform_client_form_'.$wf_id['id_webform_review']){
       array_unshift($form['#theme'], 'webform_form_reviews');
       $form['submitted']['post_date']['#access'] = FALSE;
+      $form['submitted']['published']['#access'] = FALSE;
       if (!empty($form['#submission'])){
       if ($form['#action'] == '/'.$GLOBALS['language']->language.'/node/'.$wf_id['id_webform_review'].'/submission/'.$form['#submission']->sid.'/edit'){
         unset($form['#theme'][0]);
         $form['submitted']['post_date']['#access'] = TRUE;
+        $form['submitted']['published']['#access'] = TRUE;
         $form['#submit'][] = 'dentalv_review_update';
       }}
       $node = entity_load('node', array(), array('type' => 'doctors', 'language' => $GLOBALS['language']->language));
