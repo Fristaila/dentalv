@@ -41,7 +41,7 @@ if (isset($GLOBALS['user']->name)){
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Your review'); ?></h3>
           <!--hide next block .social-entry-propose-wrap after authorization complite via change css class from auth-false to auth-true-->
-          <div class="social-entry-propose-wrap <?php print $bool_sc; ?>">
+          <div class="social-entry-propose-wrap <?php print $bool_us; ?>">
             <div class="social-entry-propose"><?php print t('Enter with the help of social. Networks'); ?></div>
             <ul class="social"><?php
               if (module_exists('ulogin') && !user_is_logged_in()) {
@@ -65,15 +65,14 @@ if (isset($GLOBALS['user']->name)){
             </div>
           </div>
 
-          <div class="input-goup">
-            <!--form-group with class success or error give us needed border effect -->
-            <!--if authorization complite change next block class from auth-false to auth-true-->
-
-       
-              <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['reviews']['#title']; ?></label>
-              <?php print drupal_render($form['submitted']['reviews']); ?>
-      
-          </div>
+     
+            <div class="input-covering">
+              <!--form-group with class success or error give us needed border effect -->
+              <!--if authorization complite change next block class from auth-false to auth-true-->
+                <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['reviews']['#title']; ?></label>
+                <?php print drupal_render($form['submitted']['reviews']); ?>
+                <span class="help-blocks"></span>
+            </div>
 
           <!--add success class to the next doctor-who-divider after inputs
           filled out to show aquamarine block bg-->
