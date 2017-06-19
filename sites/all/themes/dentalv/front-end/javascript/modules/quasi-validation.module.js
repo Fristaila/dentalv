@@ -3,16 +3,13 @@ import 'jquery';
 $(() => {
   // cache the DOM
   const textareas       = document.getElementsByTagName('textarea');
-
-  console.log(textareas);
   const inputs          = document.getElementsByTagName('input');
   const url             = window.location.href;
   const consist         = url.indexOf('ru');
   const forms           = document.getElementsByTagName('form');
   const thanxService    = require('./modals/thanx-modal.module');
-  const $formCallection = $('.form-btn-wrap').parents('form');
+  const $formCallection = $('.form-btn-wrap').parents('form').not('#webform-client-form-61');
 
-  console.log($formCallection);
   const ruMsg = {
     numberMsg  : 'Только цифры и знак «+» разрешены.',
     emptyMsg   : 'Не может быть пустым.',
@@ -58,10 +55,9 @@ $(() => {
       const $form            = $(self).parents('form');
 
       checkAll($form);
-      console.log(self);
 
       if (self.validity.tooShort) {
-        const minlenth = parseInt(self.attributes.getNamedItem('minlength').value);
+        const minlenth = self.attributes.getNamedItem('minlength').value;
 
         self.setCustomValidity(`${errorMsg.shortMsg} ${minlenth} ${errorMsg.shortHelper}`);
       } else if (self.validity.valueMissing) {
@@ -99,7 +95,6 @@ $(() => {
   }
 
   function setAttr(toWhom, attr, partAttrVal, newAttr, newAttrVal) {
-    console.log(toWhom.attributes.getNamedItem(attr), 'toWhom');
     if (toWhom.attributes.getNamedItem(attr) !== null) {
       const name     = toWhom.attributes.getNamedItem(attr).value;
       const consists = name.indexOf(partAttrVal);
@@ -132,13 +127,9 @@ $(() => {
   // bind events
   // bind to the ares
   for (const area of textareas) {
-    const val = area.attributes.getNamedItem('class').value;
-    console.log(val);
-
       setAttr(area, 'class', 'textarea', 'minlength', '5');
       area.addEventListener('input', validate, false);
       area.addEventListener('blur', validate, false);
-      
   }
 
   for (const form of $formCallection) {

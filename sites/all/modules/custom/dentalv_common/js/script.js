@@ -18,7 +18,6 @@
 
             if ($.cookie(feedback_cookie) != null) {
               $.cookie(feedback_cookie, "0", {path: '/', expires: -10});
-              $('#feedback .form-wrap').hide();
               $('#feedback .thanx-block').show();
             }
           });

@@ -20,12 +20,13 @@ $form['actions']['submit']['#attributes']['class'][] =  'disabled';
         <?php
         print  drupal_render($block_t); ?>
       </div>
-                <div class="thanx-block" style="display: none"><div class="thanx-help"><h3 class="thanx-heading"><?php print $thank;?></h3><p class="msg"><?php print $thank_t;?></p></div></div>
+
         <div class="form-wrap">
           <div class="form-inner-custom">
             <div id="feedback-form">
               <h3><?php print t('Feedback') ?></h3>
               <?php print drupal_render($form); ?>
+                <div class="thanx-block" style="display: none"><div class="thanx-help"><h3 class="thanx-heading"><?php print $thank;?></h3><p class="msg"><?php print $thank_t;?></p></div></div>
             </div>
           </div>
         </div>
