@@ -13,11 +13,13 @@ global $language;
 <?php endif; ?>
 
 
-  <h1 class="h3"><?php print t('Reviews'); ?></h1>
+  <h1 class="h3"><?php print t($view->display['block_2']->display_options['title']); ?></h1>
   <ul class="reviews_row">
 <?php foreach ($rows as $id => $row): ?>
+  <?php
+  $data = webform_get_submission($view->result{$id}->webform_submissions_nid,$view->result{$id}->sid); ?>
+  <?php if (!isset($data->data[4]) || $data->data[4][0] != 0): ?>
   <?php $human = user_load($view->result{$id}->users_webform_submissions_uid);
-  $data = webform_get_submission($view->result{$id}->webform_submissions_nid,$view->result{$id}->sid);
   $doctor = node_load_multiple(array(),array('language' => $language->language,'tnid' => $data->data[1][0]));
   $doctor = reset($doctor);
   if (!$doctor){
@@ -58,5 +60,6 @@ global $language;
         </a>
     </div>
   </li>
+    <?php endif; ?>
 <?php endforeach; ?>
   </ul>

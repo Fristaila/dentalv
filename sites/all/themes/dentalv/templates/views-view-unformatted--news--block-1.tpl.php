@@ -9,7 +9,7 @@
 ?>
 <section class="clinic-articles">
   <div class="container">
-    <a href="<?php print url('/news'); ?>" class="h3 link link_bordered_green"><?php print t('Information'); ?></a>
+    <a href="<?php print url('/news'); ?>" class="h3 link link_bordered_green"><?php print t($view->display['block_1']->display_options['title']); ?></a>
     <div class="articles-slider">
 
 <?php foreach ($rows as $id => $row): ?>

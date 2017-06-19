@@ -6,6 +6,7 @@
  *
  * @ingroup views_templates
  */
+
 $backg = 'style="background-color: #F7F7F5;"';
 ?>
 
@@ -29,13 +30,13 @@ $backg = 'style="background-color: #F7F7F5;"';
         <?php endif; ?>
 
 
-        <div class="text-wrap">
-          <div class="text-help">
-  <?php if ($id == 0): ?>
-            <h3><?php print t('Clinic standards'); ?></h3>
-      <?php endif; ?>
-            <?php print $view->result{$id}->field_body[0]['rendered']['#markup']; ?>
-          </div>
+
+      <div class="text-wrap">
+        <div class="text-help">
+<?php if ($id == 0): ?>
+          <h3><?php print t($view->display['block']->display_options['title']); ?></h3>
+    <?php endif; ?>
+          <?php print $view->result{$id}->field_body[0]['rendered']['#markup']; ?>
         </div>
       </div>
   <?php endforeach; ?>

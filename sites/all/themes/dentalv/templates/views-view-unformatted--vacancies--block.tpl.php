@@ -10,13 +10,13 @@
 $wf_id = variable_get('wf_id');
 ?>
 
+
 <section class="section-about">
-  <section class="section-vacancy" style="background-color: #fbfbfb">
-    <div class="container">
-      <div class="heading-help">
-        <div class="heading-wrap">
-          <h3><?php print t($view->display['default']->display_options['title']); ?></h3>
-        </div>
+<section class="section-vacancy" style="background-color: #fbfbfb">
+  <div class="container">
+    <div class="heading-help">
+      <div class="heading-wrap">
+        <h3><?php print t($view->display['block']->display_options['title']); ?></h3>
       </div>
 
       <ul class="vacancy-list">
