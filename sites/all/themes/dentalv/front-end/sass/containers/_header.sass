@@ -42,73 +42,76 @@
 			display: none
 
 body
-	&.opened-menu
-		position: fixed
-		overflow: hidden
-		height: 100%
-		width: 100%
-		.header
-			height: 100%
-			top: 0
-			bottom: 0
-			left: 0
-			right: 0
+	@media (max-width: 768px)
+		&.opened-menu
+			position: fixed
 			overflow: hidden
-			.main-menu
-				background: $main-color
+			height: 100%
+			width: 100%
+			.header
 				height: 100%
-				padding: 80px 20px 25px
-				position: fixed
 				top: 0
-				right: 0
 				bottom: 0
 				left: 0
-				text-align: left
-				z-index: 10
-				transition: background .3s ease
-				.phone_icon
-					display: none
-			.logo
-				display: none
-			.logo-text
-				display: none
-			.header-menu
-				display: block
-				margin-bottom: 30px
-			.link
-				&.phone
-					text-shadow: none
-					position: relative
+				right: 0
+				overflow: hidden
+				.main-menu
+					background: $main-color
+					height: 100%
+					padding: 80px 20px 25px
+					position: fixed
+					top: 0
+					right: 0
+					bottom: 0
 					left: 0
-					font-size: 2.4rem
-					margin-bottom: 20px
-					transform: none
-			.j-btn_filled-white
-				display: block
-			.social
-				display: block
-			&.header_inner,
-			&.header_main
-				.phone
-					display: inline-block
-					&:after
-						background: #000
-				.lang
+					text-align: left
+					z-index: 10
+					transition: background .3s ease
+					.phone_icon
+						display: none
+				.logo
+					display: none
+				.logo-text
+					display: none
+				.header-menu
 					display: block
-					top: 30px
-					right: 25px
-					left: auto
-					transform: none
-					li
-						.link
-							color: #fff
-							&:after
-								background: #fff
-						&.active
+					margin-bottom: 30px
+				.link
+					&.phone
+						text-shadow: none
+						position: relative
+						left: 0
+						font-size: 2.4rem
+						margin-bottom: 20px
+						transform: none
+				.j-btn_filled-white
+					display: block
+				.social
+					display: block
+				&.header_inner,
+				&.header_main
+					.phone
+						display: inline-block
+						&:after
+							background: #000
+					.lang
+						display: block
+						top: 30px
+						right: 25px
+						left: auto
+						transform: none
+						li
 							.link
-								color: #000
+								color: #fff
 								&:after
-									background: transparent
+									background: #fff
+							&.active
+								.link
+									color: #000
+									&:after
+										background: transparent
+
+
 .header
 	.burger
 		position: absolute

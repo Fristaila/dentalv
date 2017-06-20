@@ -126,6 +126,6 @@ gulp.task('scripts', function() {
         // .pipe(fs.createWriteStream("./themes/" + prName + "/js/dist/output.js"));
 });
 
-gulp.task('default', ['develop']);
+gulp.task('default', [ 'develop' ]);
 
-gulp.task('develop', ['scripts', 'sass', 'css_concat', 'watch' ]);
+gulp.task('develop', ['scripts', 'sass', 'css_concat', 'watch']);

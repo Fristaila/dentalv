@@ -1,0 +1,93 @@
+body
+	&.opened-menu
+		.header
+			&.header_inner,
+			&.header_main
+				.lang
+					display: block
+					top: 30px
+					right: 25px
+					left: auto
+					transform: none
+					li
+						> a
+							color: #fff
+							&:after
+								background: #fff
+						&.active
+							> a
+								color: #000
+								&:after
+									background: transparent
+.header
+	.lang
+		display: none
+		position: absolute
+		font-size: 0.001px
+		margin: 0 -10px
+		li
+			display: inline-block
+			vertical-align: middle
+			padding: 0 10px
+			> a
+				font-size: 1.8rem
+				font-family: $bold-font
+			&.active
+				> a
+					color: #000
+					&:after
+						background-color: transparent
+
+
+
++MQ(SM)
+	.header
+		&.header_inner
+			.lang
+				display: inline-block
+				position: absolute
+				+center(y)
+				right: 20px
+				li
+					> a
+						color: $green
+						font-size: 1.6rem
+						&:after
+							background: $green
+					&.active
+						> a
+							color: #000
+							&:after
+								background: transparent
+
++MQ(M)
+	.header
+		.lang
+			position: static
+			display: inline-block
+			vertical-align: middle
+			margin: 0 -6px
+			li
+				padding: 0 6px
+				> a
+					color: $green
+					&:after
+						background: $green
+					&:hover
+						&:after
+							background: transparent
+
+@media (max-width: 860px)
+	.header
+		&.header_main
+			.lang
+				display: none
+
++MQ(L)
+	.header
+		&.header_inner
+			.lang
+				right: 40px
+				li
+					> a
+						font-size: 1.8rem

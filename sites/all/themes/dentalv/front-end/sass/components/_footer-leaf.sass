@@ -1,0 +1,45 @@
+footer
+	.block-nav
+		ul
+			margin-bottom: 20px
+			li
+				display: none
+				text-align: center
+				&.contact-link
+					display: block
+					a
+						color: #000
+						font-family: $bold-font
+				a
+					+link-underline(#fff, rgba(22, 214, 144, 1),  rgba(22, 214, 144, .3), $green)
++MQ(M)
+	footer
+		.block-nav
+			display: inline-block
+			vertical-align: middle
+			margin: 0
+			ul
+				margin: 0
+
++MQ(L)
+	footer
+		.footer_row
+			.block-nav
+				ul
+					padding-right: 10px
+					li
+						display: block
+						text-align: left
+						margin-bottom: 13px
+						a
+							color: #000
+							font-size: 1.6rem
+							font-family: $primary-font
+	.block-contacts
+		a 
+			color: $main-color
+			+link-underline(#fff, rgba(22, 214, 144, 1),  rgba(22, 214, 144, .3), #93DFB8)
+
+			
+
+
