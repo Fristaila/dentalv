@@ -45,3 +45,9 @@ Thumbs.db
 /.idea/*
 /sites/default/settings.php
 /tmp/*
+.vscode
+sites/all/themes/dentalv/front-end/node_modules/*
+sites/all/themes/dentalv/front-end/javascript/bower_components/*
+.yarn-integrity
+changes.html
+sites/all/translations/*

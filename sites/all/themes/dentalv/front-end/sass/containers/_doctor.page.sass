@@ -1,0 +1,130 @@
+.doctorPreloader, .paralaxPreloader
+  position: fixed
+  top: 0
+  bottom: 0
+  right: 0
+  left: 0
+  height: 100%
+  width: 100%
+  // url('/sites/all/themes/dentalv/icons/ajax-loader.gif')
+  z-index: 13
+  background:
+    color: #ffffff
+    position: center
+    repeat: no-repeat
+.section-doctor
+  .article-doctor
+    padding-bottom: 40px
+  .header-doctor
+    +close
+    .close
+      top: 38px
+      right: 20px
+      z-index: 1
+    position: relative
+    padding:
+      left: $containerOuterSpace_mobile
+      right: $containerOuterSpace_mobile
+      top: 37px;
+    margin:
+      bottom: 24px;
+    min-height: 420px
+    transition: all .3s linear
+    background:
+      size: cover
+      position: 70%
+    &:after
+      content: ''
+      height: 100%
+      width: 100%
+      position: absolute
+      top: 0
+      left: 0
+      background: linear-gradient(to top, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 50%)
+    .j-btn
+      z-index: 1
+      width: 244px
+    .heading
+      font-size: 24px
+      line-height: 1.2
+      width: 70%
+      padding-bottom: 26px
+    .link-list
+      .link_bordered_green
+        color: #000000
+        font-size: 18px
+        display: inline
+      .link-list-item
+        z-index: 1
+        position: relative
+        display: inline-block;
+        &_button
+          width: 100%
+          position: absolute
+          bottom: 30px
+          left: 0
+          text-align: center
+  .doctor-boigraphy
+    padding:
+      left: $containerOuterSpace_mobile
+      right: $containerOuterSpace_mobile
+   
+.wrapper
+  +MQ(M)
+    &.special
+      padding-top: 70px;
+
+.section-doctor
+  +MQ(M)
+    .header-doctor
+      min-height: 500px
+      .close 
+        width: 47px
+        height: 47px
+      .close:before, .close:after
+        height: 57px
+        width: 1px
+        left: 20px
+      .heading
+        font-size: 48px   
+      .link-list
+        .link-list-item
+          font-size: 18px
+          &_button
+            position: static
+            width: auto
+            font-size: 16px
+          &:nth-child(1)
+            padding-right: 25px
+          .link_bordered_green
+            +rightHover()
+    .doctor-boigraphy
+      width: 90%
++MQ(L)
+  .wrapper
+    &.special
+      background:
+        size: cover
+        position: center 70px
+        attachment: fixed
+      height: 100vh
+      overflow-y: auto
+  .section-doctor
+    .header-doctor
+      min-height: 0
+      padding-top: 85px
+      padding:
+        left: 110px
+      .close
+        position: fixed
+        right: 45px
+        top: 160px
+      &:after
+        content: none
+    .doctor-boigraphy
+      width: 50%
+      padding:
+        left: 110px
+    .article-doctor
+      padding:
+        bottom: 85px

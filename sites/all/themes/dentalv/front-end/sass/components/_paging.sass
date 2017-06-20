@@ -1,0 +1,26 @@
+.paging
+	ul
+		margin: 0 -10px
+		+vertical
+		li
+			display: inline-block
+			vertical-align: top
+			padding: 0 20px
+			margin-bottom: 20px
+			&.arrow
+				display: none
+			a
+				display: inline-block
+				padding: 0 5px 9px
+				font-size: 2.4rem
+				color: #aaa
+				border-bottom: 3px solid transparent
+				transition: all .3s ease
+				&:hover
+					border-bottom: 3px solid #aaa
+			&.current
+				a
+					color: #000
+					border-bottom: 3px solid $green
+					&:hover
+						border-bottom: 3px solid $green

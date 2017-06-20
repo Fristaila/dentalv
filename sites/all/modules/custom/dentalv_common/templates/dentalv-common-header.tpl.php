@@ -44,17 +44,20 @@ $wf_id = variable_get('wf_id');
   <div class="main-menu">
     <a href="tel:+38 048 725-33-55" class="phone_icon"><span class="icon-phone"></span></a>
     <a href="<?php print url('<front>'); ?>" id="logo" class="menu-logo">
-      <?php print $logo; ?>
+      <?php
+      $pos = strpos($logo, '>') + 1;
+      $edited_logo = substr($logo, $pos, -4);
+      print $edited_logo; ?>
       <div class="logo-text"><?php print $site_name; ?></div>
+			<div class="logo-bg"><img src="/sites/all/themes/dentalv/images/menu-logo-bg.jpg" alt="Dental Clinic"></div>
     </a>
-
     <nav class="header-menu">
       <?php if ($main_menu): ?>
         <?php print render($main_menu); ?>
       <?php endif; ?>
     </nav>
 
-    <a id="header-apointment" class="j-btn j-btn_bordered-green main-nav__btn hide-for-small doctorWhoBtn" href="javascript:void(0)">
+    <a id="header-apointment" class="j-btn j-btn_bordered-green menu__btn hide-for-small doctorWhoBtn" href="javascript:void(0)">
       <span class="help"><?php print t('Make an appointment') ?></span></a>
 
     <a href="tel:+380487253355" class="link link_green link_bordered_green phone show-for-small">+38 048 725-33-55</a>

@@ -1,0 +1,36 @@
+.social
+	font-size: 0.001px
+	> li
+		display: inline-block
+		vertical-align: middle
+		padding: 0 5px
+		a
+			display: inline-block
+			width: 44px
+			height: 44px
+			opacity: 1
+			transition: all .3s ease
+			img
+				width: 100%
+
+.ulogin-button-vkontakte
+ background: url("/sites/all/themes/dentalv/icons/socials/vk.svg") !important
+.ulogin-button-facebook
+  background: url("/sites/all/themes/dentalv/icons/socials/facebook.svg") !important
+.ulogin-button-twitter
+  background: url("/sites/all/themes/dentalv/icons/socials/twitter.svg") !important
+.ulogin-button-google
+  background: url("/sites/all/themes/dentalv/icons/socials/google-plus.svg") !important
+
++MQ(EXM)
+	.social
+		margin: 0 -5px
+		li
+			a
+				width: 32px
+				height: 32px
+			a:hover
+				opacity: 0.9
+		[class^="ulogin-button"]
+			&:hover
+				opacity: 0.9

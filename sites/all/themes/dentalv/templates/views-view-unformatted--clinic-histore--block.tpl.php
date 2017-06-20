@@ -16,7 +16,7 @@
   );
   $count = 0;
   ?>
-<!--<section class="section-about">-->
+<section class="section-about">
   <section class="section-history">
       <?php foreach ($rows as $id => $row): ?>
         <?php if ($count == 4) :
@@ -47,4 +47,4 @@
       </div>
     </div>
   </section>
-<!--</section>-->
+</section>

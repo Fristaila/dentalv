@@ -7,7 +7,7 @@
  * @ingroup views_templates
  */
 ?>
-<!--<section class="section-about">-->
+<section class="section-about">
 <section class="section-team">
   <div class="container">
     <div class="heading-help">
@@ -47,4 +47,4 @@ if (!isset($doctor_name[2])){$doctor_name[2] = '';};
 <div class="banner-container">
   <img src="/sites/all/themes/dentalv/images/about/together.jpg" alt="our team">
 </div>
-<!--</section>-->
+</section>

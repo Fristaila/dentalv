@@ -1,0 +1,56 @@
+.nav-tabs {
+  margin: 0 0 30px;
+
+  text-align: center;
+  .form-item{
+    margin: 0;
+  }
+  li {
+    display: inline-block;
+
+    text-align: center;
+    &.active {
+      > a {
+        cursor: default;
+        .text {
+          border-bottom-color: transparent;
+        }
+      }
+    }
+    > a {
+      position: relative;
+
+      display: inline-block;
+
+      width: 100%;
+
+      transition: all .3s ease 0s;
+      text-align: center;
+      text-decoration: none;
+
+      background: transparent;
+
+      @include vertical;
+    }
+  }
+}
+
+.tab-content {
+  display: inline-block;
+
+  width: 100%;
+  padding: 0 0 0;
+  > .tab-pane {
+    display: block;
+    visibility: hidden;
+    overflow: hidden;
+
+    height: 0;
+  }
+  > .active {
+    display: block;
+    visibility: visible;
+
+    height: auto;
+  }
+}

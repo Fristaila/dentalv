@@ -1,0 +1,401 @@
+.main-services
+	.container
+		max-width: 1200px
+	.title
+		display: inline
+		font-size: 2.4rem
+		line-height: 1.2
+	.h3
+		padding: 40px 0 50px
+		text-align: center
+	.text-holder
+		display: none
+		p
+			font-size: 1.6rem
+			line-height: 1.4
+	.bordered-group
+		border: 7px solid #f5f5f5
+		transition: border .3s ease
+		&:hover
+			border: 7px solid $main-color
+	.img-bottom
+		display: none
+
+.jaws-section
+	.jaws
+		padding-bottom: 40px
+		&:first-child
+			padding-bottom: 60px
+			.img-wrap
+				max-width: 205px
+				img
+					width: 100%
+	.horizontal-group
+		font-size: 0
+		.img-wrap
+			margin-bottom: 10px
+			padding-right: 60px
+			max-width: 200px
+			img
+				width: 100%
+	.bordered-wrap
+		.bordered-group
+			position: relative
+			padding: 20px 15px 15px 30px
+			max-width: 215px
+			left: -27px
+			> div
+				display: inline-block
+				vertical-align: middle
+			.img-wrap
+				width: 100%
+				margin-bottom: 0
+				padding-right: 50px
+				img
+					width: 100%
+			.text-group
+				position: absolute
+				max-width: 115px
+				width: 100%
+				+center(y)
+				right: -70px
+	.vertical-group
+		padding-bottom: 60px
+
+.whitening-section
+	position: relative
+	height: 445px
+	overflow: hidden
+	> .img-wrap
+		position: absolute
+		top: 0
+		right: 0
+		bottom: auto
+		left: 0
+		img
+			display: block
+			width: 100%
+			height: auto
+	.bg
+		position: absolute
+		z-index: 10
+		top: 0
+		right: 0
+		bottom: 0
+		left: 0
+		background: #000
+		background: linear-gradient(to bottom, transparent 20%, #000 65%)
+		&:before
+			content: ''
+			display: block
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			height: 0
+			width: 0
+			border-left: 800px solid white
+			border-bottom: 20px solid transparent
+			z-index: 11
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			bottom: 0
+			left: 0
+			right: 0
+			height: 0
+			width: 0
+			border-right: 800px solid white
+			border-top: 20px solid transparent
+			z-index: 11
+		.text-group
+			padding-top: 305px
+			padding-left: 20px
+			.title
+				display: inline
+				font-size: 4rem
+				color: #fff
+				+link-underline(#000, rgba(22, 214, 144, 1),  rgba(22, 214, 144, .3), $green)
+
+.tooth-section
+	padding-top: 20px
+	.teeth
+		padding-top: 70px
+		&:first-child
+			padding-top: 55px
+			.bordered-group
+				position: relative
+				left: -27px
+				padding: 120px 30px 20px 20px
+				right: 20px
+				margin-bottom: 40px
+				.img-wrap
+					width: 138px
+					position: absolute
+					top: -44px
+					left: 1px
+					img
+						width: 100%
+						height: auto
+		&:last-child
+			padding-top: 50px
+			.vertical-group
+				.img-wrap
+					max-width: 245px
+					img
+						width: 100%
+			.bordered-group
+				border: none
+				padding-top: 50px
+				padding-bottom: 50px
+		.vertical-group
+			.img-wrap
+				max-width: 100px
+				img
+					width: 100%
+					height: auto
+	.horizontal-group
+		> .img-wrap
+			max-width: 245px
+			margin-bottom: 20px
+			img
+				width: 100%
+
+
++MQ(M)
+	.main-services
+		.h3
+			padding: 55px 0 50px
+		.text-group
+			.text-holder
+				padding-top: 15px
+				display: inline-block
+	.jaws-section
+		margin-bottom: 25px
+		.jaws
+			padding-left: 0
+			padding-bottom: 25px
+			&:first-child
+				padding-bottom: 90px
+				font-size: 0
+				.img-wrap
+					padding: 0
+					max-width: 380px
+					width: 100%
+					margin: 0 -380px 0 0
+				.text-group
+					padding-left: 470px
+					padding-right: 50px
+			&:last-child
+				> div
+					display: inline-block
+					vertical-align: top
+		.vertical-group
+			max-width: 360px
+			width: 100%
+			margin-right: -360px
+			.img-wrap
+				width: 100%
+				max-width: 100%
+				padding: 0
+				margin-bottom: 20px
+		.bordered-wrap
+			padding-left: 430px
+			width: 100%
+			.bordered-group
+				padding: 45px 45px 40px 40px
+				position: static
+				max-width: 100%
+				font-size: 0
+				.img-wrap
+					width: 155px
+					margin-right: 0
+					padding: 0
+				.text-group
+					position: static
+					transform: none
+					max-width: 100%
+					width: 100%
+					padding-left: 0
+
+	.whitening-section
+		height: 610px
+		> .img-wrap
+			position: absolute
+			top: 0
+			left: 0
+			bottom: 0
+			right: auto
+			img
+				height: 100%
+				width: auto
+		.bg
+			background: linear-gradient(to right, transparent 20%, #000 55%)
+			&:before
+				border-bottom: 80px solid transparent
+				border-left: 1025px solid white
+			&:after
+				border-top: 80px solid transparent
+				border-right: 1025px solid white
+			.text-group
+				padding: 0
+				max-width: 410px
+				width: 100%
+				position: absolute
+				+center(y)
+				right: 20px
+				.title
+					display: inline
+					font-size: 3.6rem
+				.text-holder
+					display: block
+					color: #fff
+	.horizontal-group
+		> div
+			display: inline-block
+			vertical-align: middle
+	.tooth-section
+		padding-bottom: 75px
+		.teeth
+			> .text-group
+				padding-left: 505px
+				max-width: 1015px
+				width: 100%
+			&:first-child
+				.bordered-group
+					max-width: 635px
+					width: 100%
+					top: 0
+					right: 0
+					bottom: 0
+					left: 0
+					margin: 0
+					padding: 55px 30px 45px 300px
+					.img-wrap
+						max-width: 341px;
+						width: 100%
+						+center(y)
+						left: -9%;
+					.text-group
+						max-width: 265px
+						width: 100%
+				.vertical-group
+					padding-top: 60px
+					max-width: 100%
+					width: 100%
+					.img-wrap
+						max-width: 135px
+			&:last-child
+				padding-top: 80px
+				.vertical-group
+					max-width: 350px
+					.img-wrap
+						max-width: 325px
+				.bordered-group
+					float: right
+					padding: 95px 40px 100px 50px
+					border: 7px solid #f5f5f5
+					&:hover
+						border: 7px solid $main-color
+				.text-group
+						max-width: 295px
+
+		.horizontal-group
+			font-size: 0
+			> .img-wrap
+				max-width: 440px
+				margin-right: -440px
+				width: 100%
+
+@media (min-width: 900px)
+	.whitening-section
+		.bg
+			.text-group
+				right: auto
+				left: 55%
+	.tooth-section
+		.teeth
+			padding-left: 20px
+			&:last-child
+				.bordered-group
+					padding: 95px 50px 110px 80px
+
++MQ(L)
+	.whitening-section
+		.bg
+			&:before
+				border-left: 1200px solid white
+			&:after
+				border-right: 1200px solid white
+	.jaws-section
+		.jaws
+			padding-left: 50px
+		.bordered-wrap
+			.bordered-group
+				.img-wrap
+					margin-right: -155px
+				.text-group
+					padding-left: 180px
+	.tooth-section
+		position: relative
+
+
+@media (min-width: 1140px)
+	.tooth-section
+		.teeth
+			&:first-child
+				.bordered-group
+					margin-right: 115px
+				.vertical-group
+					padding-top: 0
+					max-width: 285px
+		.img-bottom
+			display: block
+			position: absolute
+			max-width: 450px
+			+center(x)
+			left: 56%
+			bottom: -96px
+			img
+				width: 100%
+
+
+@media (min-width: 1200px)
+	.whitening-section
+		.bg
+			background: linear-gradient(to right, transparent 20%, #000 45%)
+			&:before
+				border-left: 1400px solid white
+			&:after
+				border-right: 1400px solid white
+	.jaws-section
+		.bordered-wrap
+			.bordered-group
+				padding: 45px 45px 40px 100px
+				.text-group
+					padding-left: 250px
+	.tooth-section
+		.teeth
+			padding-left: 50px
+
+@media (min-width: 1400px)
+	.whitening-section
+		.bg
+			background: linear-gradient(to right, transparent 20%, #000 40%)
+			&:before
+				border-left: 1600px solid white
+			&:after
+				border-right: 1600px solid white
+
+@media (min-width: 1600px)
+	.whitening-section
+		.bg
+			background: linear-gradient(to right, transparent 20%, #000 32%)
+			&:before
+				border-left: 2000px solid white
+			&:after
+				border-right: 2000px solid white
+			.text-group
+				left: 50%;
+

@@ -1,0 +1,4 @@
+name = Dentalv custom functional
+description = Custom common module
+core = 7.x
+package = Custom

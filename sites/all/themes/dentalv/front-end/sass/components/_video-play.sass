@@ -1,0 +1,41 @@
+.video-text
+	position: relative
+	padding: 35px 50px
+	text-align: center
+	height: 100%
+	width: 100%
+	z-index: 11
+	transition: all .3s ease
+	visibility: visible
+	opacity: 1
+	.text
+		display: inline-block
+		color: #fff
+		font-family: $bold-font
+		font-size: 3rem
+		line-height: 1.2
+	[class^='icon-']
+		display: inline-block
+		position: absolute
+		color: $green
+		font-size: 5.5rem
+		width: 100%
+		+center(xy)
+		top: 50%
+		z-index: 11
+        
++MQ(M)
+    .video-text
+        position: absolute
+        +center(xy)
+        height: auto
+        z-index: 11
+        .text
+            font-size: 7.2rem
+        [class^='icon-']
+            position: static
+            transform: none
+            font-size: 8.8rem
+            margin-bottom: 35px
+
+

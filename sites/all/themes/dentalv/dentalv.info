@@ -27,28 +27,28 @@ base theme = zurb_foundation
 ; CSS3 media queries: http://www.w3.org/TR/css3-mediaqueries/
 
 ; For CSS users, load the STARTER.css file:
-stylesheets[all][] = css/STARTER.css
+;stylesheets[all][] = css/STARTER.css
 
 ; Block loading of foundation.min.css from the base theme. This file should either
 ; not exist or be blank in your subtheme. See https://drupal.org/node/263967
-stylesheets[all][] = css/normalize.css
-stylesheets[all][] = css/foundation.min.css
+;stylesheets[all][] = css/normalize.css
+;stylesheets[all][] = css/foundation.min.css
 
-stylesheets[all][] = css/custom.css
+;stylesheets[all][] = css/custom.css
 ;stylesheets[all][] = css/bundle.css
-stylesheets[all][] = css/dentalv_2.css
-stylesheets[all][] = css/style.css
+;stylesheets[all][] = css/dentalv_2.css
+;stylesheets[all][] = css/style.css
 
-
+stylesheets[all][] = css/bundle.css
 
 ; Foundation JavaScript.
 
 ; External libraries used by Foundation (minified). Add more via Gruntfile.js.
-scripts[] = js/libs.min.js
+; scripts[] = js/libs.min.js
 
 ; Foundation framework scripts (minified).
 ; Control specific components via Gruntfile.js.
-scripts[] = js/foundation.min.js
+; scripts[] = js/foundation.min.js
 
 ; Theme scripts (minified).
 ; Grunt will compress any custom theme scripts matching the _*.js naming convention
@@ -57,8 +57,8 @@ scripts[] = js/foundation.min.js
 
 
 
-;scripts[] = js/dental.min.js
-scripts[] = js/dental_2.min.js
+scripts[] = js/dental.min.js
+;scripts[] = js/dental_2.min.js
 
 
 

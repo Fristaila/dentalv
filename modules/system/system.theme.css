@@ -147,12 +147,12 @@ input.form-radio {
   clear: both;
   text-align: center;
 }
-.item-list .pager li {
+/*.item-list .pager li {
   background-image: none;
   display: inline;
   list-style-type: none;
   padding: 0.5em;
-}
+}*/
 .pager-current {
   font-weight: bold;
 }

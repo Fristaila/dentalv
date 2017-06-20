@@ -7,10 +7,10 @@ engine = phptemplate
 screenshot = images/screenshot.jpg
 
 ; Reset styles with normalize
-stylesheets[all][] = css/normalize.css
+; stylesheets[all][] = css/normalize.css
 
 ; Foundation framework stylesheets
-stylesheets[all][] = css/foundation.min.css
+; stylesheets[all][] = css/foundation.min.css
 
 ; Modernizr acts as a shim for HTML5 elements for older browsers
 ; as well as detection for mobile devices.

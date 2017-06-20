@@ -3,7 +3,8 @@
 $wf_id = variable_get('wf_id');
 ?>
 
-<section id="scrollParallax" class="first-screen animate-opacity">
+<section id="scrollParallax" class="first-screen">
+  <div class="paralaxPreloader"></div>
   <div class="header header_main">
     <div class="burger show-for-small">
       <a href="#" class="burger__trigger">
@@ -19,7 +20,7 @@ $wf_id = variable_get('wf_id');
           <?php print render($main_menu); ?>
         <?php endif; ?>
       </nav>
-      <a href="tel:+380487253355" class="phone-btn j-btn j-btn_bordered-green main-nav__btn hide-for-small"><span class="help"><?php print $site_phone; ?></span></a>
+      <a href="tel:+380487253355" class="phone-btn j-btn j-btn_bordered-green menu__btn hide-for-small"><span class="help"><?php print $site_phone; ?></span></a>
       <a href="tel:+380487253355" class="link link_green link_bordered_green phone show-for-small"><?php $site_phone; ?></a>
 
       <ul class="social show-for-small">
