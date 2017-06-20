@@ -11,11 +11,10 @@ $backg = 'style="background-color: #F7F7F5;"';
 ?>
 
 
-<section class="section-about section-about_custom">
-  <section class="section-standarts">
-    <h1><?php print t('About clinic'); ?></h1>
-    <div class="article-list">
-      <?php foreach ($rows as $id => $row): ?>
+<section class="section-standarts">
+  <h1><?php print t('About clinic'); ?></h1>
+  <div class="article-list">
+    <?php foreach ($rows as $id => $row): ?>
       <?php if ($id % 2 == 0) {
         $res = TRUE;
       }
@@ -43,6 +42,8 @@ $backg = 'style="background-color: #F7F7F5;"';
             </div>
           </div>
         <?php endif; ?>
+
+
         <div class="text-wrap">
           <div class="text-help">
             <?php if ($id == 0): ?>
@@ -51,9 +52,8 @@ $backg = 'style="background-color: #F7F7F5;"';
             <?php print $view->result{$id}->field_body[0]['rendered']['#markup']; ?>
           </div>
         </div>
-        <?php endforeach; ?>
       </div>
-    </div>
-  </section>
+    <?php endforeach; ?>
+  </div>
 </section>
 
