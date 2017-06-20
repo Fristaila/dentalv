@@ -107,6 +107,9 @@ $(() => {
 
   function checkAll(form) {
     const checklist = form.find('input, textarea');
+    const $element  = form.find('.social-entry-propose-wrap');
+    const auth      = $element.hasClass('auth-true');
+    const isAuth    = $element.length > 0 ? auth : true;
 
     for (let i = 0; i < checklist.length; i++) {
       if (!checklist[i].checkValidity()) {
@@ -114,6 +117,9 @@ $(() => {
         break;
       } else {
         flag = true;
+        if (!isAuth) {
+          break;
+        }
         form.find('button, .doctor-who-divider').addClass('success'); 
         form.find('button').removeAttr('disabled');
       }
