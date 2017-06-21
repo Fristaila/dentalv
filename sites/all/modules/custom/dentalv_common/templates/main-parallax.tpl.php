@@ -2,7 +2,7 @@
 
 $wf_id = variable_get('wf_id');
 ?>
-
+<div class="make-opacity"></div>
 <section id="scrollParallax" class="first-screen">
   <div class="paralaxPreloader"></div>
   <div class="header header_main">

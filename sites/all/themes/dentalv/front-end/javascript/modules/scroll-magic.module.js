@@ -6,9 +6,12 @@ const scrollMagicModule = (() => {
 			// define movement of panels
 			if (width() > 1024) {
 				if ($('#scrollParallax').length > 0) {
-					const wipeAnimation = new TimelineMax()
-						.to('#scrollParallax', 1, { y: '-105%', ease: Linear.easeNone }) // in from top
-						.to('#slideContainer', 1, { x: "-50%" });
+					const wipeAnimation = new TimelineMax();
+
+					wipeAnimation
+						.to('#scrollParallax', 1, { y: '-105%', ease: Linear.easeNone })
+						.to('#slideContainer', 1, { x: '-50%' })
+						.to('.make-opacity', 1, { autoAlpha: 0, ease: Power0.easeNone }, -0.09);
 
 					// create scene to pin and link animation
 					const scene = new ScrollMagic.Scene({
@@ -24,9 +27,10 @@ const scrollMagicModule = (() => {
 
 			function disableController() {
 				controller.destroy($('#scrollParallax'));
-				$('#scrollParallax').addClass("destroied");
+				$('#scrollParallax').addClass('destroied');
 				$('.about-slider').attr('style', '');
 				$('.about-slider').addClass('destroied');
+				$('.make-opacity').remove();				
 			}
 			
 			return {

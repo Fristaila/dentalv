@@ -107,7 +107,7 @@
     <?php print render($content['field_tags']) ?>
   <?php endif; ?>
 
-  <?php print render($content['links']); ?>
-  <?php print render($content['comments']); ?>
+  <!--<?php #print render($content['links']); ?>
+  <?php #print render($content['comments']); ?>-->
 
 </article>

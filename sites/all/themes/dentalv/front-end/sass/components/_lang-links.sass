@@ -11,12 +11,12 @@ body
 					transform: none
 					li
 						> a
-							color: #fff
+							color: #000
 							&:after
 								background: #fff
 						&.active
 							> a
-								color: #000
+								color: $green
 								&:after
 									background: transparent
 .header
@@ -31,10 +31,16 @@ body
 			padding: 0 10px
 			> a
 				font-size: 1.8rem
+				color: #000
 				font-family: $bold-font
+				border-bottom: 1px dotted #000
+				transition: all .2s linear
 			&.active
 				> a
-					color: #000
+					color: $green
+					border-bottom: 1px dotted transparent
+					&:hover
+						border-bottom: 1px dotted #000
 					&:after
 						background-color: transparent
 
@@ -50,13 +56,18 @@ body
 				right: 20px
 				li
 					> a
-						color: $green
+						color: #000
 						font-size: 1.6rem
+						border-bottom: 1px dotted #000
+						transition: all .2s linear
 						&:after
 							background: $green
 					&.active
 						> a
-							color: #000
+							color: $green
+							border-bottom: 1px dotted transparent
+							&:hover
+								border-bottom: 1px dotted #000
 							&:after
 								background: transparent
 
@@ -70,12 +81,13 @@ body
 			li
 				padding: 0 6px
 				> a
-					color: $green
+					color: #000
 					&:after
 						background: $green
 					&:hover
 						&:after
 							background: transparent
+						
 
 @media (max-width: 860px)
 	.header
@@ -89,5 +101,6 @@ body
 			.lang
 				right: 40px
 				li
+					padding: 0 6px
 					> a
 						font-size: 1.8rem

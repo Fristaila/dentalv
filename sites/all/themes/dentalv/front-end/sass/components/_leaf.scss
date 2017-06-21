@@ -9,7 +9,7 @@
       transition: all .3s ease;
       color: #fff;
       font-family: $bold-font;
-      @include link-underline($green, rgba(255, 255, 255, 1), rgba(255, 255, 255, .3), #93DFB8);
+      @include link-underline($green, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0), #93DFB8);
       text-shadow: none;
       &:after {
         content: '';
