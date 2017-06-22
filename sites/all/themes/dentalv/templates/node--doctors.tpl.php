@@ -89,7 +89,11 @@
           <header class="header-doctor" rel="url(<?php print file_create_url($field_background_photo[0]['uri']);?>)"
                   style="background-image: url(<?php print file_create_url($field_background_photo[0]['uri']);?>);">
             <?php
+
             if($node_url != $_SERVER['REQUEST_URI']){
+              $_SESSION['custom_item'] = $_SERVER['HTTP_REFERER'];
+            }
+            if(!isset($_SESSION['custom_item'])) {
               $_SESSION['custom_item'] = $_SERVER['HTTP_REFERER'];
             }
             print l('',$_SESSION['custom_item'],array('attributes'=> array('class' => array('close')))); ?>
