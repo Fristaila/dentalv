@@ -28,22 +28,27 @@ $backg = 'style="background-color: #F7F7F5;"';
         else {
           $c_special = '';
           $backg = 'style="background-color: #F7F7F5;"';
+          $class = 'default-article_video';
         }; ?>
-        <div class="default-article" <?php print $backg; ?>>
+        <div class="default-article <?php print $class; ?>" <?php print $backg; ?>>
           <?php if (!empty($view->result{$id}->field_field_photo[0]['rendered'])): ?>
             <div class="image-wrap <?php print $c_special; ?>"
                 style="background-image: url(<?php print file_create_url($view->result{$id}->field_field_photo[0]['rendered']['#item']['uri']); ?>)"></div>
           <?php else: ?>
-            <div class="coub-i">
-              <div class="coub-inner">
-                <?php if (!empty($view->result{$id}->field_field_coub_vid[0]['rendered']['#markup'])) {
-                  print $view->result{$id}->field_field_coub_vid[0]['rendered']['#markup'];
-                } ?>
-              </div>
+            <!--<div class="coub-i">
+              <div class="coub-inner">-->
+                <?php //if (!empty($view->result{$id}->field_field_coub_vid[0]['rendered']['#markup'])) {
+                  //print $view->result{$id}->field_field_coub_vid[0]['rendered']['#markup']; } ?>
+              <!--</div>
+            </div>-->
+          <div class="image-wrap" style="background-image: url(http://dentalv/sites/default/files/cover-drill-bg.jpg)" >
+						<div class="covervid-wrapper">
+                <video class="covervid-video" autoplay loop poster="http://dentalv/sites/default/files/cover-drill-bg.jpg">
+                    <source src="http://dentalv/sites/default/files/drill.mp4" type="video/mp4">
+                </video>
             </div>
+          </div>
           <?php endif; ?>
-
-
           <div class="text-wrap">
             <div class="text-help">
               <?php if ($id == 0): ?>
@@ -54,7 +59,6 @@ $backg = 'style="background-color: #F7F7F5;"';
           </div>
         </div>
       <?php endforeach; ?>
-    </div>
   </section>
 </section>
 
