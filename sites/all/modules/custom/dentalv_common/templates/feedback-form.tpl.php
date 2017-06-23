@@ -41,7 +41,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
 <div class="modal fade custom-modal" id="feedBack" tabindex="-1" role="dialog" aria-labelledby="feedBack" style="z-index: 1001">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form id="webform-client-form-61" action="/ru/contacts">
+      <form>
         <div class="form-inner">
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Feedback') ?></h3>
@@ -70,7 +70,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
             </div>
         </div>
             <div class="form-btn-wrap">
-              <button class="webform-submit button-primary form-btn feedback-submit secondary button radius disabled form-submit" name="op" value="Отправить" type="submit">Отправить</button>
+              <button class="form-btn myTrigger" name="op" value="Отправить">Отправить</button>
             </div>
       </form>
     </div>

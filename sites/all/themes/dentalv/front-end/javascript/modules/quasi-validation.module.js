@@ -157,4 +157,15 @@ $(() => {
               $("[name='submitted[message_feedback]']").val($(this).val());
             });
         });
+
+        $('.myTrigger').on('click', handler);
+        function handler(e) {
+          e.preventDefault();
+          console.log('hello');
+          const $btn = $('#webform-client-form-61').find('button');
+
+          console.log($btn);
+
+          $btn.trigger('submit');
+        }
 });
