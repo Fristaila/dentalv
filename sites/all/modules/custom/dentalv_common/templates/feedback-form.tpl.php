@@ -41,39 +41,38 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
 <div class="modal fade custom-modal" id="feedBack" tabindex="-1" role="dialog" aria-labelledby="feedBack" style="z-index: 1001">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form action="">
+      <form id="webform-client-form-61" action="/ru/contacts">
         <div class="form-inner">
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Feedback') ?></h3>
           <div class="input-goup">
             <!--input-covering with class success or error give us needed border effect -->
             <div class="input-covering">
-              <label for="name" class="controls-label"><?php print $form['submitted']['name_feedback']['#title']; ?></label>
-              <?php print drupal_render($form['submitted']['name_feedback']); ?>
+              <div class="form-item webform-component webform-component-textfield webform-component--name-feedback">
+                <label for="edit-submitted-name-feedback">Ваше имя <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
+              <input required="required" type="text" id="edit-submitted-name-feedback" name="submitted[name_feedback]" value="" size="60" maxlength="128" class="form-text required" minlength="3">
+              </div>
               <span class="help-blocks"></span>
             </div>
             <div class="input-covering">
-              <label for="phone" class="controls-label"><?php print $form['submitted']['phone_or_email_feedback']['#title']; ?></label>
-              <?php print drupal_render($form['submitted']['phone_or_email_feedback']);?>
-              <span class="help-blocks"></span>
+              <div class="form-item webform-component webform-component-textfield webform-component--phone-or-email-feedback">
+              <label for="edit-submitted-phone-or-email-feedback">Телефон или email </label>
+            <input type="text" id="edit-submitted-phone-or-email-feedback" name="submitted[phone_or_email_feedback]" value="" size="60" maxlength="128" class="form-text">
             </div>
+              <span class="help-blocks"></span>
+            </div>         
             <div class="input-covering">
-              <label for="candidateBrief" class="controls-label special"><?php print $form['submitted']['message_feedback']['#title']; ?></label>
-             
-<!--                <textarea id="candidateBrief" type="text"></textarea>-->
-              <?php print drupal_render($form['submitted']['message_feedback']);?>
-             
-              <span class="help-blocks"></span>
+            <div class="form-item webform-component webform-component-textarea webform-component--message-feedback">
+              <label for="edit-submitted-message-feedback">Сообщение <span class="form-required" title="Это поле обязательно для заполнения.">*</span></label>
+            <div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea required="required" id="edit-submitted-message-feedback" name="submitted[message_feedback]" cols="60" rows="5" class="form-textarea required" minlength="5"></textarea><div class="grippie"></div></div>
             </div>
-          </div>
-          <div class="form-btn-wrap">
-            <?php print drupal_render($form['actions']['submit']);?>
-            <!--disabled until fields are success then add class success to btn and remove disabled -->
-<!--            <button value="here you will see vacancy name after modal openning" disabled="disabled" class="form-btn" type="submit" name="send">Отправить</button>-->
-          </div>
+            <span class="help-blocks"></span>
+            </div>
         </div>
+            <div class="form-btn-wrap">
+              <button class="webform-submit button-primary form-btn feedback-submit secondary button radius disabled form-submit" name="op" value="Отправить" type="submit">Отправить</button>
+            </div>
       </form>
     </div>
   </div>
 </div>
-<?php print drupal_render_children($form); ?>

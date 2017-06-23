@@ -141,4 +141,20 @@ $(() => {
   // for (const form of $formCallection) {
   //   form.addEventListener('submit', afterSubmit, false);
   // }
+
+        $(document).on('input', "[name='submitted[name_feedback]']",  function () {
+            $(this).keyup(function () {
+              $("[name='submitted[name_feedback]']").val($(this).val());
+            });
+        });
+        $(document).on('input', "[name='submitted[phone_or_email_feedback]']",  function () {
+            $(this).keyup(function () {
+              $("[name='submitted[phone_or_email_feedback]']").val($(this).val());
+            });
+        });
+        $(document).on('input', "[name='submitted[message_feedback]']",  function () {
+            $(this).keyup(function () {
+              $("[name='submitted[message_feedback]']").val($(this).val());
+            });
+        });
 });
