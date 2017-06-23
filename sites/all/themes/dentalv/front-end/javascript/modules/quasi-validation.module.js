@@ -138,7 +138,7 @@ $(() => {
       area.addEventListener('blur', validate, false);
   }
 
-  for (const form of $formCallection) {
-    form.addEventListener('submit', afterSubmit, false);
-  }
+  // for (const form of $formCallection) {
+  //   form.addEventListener('submit', afterSubmit, false);
+  // }
 });

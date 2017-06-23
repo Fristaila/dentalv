@@ -54,6 +54,7 @@ const App = (() => {
 		require('./quasi-validation.module');
 		require('./auth-location.module');
 		require('./about-scroll-magic.module');
+		require('./video-cover.module');
 
 		if (videoTriggerAimWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
