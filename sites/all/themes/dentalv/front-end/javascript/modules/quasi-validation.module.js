@@ -160,13 +160,14 @@ $(() => {
 
         $('.myTrigger').on('click', handler);
         function handler(e) {
+          // const $btn = $('#webform-client-form-61').find('button');
           const $btn = $('#webform-client-form-61').find('button');
-          
-          $btn.trigger('submit');
-          e.preventDefault();
+          $('#webform-client-form-61').submit();
+          // $btn.trigger('submit');
+          // e.preventDefault();
           console.log('hello');
 
-          console.log($btn);
+          // console.log($btn);
 
         }
 });

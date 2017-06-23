@@ -41,7 +41,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
 <div class="modal fade custom-modal" id="feedBack" tabindex="-1" role="dialog" aria-labelledby="feedBack" style="z-index: 1001">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-      <form>
+     
         <div class="form-inner">
           <span class="close" data-dismiss="modal" aria-label="Close"></span>
           <h3><?php print t('Feedback') ?></h3>
@@ -72,7 +72,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
             <div class="form-btn-wrap">
               <button class="form-btn myTrigger" name="op" value="Отправить">Отправить</button>
             </div>
-      </form>
+   
     </div>
   </div>
 </div>
