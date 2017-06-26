@@ -33,7 +33,7 @@ const App = (() => {
 		setDefaultListeners();
 
 		// require modules
-		require('./clicks');
+		require('./menu-open');
 		require('./modals/current-doctor-modal.module');
 		require('./modals/vacancy-response-modal.module');
 		require('./modals/doctor-who-modal.module');
@@ -48,7 +48,7 @@ const App = (() => {
 			require('./modals/gallery-modal.module');
 		}
 		require('./w3-slider.module');
-		require('./header-hide');
+		require('./headroom.module');
 		require('./video-main.module');
 		require('./scroll-magic.module');
 		require('./about-slider.module');
@@ -59,7 +59,6 @@ const App = (() => {
 		require('./video-cover.module');
 		require('../utils/proving/prove.service');
 
-
 		if (screenWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 			setTimeout(function () {
@@ -68,7 +67,6 @@ const App = (() => {
 			}, 500);
 		}
   }; // end app init
-
 
 	const switchToMobile = () => {
 		// console.log('switched to mobile');
@@ -82,7 +80,6 @@ const App = (() => {
 			$('.paralaxPreloader').fadeOut('fast');
 	}
 
-														
 	function hadleSingleDoctor() {
 		// swop doctor bg stuff
 		// cache doctors
@@ -108,7 +105,6 @@ const App = (() => {
 		/**
 		 * putting image on wrapper
 		 */
-
 			function swopBgHolders() {
 				const bg = $currentBgImage;
 

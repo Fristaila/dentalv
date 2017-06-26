@@ -428,3 +428,11 @@ body
 		.main-menu:not('.lang')
 			li
 				padding: 0 16px
+
+#header
+	transition: transform .25s ease-in-out;
+	will-change: transform;
+.headroom--pinned
+    transform: translate(0, 0)
+.headroom--unpinned
+    transform: translate(0, -100%)
