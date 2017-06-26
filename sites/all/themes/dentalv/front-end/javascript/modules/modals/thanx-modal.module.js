@@ -22,6 +22,9 @@ $(() => {
             if (Cookies.get(thank) != null) {
                 Cookies.set(thank, '0', { path: '/', expires: -10 });
                 $thanx.modal();
+                setTimeout(() => {
+                    $thanx.modal('hide');
+                }, 4000);
             }
         }
 
