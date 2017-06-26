@@ -1,4 +1,6 @@
 import 'jquery';
+import Cookies from 'js-cookie';
+
 
 $(() => {
   // cache the DOM
@@ -52,8 +54,12 @@ $(() => {
       const grandGrandParent = grandParent.parentElement;
       const children         = grandParent.children;
       const grandChildren    = grandGrandParent.children;
-      const $form            = $(self).parents('form');
-
+      let $form            = $(self).parents('form');
+      console.log(Boolean($form.length), 'form');
+      if (!$form.length) {
+        $form = $(self).parents('.v-feedback');
+        console.log('object');
+      }
       checkAll($form);
 
       if (self.validity.tooShort) {
@@ -91,8 +97,15 @@ $(() => {
 
   function afterSubmit() {
     $(this).find('input').val('');
-    thanxService();
+    // thanxService();
+    console.log($(this).has);
+    if ($(this).attr('id') !== 'webform-client-form-61') {
+      Cookies.set('thank_show', 'yes');
+    }
   }
+  $('#webform-client-form-61').on('submit', function () {
+    afterSubmit();
+  });
 
   function setAttr(toWhom, attr, partAttrVal, newAttr, newAttrVal) {
     if (toWhom.attributes.getNamedItem(attr) !== null) {
@@ -138,9 +151,9 @@ $(() => {
       area.addEventListener('blur', validate, false);
   }
 
-  // for (const form of $formCallection) {
-  //   form.addEventListener('submit', afterSubmit, false);
-  // }
+  for (const form of $formCallection) {
+    form.addEventListener('submit', afterSubmit, false);
+  }
 
         $(document).on('input', "[name='submitted[name_feedback]']",  function () {
             $(this).keyup(function () {
@@ -162,11 +175,11 @@ $(() => {
         function handler(e) {
           // const $btn = $('#webform-client-form-61').find('button');
           const $btn = $('#webform-client-form-61').find('button');
+          // Cookies.set('thank_show', 'yes');
           $('#webform-client-form-61').submit();
           // $btn.trigger('submit');
           // e.preventDefault();
           console.log('hello');
-
           // console.log($btn);
 
         }

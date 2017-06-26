@@ -55,6 +55,8 @@ const App = (() => {
 		require('./auth-location.module');
 		require('./about-scroll-magic.module');
 		require('./video-cover.module');
+		// const myService = require('./modals/thanx-modal.module');
+		// console.log(myService);		
 
 		if (videoTriggerAimWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
