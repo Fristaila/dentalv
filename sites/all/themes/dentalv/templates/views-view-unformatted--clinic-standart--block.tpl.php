@@ -30,7 +30,7 @@ $backg = 'style="background-color: #F7F7F5;"';
           $backg = 'style="background-color: #F7F7F5;"';
           $class = 'default-article_video';
         }; ?>
-        <div class="default-article <?php print $class; ?>" <?php print $backg; ?>>
+        <div class="default-article <?php print $class; ?>" <?php #print $backg; ?>>
           <?php if (!empty($view->result{$id}->field_field_photo[0]['rendered'])): ?>
             <div class="image-wrap <?php print $c_special; ?>"
                 style="background-image: url(<?php print file_create_url($view->result{$id}->field_field_photo[0]['rendered']['#item']['uri']); ?>)"></div>
