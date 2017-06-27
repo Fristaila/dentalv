@@ -48,21 +48,21 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
           <div class="input-goup">
             <!--input-covering with class success or error give us needed border effect -->
             <div class="input-covering">
-                <label for="edit-submitted-name-feedback controls-label" class="controls-label">Ваше имя</label>
+                <label for="edit-submitted-name-feedback controls-label" class="controls-label"><?php print t('Full name'); ?></label>
               <div class="form-item webform-component webform-component-textfield webform-component--name-feedback">
               <input required="required" type="text" id="edit-submitted-name-feedback" name="submitted[name_feedback]" value="" size="60" maxlength="128" class="form-text required" minlength="3">
               </div>
               <span class="help-blocks"></span>
             </div>
             <div class="input-covering">
-              <label for="edit-submitted-phone-or-email-feedback controls-label" class="controls-label">Телефон или email </label>
+              <label for="edit-submitted-phone-or-email-feedback controls-label" class="controls-label"><?php print t('Phone or email'); ?></label>
               <div class="form-item webform-component webform-component-textfield webform-component--phone-or-email-feedback">
             <input type="text" id="edit-submitted-phone-or-email-feedback" name="submitted[phone_or_email_feedback]" value="" size="60" maxlength="128" class="form-text">
             </div>
               <span class="help-blocks"></span>
             </div>         
             <div class="input-covering">
-              <label for="edit-submitted-message-feedback"  class="controls-label special">Сообщение</label>
+              <label for="edit-submitted-message-feedback"  class="controls-label special"><?php print t('Message'); ?></label>
             <div class="form-item webform-component webform-component-textarea webform-component--message-feedback">
             <div class="form-textarea-wrapper resizable textarea-processed resizable-textarea"><textarea required="required" id="edit-submitted-message-feedback" name="submitted[message_feedback]" cols="60" rows="5" class="form-textarea required" minlength="5"></textarea><div class="grippie"></div></div>
             </div>
@@ -70,7 +70,7 @@ $form['submitted']['phone_or_email_feedback']['#title_display'] = 'none';
             </div>
         </div>
             <div class="form-btn-wrap">
-              <button class="form-btn myTrigger" name="op" value="Отправить">Отправить</button>
+              <button class="form-btn myTrigger" name="op" value="Отправить"><?php print t('Send'); ?></button>
             </div>
    </div>
     </div>

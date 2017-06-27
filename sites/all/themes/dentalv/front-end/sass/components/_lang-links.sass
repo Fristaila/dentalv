@@ -16,9 +16,12 @@ body
 								background: #fff
 						&.active
 							> a
-								color: $green
+								color: #fff
 								&:after
 									background: transparent
+								+MQ(M)
+									color: $green
+
 .header
 	.lang
 		display: none
@@ -87,7 +90,7 @@ body
 					&:hover
 						&:after
 							background: transparent
-						
+
 
 @media (max-width: 860px)
 	.header
