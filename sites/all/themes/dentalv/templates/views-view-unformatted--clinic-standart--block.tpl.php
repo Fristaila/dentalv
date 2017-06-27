@@ -41,11 +41,11 @@ $backg = 'style="background-color: #F7F7F5;"';
                   //print $view->result{$id}->field_field_coub_vid[0]['rendered']['#markup']; } ?>
               <!--</div>
             </div>-->
-          <div class="image-wrap" style="background-image: url(http://dentalv/sites/default/files/cover-drill-bg.jpg)" >
-          <img src="http://dentalv/sites/default/files/cover-drill-bg.jpg" alt="">
+          <div class="image-wrap" style="background-image: url(/sites/default/files/cover-drill-bg.jpg)" >
+          <img src="/sites/default/files/cover-drill-bg.jpg" alt="">
 						<div class="covervid-wrapper">
-                <video class="covervid-video" autoplay loop poster="http://dentalv/sites/default/files/cover-drill-bg.jpg">
-                    <source src="http://dentalv/sites/default/files/drill.mp4" type="video/mp4">
+                <video class="covervid-video" autoplay loop poster="/sites/default/files/cover-drill-bg.jpg">
+                    <source src="/sites/default/files/drill.mp4" type="video/mp4">
                 </video>
             </div>
           </div>
