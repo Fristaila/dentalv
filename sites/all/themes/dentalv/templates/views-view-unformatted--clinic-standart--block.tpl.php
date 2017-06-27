@@ -43,9 +43,9 @@ $backg = 'style="background-color: #F7F7F5;"';
             </div>-->
             <!--style="background-image: url(/sites/default/files/cover-drill-bg.jpg)"-->
           <div class="image-wrap" >
-          <video style="width: 100%; height: auto" autoplay loop>
+          <!--<video autoplay loop>
             <source src="/sites/default/files/drill.mp4" type="video/mp4">
-          </video> 
+          </video> -->
 						<div class="covervid-wrapper hide-for-small">
                 <video class="covervid-video" autoplay loop poster="/sites/default/files/cover-drill-bg.jpg">
                     <source src="/sites/default/files/drill.mp4" type="video/mp4">
