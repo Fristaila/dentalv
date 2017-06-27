@@ -42,6 +42,7 @@ $backg = 'style="background-color: #F7F7F5;"';
               <!--</div>
             </div>-->
           <div class="image-wrap" style="background-image: url(http://dentalv/sites/default/files/cover-drill-bg.jpg)" >
+          <img src="http://dentalv/sites/default/files/cover-drill-bg.jpg" alt="">
 						<div class="covervid-wrapper">
                 <video class="covervid-video" autoplay loop poster="http://dentalv/sites/default/files/cover-drill-bg.jpg">
                     <source src="http://dentalv/sites/default/files/drill.mp4" type="video/mp4">
