@@ -42,7 +42,7 @@ var coverVid = function (elem, width, height) {
 	// Set poster image as a background cover image on parent element
 	elem.parentNode.style.backgroundImage = 'url(' + posterImage + ')';
 	elem.parentNode.style.backgroundSize = 'cover';
-	elem.parentNode.style.backgroundPosition = 'center center';
+	elem.parentNode.style.backgroundPosition = 'top left';
 
 	// Define the attached selector
 	function sizeVideo() {
