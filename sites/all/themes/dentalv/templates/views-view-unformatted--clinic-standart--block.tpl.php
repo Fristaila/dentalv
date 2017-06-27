@@ -41,8 +41,12 @@ $backg = 'style="background-color: #F7F7F5;"';
                   //print $view->result{$id}->field_field_coub_vid[0]['rendered']['#markup']; } ?>
               <!--</div>
             </div>-->
-          <div class="image-wrap" style="background-image: url(/sites/default/files/cover-drill-bg.jpg)" >
-						<div class="covervid-wrapper">
+            <!--style="background-image: url(/sites/default/files/cover-drill-bg.jpg)"-->
+          <div class="image-wrap" >
+          <video style="width: 100%; height: auto" autoplay loop>
+            <source src="/sites/default/files/drill.mp4" type="video/mp4">
+          </video> 
+						<div class="covervid-wrapper hide-for-small">
                 <video class="covervid-video" autoplay loop poster="/sites/default/files/cover-drill-bg.jpg">
                     <source src="/sites/default/files/drill.mp4" type="video/mp4">
                 </video>
