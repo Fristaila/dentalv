@@ -30,7 +30,7 @@ $backg = 'style="background-color: #F7F7F5;"';
           $backg = 'style="background-color: #F7F7F5;"';
           $class = 'default-article_video';
         }; ?>
-        <div class="default-article <?php print $class; ?>" <?php print $backg; ?>>
+        <div class="default-article <?php print $class; ?>" <?php #print $backg; ?>>
           <?php if (!empty($view->result{$id}->field_field_photo[0]['rendered'])): ?>
             <div class="image-wrap <?php print $c_special; ?>"
                 style="background-image: url(<?php print file_create_url($view->result{$id}->field_field_photo[0]['rendered']['#item']['uri']); ?>)"></div>
@@ -41,10 +41,14 @@ $backg = 'style="background-color: #F7F7F5;"';
                   //print $view->result{$id}->field_field_coub_vid[0]['rendered']['#markup']; } ?>
               <!--</div>
             </div>-->
-          <div class="image-wrap" style="background-image: url(http://dentalv/sites/default/files/cover-drill-bg.jpg)" >
-						<div class="covervid-wrapper">
-                <video class="covervid-video" autoplay loop poster="http://dentalv/sites/default/files/cover-drill-bg.jpg">
-                    <source src="http://dentalv/sites/default/files/drill.mp4" type="video/mp4">
+            
+          <div class="image-wrap" style="background-image: url(/sites/default/files/cover-drill-bg.jpg)">
+          <!--<video autoplay loop>
+            <source src="/sites/default/files/drill.mp4" type="video/mp4">
+          </video> -->
+						<div class="covervid-wrapper hide-for-small">
+                <video class="covervid-video" autoplay loop poster="/sites/default/files/cover-drill-bg.jpg">
+                    <source src="/sites/default/files/drill.mp4" type="video/mp4">
                 </video>
             </div>
           </div>

@@ -1,0 +1,11 @@
+.image-wrap {
+  > video {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

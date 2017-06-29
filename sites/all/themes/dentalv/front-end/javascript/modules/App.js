@@ -20,7 +20,7 @@ import '../utils/anim';
 
 const App = (() => {
   const init = () => { // init default stuff next
-		const videoTriggerAimWidth = require('../utils/width-informer.service')();
+		const screenWidth = require('../utils/width-informer.service')();
 
 		// Sliders
 		initDotSlider('.articles-slider', '.article', 3);
@@ -33,7 +33,7 @@ const App = (() => {
 		setDefaultListeners();
 
 		// require modules
-		require('./clicks');
+		require('./menu-open');
 		require('./modals/current-doctor-modal.module');
 		require('./modals/vacancy-response-modal.module');
 		require('./modals/doctor-who-modal.module');
@@ -44,19 +44,22 @@ const App = (() => {
 		require('./search.module');
 		require('./tab-image.module');
 		require('./tab-image.module');
-		require('./modals/gallery-modal.module');
+		if (screenWidth >= 993) {
+			require('./modals/gallery-modal.module');
+		}
 		require('./w3-slider.module');
-		require('./header-hide');
+		require('./headroom.module');
 		require('./video-main.module');
 		require('./scroll-magic.module');
 		require('./about-slider.module');
 		require('./add-active-menu.module');
-		require('./quasi-validation.module');
+		require('./proving.module');
 		require('./auth-location.module');
 		require('./about-scroll-magic.module');
 		require('./video-cover.module');
+		require('../utils/proving/prove.service');
 
-		if (videoTriggerAimWidth < 768
+		if (screenWidth < 768
 			&& /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
 			setTimeout(function () {
 				$('.my-trigger').trigger('click');
@@ -64,7 +67,6 @@ const App = (() => {
 			}, 500);
 		}
   }; // end app init
-
 
 	const switchToMobile = () => {
 		// console.log('switched to mobile');
@@ -78,7 +80,6 @@ const App = (() => {
 			$('.paralaxPreloader').fadeOut('fast');
 	}
 
-														
 	function hadleSingleDoctor() {
 		// swop doctor bg stuff
 		// cache doctors
@@ -104,7 +105,6 @@ const App = (() => {
 		/**
 		 * putting image on wrapper
 		 */
-
 			function swopBgHolders() {
 				const bg = $currentBgImage;
 

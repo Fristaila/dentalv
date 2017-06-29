@@ -1,8 +1,9 @@
 import $ from 'jquery';
+import Cookies from 'js-cookie';
 require('bootstrap/js/modal');
 
 $(() => {
-    const carrentDoctorModule = (() => {
+    const thanxModalModule = (() => {
         // cache the DOM
         const $body   = $('body');
         const $modals = $body.find('.modal');
@@ -16,12 +17,21 @@ $(() => {
 
         function openThanx() {
             closeAllModals();
-            $thanx.modal();
+            const thank = 'thank_show';
+
+            if (Cookies.get(thank) != null) {
+                Cookies.set(thank, '0', { path: '/', expires: -10 });
+                $thanx.modal();
+                setTimeout(() => {
+                    $thanx.modal('hide');
+                }, 4000);
+            }
         }
 
         return {
             openThanx
         };
     })();
-    module.exports = carrentDoctorModule.openThanx;
+    module.exports = thanxModalModule.openThanx;
+    thanxModalModule.openThanx();
 });
