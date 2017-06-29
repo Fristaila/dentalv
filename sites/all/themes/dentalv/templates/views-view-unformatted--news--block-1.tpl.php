@@ -27,7 +27,7 @@
         </div>
         <div class="article__views">
           <span class="icon-eye"></span>
-          <span class="text"><?php print $view->result[$id]->node_counter_totalcount . t(' wiewsgit '); ?></span>
+          <span class="text"><?php print $view->result{$id}->node_counter_totalcount . t(' wiews '); ?></span>
         </div>
       </div>
       <div class="article__preview">
