@@ -49,17 +49,17 @@ body
 			height: 100%
 			width: 100%
 			.header
-				height: 100%
+				height: auto
 				top: 0
 				bottom: 0
 				left: 0
 				right: 0
 				overflow: hidden
+				overflow-y: auto;
 				.main-menu
 					background: $main-color
-					height: 100%
+					height: auto
 					padding: 80px 20px 25px
-					position: fixed
 					top: 0
 					right: 0
 					bottom: 0
@@ -111,11 +111,7 @@ body
 									&:after
 										background: transparent
 
-body
-	@media only screen and (orientation: landscape)
-		&.opened-menu
-			.main-menu
-				overflow-y: auto
+
 
 
 .header
