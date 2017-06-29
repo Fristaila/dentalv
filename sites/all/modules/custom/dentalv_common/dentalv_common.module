@@ -522,13 +522,13 @@ function dentalv_common_menu() {
     'page arguments' => array(1),
     'access arguments' => array('access content'),
   );
-  $items['first-popup/ctools_js/test'] = array(
-      'title' => 'My first popup',
-      'page arguments' => array(1),
-      'access callback' => TRUE,
-      'page callback' => 'my_popup_callback',
-      'type' => MENU_CALLBACK,
-  );
+//  $items['first-popup/ctools_js/test'] = array(
+//      'title' => 'My first popup',
+//      'page arguments' => array(1),
+//      'access callback' => TRUE,
+//      'page callback' => 'my_popup_callback',
+//      'type' => MENU_CALLBACK,
+//  );
   $items['admin/config/services/set-id-webform'] = array(
     'title'            => t('Setting id webform'),
     'page callback'    => 'drupal_get_form',
@@ -565,11 +565,11 @@ function common_dentalv_webform_submissions_data(){
   drupal_goto($url);
 }
 
-function my_popup_callback (){
-  setrawcookie('review_popup', 'show', REQUEST_TIME + 31536000, '/');
-  $redirect = $_SERVER['HTTP_REFERER'];
-  return drupal_goto($redirect);
-}
+//function my_popup_callback (){
+//  setrawcookie('review_popup', 'show', REQUEST_TIME + 31536000, '/');
+//  $redirect = $_SERVER['HTTP_REFERER'];
+//  return drupal_goto($redirect);
+//}
 
 /**
  * dentalv common node add modal callback
