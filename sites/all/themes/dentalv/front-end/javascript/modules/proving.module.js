@@ -32,11 +32,11 @@ $(() => {
       area.addEventListener('input', prove, false);
   }
   for (const form of $formCallection) {
-    form.addEventListener('submit', afterSubmit, false);
+    // form.addEventListener('submit', afterSubmit, false);
   }
   $('#webform-client-form-61').on('submit', function () {
     if (width() <= 992) {
-      afterSubmit();
+      // afterSubmit();
     }
   });
 
